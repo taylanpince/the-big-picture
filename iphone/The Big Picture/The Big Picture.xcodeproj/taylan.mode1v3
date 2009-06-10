@@ -277,7 +277,8 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>0</integer>
+									<integer>30</integer>
+									<integer>29</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
@@ -311,14 +312,12 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>ArticleViewController.m</string>
+								<string>TheBigPicture-Info.plist</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -326,17 +325,15 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>ArticleViewController.m</string>
+										<string>TheBigPicture-Info.plist</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>EC264FCB0FDF6A5200A83382</string>
+										<string>ECD2AD040FE01C810054A901</string>
 										<key>history</key>
 										<array>
-											<string>EC264DA10FDF3C0100A83382</string>
 											<string>EC264DA20FDF3C0100A83382</string>
 											<string>EC264DE60FDF3F2700A83382</string>
-											<string>EC264DED0FDF3F7200A83382</string>
 											<string>EC264E210FDF484800A83382</string>
 											<string>EC264E830FDF537500A83382</string>
 											<string>EC264E840FDF537500A83382</string>
@@ -345,7 +342,8 @@
 											<string>EC264EEE0FDF5B6300A83382</string>
 											<string>EC264EF40FDF5B9C00A83382</string>
 											<string>EC264F060FDF5D1500A83382</string>
-											<string>EC264F070FDF5D1500A83382</string>
+											<string>ECD2AD010FE01C810054A901</string>
+											<string>ECD2AD020FE01C810054A901</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -355,47 +353,13 @@
 											<string>EC264DAB0FDF3C0100A83382</string>
 											<string>EC264DAC0FDF3C0100A83382</string>
 											<string>EC264DAE0FDF3C0100A83382</string>
-											<string>EC264DAF0FDF3C0100A83382</string>
-											<string>EC264DB00FDF3C0100A83382</string>
-											<string>EC264DB10FDF3C0100A83382</string>
-											<string>EC264DB20FDF3C0100A83382</string>
-											<string>EC264DB30FDF3C0100A83382</string>
-											<string>EC264DC30FDF3D5500A83382</string>
 											<string>EC264DE90FDF3F2700A83382</string>
-											<string>EC264E070FDF445C00A83382</string>
 											<string>EC264E270FDF484800A83382</string>
 											<string>EC264E280FDF484800A83382</string>
-											<string>EC264E290FDF484800A83382</string>
-											<string>EC264E2A0FDF484800A83382</string>
-											<string>EC264E2B0FDF484800A83382</string>
-											<string>EC264E2C0FDF484800A83382</string>
-											<string>EC264E2D0FDF484800A83382</string>
-											<string>EC264E2E0FDF484800A83382</string>
-											<string>EC264E300FDF484800A83382</string>
-											<string>EC264E380FDF49A700A83382</string>
-											<string>EC264E3A0FDF49A700A83382</string>
-											<string>EC264E600FDF4EAA00A83382</string>
 											<string>EC264E8C0FDF537500A83382</string>
-											<string>EC264E8D0FDF537500A83382</string>
-											<string>EC264E8E0FDF537500A83382</string>
-											<string>EC264E8F0FDF537500A83382</string>
-											<string>EC264E900FDF537500A83382</string>
-											<string>EC264E910FDF537500A83382</string>
-											<string>EC264E920FDF537500A83382</string>
-											<string>EC264E930FDF537500A83382</string>
-											<string>EC264E940FDF537500A83382</string>
-											<string>EC264E950FDF537500A83382</string>
-											<string>EC264E970FDF537500A83382</string>
-											<string>EC264E9A0FDF537500A83382</string>
 											<string>EC264EA10FDF544000A83382</string>
-											<string>EC264EA20FDF544000A83382</string>
-											<string>EC264EAD0FDF551C00A83382</string>
-											<string>EC264EAF0FDF551C00A83382</string>
 											<string>EC264EEA0FDF5B3700A83382</string>
-											<string>EC264EF00FDF5B6300A83382</string>
-											<string>EC264EF60FDF5B9C00A83382</string>
-											<string>EC264F080FDF5D1500A83382</string>
-											<string>EC264F090FDF5D1500A83382</string>
+											<string>ECD2AD030FE01C810054A901</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -453,9 +417,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>EC264DB60FDF3C0100A83382</string>
+				<string>ECD2ACEF0FE01BA40054A901</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>EC264DB70FDF3C0100A83382</string>
+				<string>ECD2ACF00FE01BA40054A901</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -589,8 +553,8 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>EC264EB40FDF554300A83382</string>
-		<string>EC264EB50FDF554300A83382</string>
+		<string>ECD2AD060FE01C810054A901</string>
+		<string>ECD2AD070FE01C810054A901</string>
 		<string>EC264D9C0FDF3B6000A83382</string>
 		<string>1C78EAAD065D492600B07095</string>
 		<string>1CD10A99069EF8BA00B06720</string>
@@ -676,7 +640,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>EC264D9C0FDF3B6000A83382</string>
-				<string>EC264D9D0FDF3B6000A83382</string>
+				<string>ECD2ACFB0FE01BFB0054A901</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
@@ -718,8 +682,8 @@
 										<string>yes</string>
 										<key>sizes</key>
 										<array>
-											<string>{{0, 0}, {357, 379}}</string>
-											<string>{{357, 0}, {428, 379}}</string>
+											<string>{{0, 0}, {356, 398}}</string>
+											<string>{{356, 0}, {429, 398}}</string>
 										</array>
 									</dict>
 									<key>VerticalSplitView</key>
@@ -734,8 +698,8 @@
 										<string>yes</string>
 										<key>sizes</key>
 										<array>
-											<string>{{0, 0}, {785, 379}}</string>
-											<string>{{0, 379}, {785, 402}}</string>
+											<string>{{0, 0}, {785, 398}}</string>
+											<string>{{0, 398}, {785, 383}}</string>
 										</array>
 									</dict>
 								</dict>
@@ -765,10 +729,10 @@
 										<string>Value</string>
 										<real>85</real>
 										<string>Summary</string>
-										<real>198</real>
+										<real>199</real>
 									</array>
 									<key>Frame</key>
-									<string>{{357, 0}, {428, 379}}</string>
+									<string>{{356, 0}, {429, 398}}</string>
 									<key>RubberWindowFrame</key>
 									<string>4 56 785 822 0 0 1440 878 </string>
 								</dict>
@@ -796,13 +760,13 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1CD10A99069EF8BA00B06720</string>
-				<string>EC264DB90FDF3C0100A83382</string>
+				<string>ECD2ACF10FE01BA40054A901</string>
 				<string>1C162984064C10D400B95A72</string>
-				<string>EC264DBA0FDF3C0100A83382</string>
-				<string>EC264DBB0FDF3C0100A83382</string>
-				<string>EC264DBC0FDF3C0100A83382</string>
-				<string>EC264DBD0FDF3C0100A83382</string>
-				<string>EC264DBE0FDF3C0100A83382</string>
+				<string>ECD2ACF20FE01BA40054A901</string>
+				<string>ECD2ACF30FE01BA40054A901</string>
+				<string>ECD2ACF40FE01BA40054A901</string>
+				<string>ECD2ACF50FE01BA40054A901</string>
+				<string>ECD2ACF60FE01BA40054A901</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>
@@ -966,7 +930,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C78EAAD065D492600B07095</string>
-				<string>EC264DBF0FDF3C0100A83382</string>
+				<string>ECD2AD050FE01C810054A901</string>
 				<string>1C78EAAC065D492600B07095</string>
 			</array>
 			<key>ToolbarConfiguration</key>
