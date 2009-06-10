@@ -157,7 +157,7 @@ static NSString *rssURL = @"http://www.boston.com/bigpicture/index.xml";
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	ArticleViewController *controller = [[ArticleViewController alloc] initWithNibName:@"ArticleView" bundle:nil];
+	ArticleViewController *controller = [[ArticleViewController alloc] init];
 	
 	controller.article = [articleList objectAtIndex:indexPath.row];
 	
