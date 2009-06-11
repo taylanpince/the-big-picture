@@ -11,7 +11,7 @@
 
 @implementation Photo
 
-@synthesize url, image;
+@synthesize url;
 
 
 

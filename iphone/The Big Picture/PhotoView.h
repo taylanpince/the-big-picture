@@ -8,14 +8,26 @@
 
 @protocol PhotoViewDelegate;
 
+@class Photo;
+
 
 @interface PhotoView : UIImageView {
+	Photo *photo;
+	UIActivityIndicatorView *loadingIndicator;
+	
 	CGFloat initialDistance;
+	CGFloat maximumZoomScale;
+	CGFloat currentZoomScale;
 	
 	id <PhotoViewDelegate> delegate;
 }
 
+@property (nonatomic, assign) Photo *photo;
+@property (nonatomic, retain) UIActivityIndicatorView *loadingIndicator;
+
 @property (nonatomic, assign) CGFloat initialDistance;
+@property (nonatomic, assign) CGFloat maximumZoomScale;
+@property (nonatomic, assign) CGFloat currentZoomScale;
 
 @property (nonatomic, assign) id <PhotoViewDelegate> delegate;
 

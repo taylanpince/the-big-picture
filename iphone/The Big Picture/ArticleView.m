@@ -20,10 +20,8 @@
 }
 
 
-- (BOOL)touchesShouldBegin:(NSSet *)touches withEvent:(UIEvent *)event inContentView:(UIView *)view {
+- (void)layoutSubviews {
 	
-	
-	return YES;
 }
 
 

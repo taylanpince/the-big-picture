@@ -9,10 +9,8 @@
 
 @interface Photo : NSObject {
 	NSURL *url;
-	UIImage *image;
 }
 
 @property (nonatomic, retain) NSURL *url;
-@property (nonatomic, retain) UIImage *image;
 
 @end

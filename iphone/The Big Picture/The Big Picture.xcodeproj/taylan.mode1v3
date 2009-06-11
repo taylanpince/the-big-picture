@@ -333,7 +333,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>ECD2AF3A0FE05A4E0054A901</string>
+										<string>EC6070E50FE0B9A600709F29</string>
 										<key>history</key>
 										<array>
 											<string>EC264DA20FDF3C0100A83382</string>
@@ -353,7 +353,7 @@
 											<string>ECD2AF190FE0584B0054A901</string>
 											<string>ECD2AF330FE05A4E0054A901</string>
 											<string>ECD2AF340FE05A4E0054A901</string>
-											<string>ECD2AF350FE05A4E0054A901</string>
+											<string>ECD2AF3B0FE065B30054A901</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -367,33 +367,14 @@
 											<string>EC264E270FDF484800A83382</string>
 											<string>EC264E280FDF484800A83382</string>
 											<string>EC264EA10FDF544000A83382</string>
-											<string>ECD2AD0B0FE01CBF0054A901</string>
-											<string>ECD2AD400FE021D30054A901</string>
-											<string>ECD2AD7A0FE028D70054A901</string>
 											<string>ECD2ADC10FE033500054A901</string>
-											<string>ECD2ADC30FE033500054A901</string>
 											<string>ECD2AE010FE039500054A901</string>
 											<string>ECD2AE180FE03D8A0054A901</string>
 											<string>ECD2AE880FE04D1F0054A901</string>
 											<string>ECD2AE8E0FE04D530054A901</string>
-											<string>ECD2AE8F0FE04D530054A901</string>
-											<string>ECD2AEEE0FE052490054A901</string>
 											<string>ECD2AEF00FE052490054A901</string>
 											<string>ECD2AEF10FE052490054A901</string>
-											<string>ECD2AEF20FE052490054A901</string>
-											<string>ECD2AEFE0FE055450054A901</string>
-											<string>ECD2AEFF0FE055450054A901</string>
-											<string>ECD2AF1C0FE0584B0054A901</string>
-											<string>ECD2AF1D0FE0584B0054A901</string>
-											<string>ECD2AF1E0FE0584B0054A901</string>
-											<string>ECD2AF1F0FE0584B0054A901</string>
-											<string>ECD2AF200FE0584B0054A901</string>
 											<string>ECD2AF270FE058BD0054A901</string>
-											<string>ECD2AF2E0FE059E90054A901</string>
-											<string>ECD2AF360FE05A4E0054A901</string>
-											<string>ECD2AF370FE05A4E0054A901</string>
-											<string>ECD2AF380FE05A4E0054A901</string>
-											<string>ECD2AF390FE05A4E0054A901</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -451,9 +432,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>ECD2ACEF0FE01BA40054A901</string>
+				<string>EC6070DB0FE0B8C400709F29</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>ECD2ACF00FE01BA40054A901</string>
+				<string>EC6070DC0FE0B8C400709F29</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -587,8 +568,6 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>ECD2AD060FE01C810054A901</string>
-		<string>ECD2AD070FE01C810054A901</string>
 		<string>EC264D9C0FDF3B6000A83382</string>
 		<string>/Users/taylan/Documents/Development/Personal/the-big-picture/iphone/The Big Picture/The Big Picture.xcodeproj</string>
 		<string>1C78EAAD065D492600B07095</string>
@@ -616,7 +595,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>&lt;No Editor&gt;</string>
+								<string></string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -672,7 +651,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>EC264D9C0FDF3B6000A83382</string>
-				<string>ECD2ACFB0FE01BFB0054A901</string>
+				<string>EC6070DD0FE0B8C400709F29</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
@@ -714,8 +693,8 @@
 										<string>yes</string>
 										<key>sizes</key>
 										<array>
-											<string>{{0, 0}, {356, 398}}</string>
-											<string>{{356, 0}, {429, 398}}</string>
+											<string>{{0, 0}, {356, 406}}</string>
+											<string>{{356, 0}, {429, 406}}</string>
 										</array>
 									</dict>
 									<key>VerticalSplitView</key>
@@ -730,8 +709,8 @@
 										<string>yes</string>
 										<key>sizes</key>
 										<array>
-											<string>{{0, 0}, {785, 398}}</string>
-											<string>{{0, 398}, {785, 383}}</string>
+											<string>{{0, 0}, {785, 406}}</string>
+											<string>{{0, 406}, {785, 375}}</string>
 										</array>
 									</dict>
 								</dict>
@@ -764,7 +743,7 @@
 										<real>199</real>
 									</array>
 									<key>Frame</key>
-									<string>{{356, 0}, {429, 398}}</string>
+									<string>{{356, 0}, {429, 406}}</string>
 									<key>RubberWindowFrame</key>
 									<string>4 56 785 822 0 0 1440 878 </string>
 								</dict>
@@ -792,13 +771,13 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1CD10A99069EF8BA00B06720</string>
-				<string>ECD2ACF10FE01BA40054A901</string>
+				<string>EC6070DE0FE0B8C400709F29</string>
 				<string>1C162984064C10D400B95A72</string>
-				<string>ECD2ACF20FE01BA40054A901</string>
-				<string>ECD2ACF30FE01BA40054A901</string>
-				<string>ECD2ACF40FE01BA40054A901</string>
-				<string>ECD2ACF50FE01BA40054A901</string>
-				<string>ECD2ACF60FE01BA40054A901</string>
+				<string>EC6070DF0FE0B8C400709F29</string>
+				<string>EC6070E00FE0B8C400709F29</string>
+				<string>EC6070E10FE0B8C400709F29</string>
+				<string>EC6070E20FE0B8C400709F29</string>
+				<string>EC6070E30FE0B8C400709F29</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>
@@ -962,7 +941,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C78EAAD065D492600B07095</string>
-				<string>ECD2AD050FE01C810054A901</string>
+				<string>EC6070E40FE0B8C400709F29</string>
 				<string>1C78EAAC065D492600B07095</string>
 			</array>
 			<key>ToolbarConfiguration</key>
