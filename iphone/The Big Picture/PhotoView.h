@@ -22,7 +22,7 @@
 	id <PhotoViewDelegate> delegate;
 }
 
-@property (nonatomic, assign) Photo *photo;
+@property (nonatomic, retain) Photo *photo;
 @property (nonatomic, retain) UIActivityIndicatorView *loadingIndicator;
 
 @property (nonatomic, assign) CGFloat initialDistance;

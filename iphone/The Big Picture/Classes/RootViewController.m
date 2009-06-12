@@ -39,6 +39,13 @@ static NSString *rssURL = @"http://www.boston.com/bigpicture/index.xml";
 }
 
 
+- (void)viewDidAppear:(BOOL)animated {
+	[super viewDidAppear:animated];
+	
+	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque];
+}
+
+
 - (void)doneParsing {
 	[self.tableView reloadData];
 }

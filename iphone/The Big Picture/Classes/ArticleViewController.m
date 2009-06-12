@@ -16,14 +16,13 @@
 
 @implementation ArticleViewController
 
-@synthesize article, imageList, imageViewsList, activeIndex;
+@synthesize article, imageList, imageViewsList, activeIndex, hideTimer;
 
 
 - (void)loadView {
 	self.title = article.title;
-	self.navigationController.navigationBar.translucent = YES;
 	
-	ArticleView *articleView = [[ArticleView alloc] initWithFrame:CGRectZero];
+	UIScrollView *articleView = [[UIScrollView alloc] initWithFrame:CGRectZero];
 	
 	articleView.delegate = self;
 	articleView.backgroundColor = [UIColor blackColor];
@@ -31,6 +30,8 @@
 	articleView.showsHorizontalScrollIndicator = NO;
 	articleView.pagingEnabled = YES;
 	articleView.scrollsToTop = NO;
+	articleView.backgroundColor = [UIColor blackColor];
+	articleView.directionalLockEnabled = YES;
 	
 	self.view = articleView;
 	
@@ -38,38 +39,81 @@
 
 	imageList = [[NSMutableArray alloc] init];
 	imageViewsList = [[NSMutableArray alloc] init];
+}
+
+
+- (void)setupLayouts {
+	UIScrollView *articleView = (UIScrollView *)[self view];
+	CGRect screenBounds = [[UIScreen mainScreen] bounds];
 	
-	[self performSelectorInBackground:@selector(loadPage:) withObject:article.url];
+	if (self.interfaceOrientation == UIDeviceOrientationPortrait) {
+		articleView.superview.frame = CGRectMake(0.0, 0.0, screenBounds.size.width, screenBounds.size.height);
+		articleView.frame = CGRectMake(0.0, 0.0, screenBounds.size.width + 15.0, screenBounds.size.height);
+	} else {
+		articleView.superview.frame = CGRectMake(0.0, 0.0, screenBounds.size.height, screenBounds.size.width);
+		articleView.frame = CGRectMake(0.0, 0.0, screenBounds.size.height + 15.0, screenBounds.size.width);
+	}
 }
 
 
 - (void)viewDidAppear:(BOOL)animated {
+	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
+	
+	[self setupLayouts];
 	[super viewDidAppear:animated];
+	[self performSelectorInBackground:@selector(loadPage:) withObject:article.url];
+	
+	hideTimer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(hideInterface) userInfo:nil repeats:NO];
+}
 
-//	self.view.frame = CGRectMake(0.0, 0.0, 335.0, 460.0);
+
+- (void)viewWillDisappear:(BOOL)animated {
+	[super viewWillDisappear:animated];
+	
+	if ([hideTimer isValid]) [hideTimer invalidate];
+}
+
+
+- (void)hideInterface {
+	[[UIApplication sharedApplication] setStatusBarHidden:YES animated:YES];
+	
+	[UIView beginAnimations:@"fadeOut" context:NULL];
+	[UIView setAnimationDuration:0.5];
+	[self.navigationController.navigationBar setAlpha:0.0];
+	[UIView commitAnimations];
 }
 
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-	return YES;
+	return (interfaceOrientation != UIDeviceOrientationPortraitUpsideDown);
 }
 
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
-	NSLog(@"Rotated!");
+	UIScrollView *articleView = (UIScrollView *)[self view];
+
+	[self setupLayouts];
+	
+	for (UIView *subView in self.view.subviews) {
+		if ([subView isKindOfClass:[PhotoView class]]) {
+			subView.frame = CGRectMake(subView.tag * articleView.frame.size.width, 0.0, (articleView.frame.size.width - 15.0), articleView.frame.size.height);
+		}
+	}
+
+	[articleView setContentSize:CGSizeMake(articleView.frame.size.width * [imageList count], articleView.frame.size.height)];
+	[articleView setContentOffset:CGPointMake(articleView.frame.size.width * activeIndex, 0.0)];
+	[articleView setContentInset:UIEdgeInsetsZero];
 }
 
 
 - (void)addPhoto:(NSUInteger)indexNum {
 	Photo *photo = [imageList objectAtIndex:indexNum];
-	PhotoView *imageView = [[PhotoView alloc] initWithFrame:CGRectMake(indexNum * self.view.frame.size.width, -1 * self.navigationController.navigationBar.frame.size.height, (self.view.frame.size.width - 15.0), self.view.frame.size.height)];
-	
-//	[imageView setTransform:CGAffineTransformMakeRotation(-90 * M_PI / 180.0)];
-	
+	PhotoView *imageView = [[PhotoView alloc] initWithFrame:CGRectMake(indexNum * self.view.frame.size.width, 0.0, (self.view.frame.size.width - 15.0), self.view.frame.size.height)];
+
 	imageView.photo = photo;
+	imageView.tag = indexNum;
 	imageView.contentMode = UIViewContentModeScaleAspectFit;
-	imageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-//	imageView.userInteractionEnabled = YES;
+	imageView.userInteractionEnabled = YES;
 	imageView.delegate = self;
 
 	[self.view addSubview:imageView];
@@ -99,9 +143,9 @@
 	
 	UIScrollView *articleView = (UIScrollView *)[self view];
 	
-	articleView.contentSize = CGSizeMake((articleView.frame.size.width + 15) * [imageList count], articleView.frame.size.height - self.navigationController.navigationBar.frame.size.height);
-	articleView.contentOffset = CGPointMake(0.0, -1 * self.navigationController.navigationBar.frame.size.height);
-	articleView.frame = CGRectMake(0.0, 0.0, 335.0, 460.0);
+	[articleView setContentSize:CGSizeMake(articleView.frame.size.width * [imageList count], articleView.frame.size.height)];
+	[articleView setContentOffset:CGPointZero];
+	[articleView setContentInset:UIEdgeInsetsZero];
 	
 	[self addPhoto:0];
 	[self addPhoto:1];
@@ -156,8 +200,8 @@
 
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-	activeIndex = (scrollView.contentOffset.x < 0) ? 0 : floor(scrollView.contentOffset.x / 320.0);
-
+	activeIndex = (scrollView.contentOffset.x < 0) ? 0 : floor(scrollView.contentOffset.x / self.view.frame.size.width);
+	
 	[self prepNeighbours];
 }
 
@@ -201,7 +245,18 @@
 
 
 - (void)didSingleTapOnView:(PhotoView *)view {
-	NSLog(@"SINGLE TAP!");
+	if ([[UIApplication sharedApplication] isStatusBarHidden] == YES) {
+		[[UIApplication sharedApplication] setStatusBarHidden:NO animated:YES];
+		
+		self.navigationController.navigationBar.frame = CGRectMake(0.0, 20.0, self.navigationController.navigationBar.frame.size.width, self.navigationController.navigationBar.frame.size.height);
+		
+		[UIView beginAnimations:@"fadeIn" context:NULL];
+		[UIView setAnimationDuration:0.5];
+		[self.navigationController.navigationBar setAlpha:1.0];
+		[UIView commitAnimations];
+		
+		hideTimer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(hideInterface) userInfo:nil repeats:NO];
+	}
 }
 
 

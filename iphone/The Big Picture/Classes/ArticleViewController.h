@@ -16,11 +16,13 @@
 	NSMutableArray *imageList;
 	NSMutableArray *imageViewsList;
 	NSUInteger activeIndex;
+	NSTimer *hideTimer;
 }
 
 @property (nonatomic, retain) Article *article;
 @property (nonatomic, retain) NSMutableArray *imageList;
 @property (nonatomic, retain) NSMutableArray *imageViewsList;
 @property (nonatomic, assign) NSUInteger activeIndex;
+@property (nonatomic, retain) NSTimer *hideTimer;
 
 @end

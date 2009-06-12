@@ -16,7 +16,10 @@
 @synthesize navigationController;
 
 
-- (void)applicationDidFinishLaunching:(UIApplication *)application {    
+- (void)applicationDidFinishLaunching:(UIApplication *)application {
+	navigationController.navigationBar.barStyle = UIBarStyleBlack;
+	navigationController.navigationBar.translucent = YES;
+
 	[window addSubview:[navigationController view]];
     [window makeKeyAndVisible];
 }

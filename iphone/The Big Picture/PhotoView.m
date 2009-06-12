@@ -24,8 +24,8 @@
 
 
 - (void)setImage:(UIImage *)image {
-	[loadingIndicator stopAnimating];
 	[super setImage:image];
+	[loadingIndicator stopAnimating];
 	
 	if (image.size.width > image.size.height) {
 		maximumZoomScale = image.size.width / self.frame.size.width;
@@ -164,6 +164,7 @@
 
 
 - (void)dealloc {
+	[photo release];
 	[loadingIndicator release];
     [super dealloc];
 }
