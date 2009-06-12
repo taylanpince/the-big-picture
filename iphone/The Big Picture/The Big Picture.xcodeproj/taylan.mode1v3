@@ -278,7 +278,8 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>25</integer>
+									<integer>5</integer>
+									<integer>1</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -313,12 +314,14 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>TheBigPicture-Info.plist</string>
+								<string>ArticleViewController.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -326,11 +329,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>TheBigPicture-Info.plist</string>
+										<string>ArticleViewController.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>ECBA59CB0FE2BAFC0044A1AD</string>
+										<string>ECBA59F70FE2C2F40044A1AD</string>
 										<key>history</key>
 										<array>
 											<string>EC264DA20FDF3C0100A83382</string>
@@ -346,11 +349,15 @@
 											<string>ECBA58AC0FE298B40044A1AD</string>
 											<string>ECBA58AD0FE298B40044A1AD</string>
 											<string>ECBA58AE0FE298B40044A1AD</string>
-											<string>ECBA58AF0FE298B40044A1AD</string>
-											<string>ECBA58B10FE298B40044A1AD</string>
-											<string>ECBA58E40FE298FE0044A1AD</string>
-											<string>ECBA59BB0FE2BA860044A1AD</string>
-											<string>ECBA59BC0FE2BA860044A1AD</string>
+											<string>ECBA59E10FE2C1F00044A1AD</string>
+											<string>ECBA59E20FE2C1F00044A1AD</string>
+											<string>ECBA59E30FE2C1F00044A1AD</string>
+											<string>ECBA59E40FE2C1F00044A1AD</string>
+											<string>ECBA59E50FE2C1F00044A1AD</string>
+										</array>
+										<key>nextStack</key>
+										<array>
+											<string>ECBA59EA0FE2C1F00044A1AD</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -388,20 +395,17 @@
 											<string>ECBA58C50FE298B40044A1AD</string>
 											<string>ECBA58C60FE298B40044A1AD</string>
 											<string>ECBA58C70FE298B40044A1AD</string>
-											<string>ECBA58C80FE298B40044A1AD</string>
 											<string>ECBA58C90FE298B40044A1AD</string>
-											<string>ECBA58CA0FE298B40044A1AD</string>
 											<string>ECBA58CB0FE298B40044A1AD</string>
-											<string>ECBA58CC0FE298B40044A1AD</string>
 											<string>ECBA58CD0FE298B40044A1AD</string>
-											<string>ECBA58CE0FE298B40044A1AD</string>
 											<string>ECBA58CF0FE298B40044A1AD</string>
-											<string>ECBA58D00FE298B40044A1AD</string>
 											<string>ECBA58D10FE298B40044A1AD</string>
-											<string>ECBA58D20FE298B40044A1AD</string>
 											<string>ECBA58D30FE298B40044A1AD</string>
 											<string>ECBA58E60FE298FE0044A1AD</string>
-											<string>ECBA59BD0FE2BA860044A1AD</string>
+											<string>ECBA59E60FE2C1F00044A1AD</string>
+											<string>ECBA59E70FE2C1F00044A1AD</string>
+											<string>ECBA59E80FE2C1F00044A1AD</string>
+											<string>ECBA59E90FE2C1F00044A1AD</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>

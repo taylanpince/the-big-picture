@@ -16,7 +16,7 @@
 
 @implementation ArticleViewController
 
-@synthesize article, imageList, imageViewsList, activeIndex, hideTimer;
+@synthesize article, loadingIndicator, imageList, imageViewsList, activeIndex, hideTimer;
 
 
 - (void)loadView {
@@ -61,6 +61,15 @@
 	
 	[self setupLayouts];
 	[super viewDidAppear:animated];
+	
+	loadingIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+	
+	loadingIndicator.center = CGPointMake((self.view.frame.size.width - 15.0) / 2, (self.view.frame.size.height / 2) - self.navigationController.navigationBar.frame.size.height);
+	loadingIndicator.hidesWhenStopped = YES;
+	
+	[loadingIndicator startAnimating];
+	[self.view addSubview:loadingIndicator];
+	
 	[self performSelectorInBackground:@selector(loadPage:) withObject:article.url];
 	
 	hideTimer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(hideInterface) userInfo:nil repeats:NO];
@@ -70,7 +79,7 @@
 - (void)viewWillDisappear:(BOOL)animated {
 	[super viewWillDisappear:animated];
 	
-	if ([hideTimer isValid]) [hideTimer invalidate];
+	[hideTimer invalidate];
 }
 
 
@@ -147,6 +156,8 @@
 	[articleView setContentSize:CGSizeMake(articleView.frame.size.width * [imageList count], articleView.frame.size.height)];
 	[articleView setContentOffset:CGPointZero];
 	[articleView setContentInset:UIEdgeInsetsZero];
+	
+	[loadingIndicator stopAnimating];
 	
 	[self addPhoto:0];
 	[self addPhoto:1];
@@ -277,6 +288,7 @@
 
 - (void)dealloc {
 	[article release];
+	[loadingIndicator release];
 	[imageList release];
 	[imageViewsList release];
     [super dealloc];

@@ -13,6 +13,7 @@
 
 @interface ArticleViewController : UIViewController <UIScrollViewDelegate, PhotoViewDelegate> {
 	Article *article;
+	UIActivityIndicatorView *loadingIndicator;
 	NSMutableArray *imageList;
 	NSMutableArray *imageViewsList;
 	NSUInteger activeIndex;
@@ -20,6 +21,7 @@
 }
 
 @property (nonatomic, retain) Article *article;
+@property (nonatomic, retain) UIActivityIndicatorView *loadingIndicator;
 @property (nonatomic, retain) NSMutableArray *imageList;
 @property (nonatomic, retain) NSMutableArray *imageViewsList;
 @property (nonatomic, assign) NSUInteger activeIndex;
