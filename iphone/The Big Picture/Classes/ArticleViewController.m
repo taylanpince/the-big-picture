@@ -81,6 +81,8 @@
 	
 	if (hideTimer != nil) {
 		[hideTimer invalidate];
+		
+		hideTimer = nil;
 	}
 }
 
@@ -94,6 +96,22 @@
 	[UIView commitAnimations];
 	
 	hideTimer = nil;
+}
+
+
+- (void)showInterface {
+	if ([[UIApplication sharedApplication] isStatusBarHidden] == YES) {
+		[[UIApplication sharedApplication] setStatusBarHidden:NO animated:YES];
+		
+		self.navigationController.navigationBar.frame = CGRectMake(0.0, 20.0, self.navigationController.navigationBar.frame.size.width, self.navigationController.navigationBar.frame.size.height);
+		
+		[UIView beginAnimations:@"fadeIn" context:NULL];
+		[UIView setAnimationDuration:0.5];
+		[self.navigationController.navigationBar setAlpha:1.0];
+		[UIView commitAnimations];
+		
+		hideTimer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(hideInterface) userInfo:nil repeats:NO];
+	}
 }
 
 
@@ -280,7 +298,7 @@
 		scrollView.contentSize = view.frame.size;
 		
 		if (centerX + scrollView.frame.size.width > scrollView.contentSize.width) centerX = scrollView.contentSize.width - scrollView.frame.size.width;
-		
+
 		scrollView.contentOffset = CGPointMake(MAX(centerX, 0.0), MAX(centerY, 0.0));
 	}
 	
@@ -301,22 +319,17 @@
 
 
 - (void)didSingleTapOnView:(PhotoView *)view withPoint:(CGPoint)point {
-	if ([[UIApplication sharedApplication] isStatusBarHidden] == YES) {
-		[[UIApplication sharedApplication] setStatusBarHidden:NO animated:YES];
-		
-		self.navigationController.navigationBar.frame = CGRectMake(0.0, 20.0, self.navigationController.navigationBar.frame.size.width, self.navigationController.navigationBar.frame.size.height);
-		
-		[UIView beginAnimations:@"fadeIn" context:NULL];
-		[UIView setAnimationDuration:0.5];
-		[self.navigationController.navigationBar setAlpha:1.0];
-		[UIView commitAnimations];
-		
-		hideTimer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(hideInterface) userInfo:nil repeats:NO];
-	}
+	hideTimer = [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(showInterface) userInfo:nil repeats:NO];
 }
 
 
 - (void)didDoubleTapOnView:(PhotoView *)view withPoint:(CGPoint)point {
+	if (hideTimer != nil) {
+		[hideTimer invalidate];
+		
+		hideTimer = nil;
+	}
+	
 	[self didEndZoomingOnView:view withCenterPoint:point];
 }
 

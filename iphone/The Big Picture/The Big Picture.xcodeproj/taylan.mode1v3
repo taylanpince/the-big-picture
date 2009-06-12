@@ -333,7 +333,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>ECBA5AE90FE3001E0044A1AD</string>
+										<string>ECBA5B2D0FE312130044A1AD</string>
 										<key>history</key>
 										<array>
 											<string>EC264DA20FDF3C0100A83382</string>
@@ -349,11 +349,11 @@
 											<string>ECBA58AC0FE298B40044A1AD</string>
 											<string>ECBA58AD0FE298B40044A1AD</string>
 											<string>ECBA58AE0FE298B40044A1AD</string>
-											<string>ECBA59E10FE2C1F00044A1AD</string>
 											<string>ECBA5A770FE2F0740044A1AD</string>
 											<string>ECBA5ACE0FE2FA610044A1AD</string>
 											<string>ECBA5AE20FE2FFD60044A1AD</string>
-											<string>ECBA5AE30FE2FFD60044A1AD</string>
+											<string>ECBA5AF90FE302A00044A1AD</string>
+											<string>ECBA5AFA0FE302A00044A1AD</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -402,35 +402,27 @@
 											<string>ECBA59E70FE2C1F00044A1AD</string>
 											<string>ECBA59E80FE2C1F00044A1AD</string>
 											<string>ECBA59E90FE2C1F00044A1AD</string>
-											<string>ECBA59FB0FE2C9D10044A1AD</string>
 											<string>ECBA5A000FE2CA5B0044A1AD</string>
-											<string>ECBA5A120FE2CCB30044A1AD</string>
 											<string>ECBA5A130FE2CCB30044A1AD</string>
-											<string>ECBA5A1A0FE2CE270044A1AD</string>
 											<string>ECBA5A1B0FE2CE270044A1AD</string>
-											<string>ECBA5A460FE2D5750044A1AD</string>
 											<string>ECBA5A470FE2D5750044A1AD</string>
-											<string>ECBA5A4E0FE2EA2C0044A1AD</string>
 											<string>ECBA5A560FE2EB570044A1AD</string>
 											<string>ECBA5A570FE2EB570044A1AD</string>
 											<string>ECBA5A580FE2EB570044A1AD</string>
-											<string>ECBA5A600FE2ED7D0044A1AD</string>
 											<string>ECBA5A6F0FE2EFDC0044A1AD</string>
 											<string>ECBA5A700FE2EFDC0044A1AD</string>
 											<string>ECBA5A710FE2EFDC0044A1AD</string>
-											<string>ECBA5A790FE2F0740044A1AD</string>
 											<string>ECBA5A7A0FE2F0740044A1AD</string>
 											<string>ECBA5A7B0FE2F0740044A1AD</string>
 											<string>ECBA5A7C0FE2F0740044A1AD</string>
 											<string>ECBA5A7D0FE2F0740044A1AD</string>
-											<string>ECBA5A7E0FE2F0740044A1AD</string>
 											<string>ECBA5A7F0FE2F0740044A1AD</string>
 											<string>ECBA5A840FE2F0A30044A1AD</string>
-											<string>ECBA5AC30FE2F8A00044A1AD</string>
 											<string>ECBA5ACF0FE2FA610044A1AD</string>
 											<string>ECBA5AD00FE2FA610044A1AD</string>
-											<string>ECBA5ADF0FE2FF1C0044A1AD</string>
 											<string>ECBA5AE40FE2FFD60044A1AD</string>
+											<string>ECBA5AFB0FE302A00044A1AD</string>
+											<string>ECBA5AFC0FE302A00044A1AD</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -627,9 +619,9 @@
 		<string>ECBA58DF0FE298B40044A1AD</string>
 		<string>ECBA58E00FE298B40044A1AD</string>
 		<string>EC264D9C0FDF3B6000A83382</string>
-		<string>/Users/taylan/Documents/Development/Personal/the-big-picture/iphone/The Big Picture/The Big Picture.xcodeproj</string>
 		<string>1C78EAAD065D492600B07095</string>
 		<string>1CD10A99069EF8BA00B06720</string>
+		<string>/Users/taylan/Documents/Development/Personal/the-big-picture/iphone/The Big Picture/The Big Picture.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
 	<string>4 55 1436 823 0 0 1440 878 </string>
