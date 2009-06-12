@@ -31,12 +31,14 @@
 
 @property (nonatomic, assign) id <PhotoViewDelegate> delegate;
 
+- (void)resetScale;
+
 @end
 
 
 @protocol PhotoViewDelegate
 - (void)didBeginZoomingOnView:(PhotoView *)view;
-- (void)didEndZoomingOnView:(PhotoView *)view;
-- (void)didSingleTapOnView:(PhotoView *)view;
-- (void)didDoubleTapOnView:(PhotoView *)view;
+- (void)didEndZoomingOnView:(PhotoView *)view withCenterPoint:(CGPoint)centerPoint;
+- (void)didSingleTapOnView:(PhotoView *)view withPoint:(CGPoint)point;
+- (void)didDoubleTapOnView:(PhotoView *)view withPoint:(CGPoint)point;
 @end

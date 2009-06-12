@@ -79,7 +79,9 @@
 - (void)viewWillDisappear:(BOOL)animated {
 	[super viewWillDisappear:animated];
 	
-	[hideTimer invalidate];
+	if (hideTimer != nil) {
+		[hideTimer invalidate];
+	}
 }
 
 
@@ -90,6 +92,8 @@
 	[UIView setAnimationDuration:0.5];
 	[self.navigationController.navigationBar setAlpha:0.0];
 	[UIView commitAnimations];
+	
+	hideTimer = nil;
 }
 
 
@@ -98,14 +102,28 @@
 }
 
 
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+	if (zooming) {
+		zooming = NO;
+		
+		UIScrollView *scrollView = (UIScrollView *)[self view];
+		
+		scrollView.pagingEnabled = YES;
+		scrollView.directionalLockEnabled = YES;
+	}
+}
+
+
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
 	UIScrollView *articleView = (UIScrollView *)[self view];
 
 	[self setupLayouts];
 	
-	for (UIView *subView in self.view.subviews) {
+	for (PhotoView *subView in self.view.subviews) {
 		if ([subView isKindOfClass:[PhotoView class]]) {
 			subView.frame = CGRectMake(subView.tag * articleView.frame.size.width, 0.0, (articleView.frame.size.width - 15.0), articleView.frame.size.height);
+			
+			[subView resetScale];
 		}
 	}
 
@@ -216,9 +234,11 @@
 
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-	activeIndex = (scrollView.contentOffset.x < 0) ? 0 : floor(scrollView.contentOffset.x / self.view.frame.size.width);
-	
-	[self prepNeighbours];
+	if (!zooming) {
+		activeIndex = (scrollView.contentOffset.x < 0) ? 0 : floor(scrollView.contentOffset.x / self.view.frame.size.width);
+		
+		[self prepNeighbours];
+	}
 }
 
 
@@ -229,13 +249,13 @@
 }
 
 
-- (void)didEndZoomingOnView:(PhotoView *)view {
+- (void)didEndZoomingOnView:(PhotoView *)view withCenterPoint:(CGPoint)centerPoint {
 	UIScrollView *scrollView = (UIScrollView *)[self view];
 	CGFloat viewHeight = (view.frame.size.height < scrollView.frame.size.height) ? scrollView.frame.size.height : view.frame.size.height;
 	CGFloat viewWidth = (view.frame.size.width < scrollView.frame.size.width - 15.0) ? scrollView.frame.size.width - 15.0 : view.frame.size.width;
 	
 	scrollView.scrollEnabled = YES;
-	
+
 	if (view.currentZoomScale <= 1.0) {
 		zooming = NO;
 		
@@ -249,13 +269,19 @@
 	} else {
 		zooming = YES;
 		
+		CGFloat centerX = (view.frame.size.width < scrollView.frame.size.width - 15.0) ? 0.0 : centerPoint.x + 8.0 - scrollView.frame.size.width / 2;
+		CGFloat centerY = (view.frame.size.height < scrollView.frame.size.height) ? 0.0 : centerPoint.y - scrollView.frame.size.height / 2;
+		
 		view.frame = CGRectMake(0.0, 0.0, viewWidth, viewHeight);
 		
 		scrollView.pagingEnabled = NO;
 		scrollView.directionalLockEnabled = NO;
 		scrollView.contentInset = UIEdgeInsetsZero;
 		scrollView.contentSize = view.frame.size;
-//		scrollView.contentOffset = view.frame.origin;
+		
+		if (centerX + scrollView.frame.size.width > scrollView.contentSize.width) centerX = scrollView.contentSize.width - scrollView.frame.size.width;
+		
+		scrollView.contentOffset = CGPointMake(MAX(centerX, 0.0), MAX(centerY, 0.0));
 	}
 	
 	for (UIView *subView in scrollView.subviews) {
@@ -274,7 +300,7 @@
 }
 
 
-- (void)didSingleTapOnView:(PhotoView *)view {
+- (void)didSingleTapOnView:(PhotoView *)view withPoint:(CGPoint)point {
 	if ([[UIApplication sharedApplication] isStatusBarHidden] == YES) {
 		[[UIApplication sharedApplication] setStatusBarHidden:NO animated:YES];
 		
@@ -290,15 +316,13 @@
 }
 
 
-- (void)didDoubleTapOnView:(PhotoView *)view {
-	[self didEndZoomingOnView:view];
+- (void)didDoubleTapOnView:(PhotoView *)view withPoint:(CGPoint)point {
+	[self didEndZoomingOnView:view withCenterPoint:point];
 }
 
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-	[article release];
-	[imageList release];
 }
 
 

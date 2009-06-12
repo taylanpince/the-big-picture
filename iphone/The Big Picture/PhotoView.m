@@ -23,16 +23,23 @@
 }
 
 
+- (void)resetScale {
+	currentZoomScale = 1.0;
+	
+	if (self.image.size.width > self.image.size.height) {
+		maximumZoomScale = self.image.size.width / self.frame.size.width;
+	} else {
+		maximumZoomScale = self.image.size.height / self.frame.size.height;
+	}
+}
+
+
 - (void)setImage:(UIImage *)image {
 	[self setAlpha:0.0];
 	[super setImage:image];
 	[loadingIndicator stopAnimating];
 	
-	if (image.size.width > image.size.height) {
-		maximumZoomScale = image.size.width / self.frame.size.width;
-	} else {
-		maximumZoomScale = image.size.height / self.frame.size.height;
-	}
+	[self resetScale];
 	
 	[UIView beginAnimations:@"fadeIn" context:NULL];
 	[UIView setAnimationDuration:0.5];
@@ -81,7 +88,7 @@
 }
 
 
-- (void)zoomToScale:(CGFloat)scale withCenterPoint:(CGPoint)center {
+- (void)zoomToScale:(CGFloat)scale {
 	if (scale >= 1.0 && scale <= maximumZoomScale) {
 		currentZoomScale = scale;
 		
@@ -105,6 +112,8 @@
 
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+	if (!self.image) return;
+	
 	switch ([[event allTouches] count]) {
 		case 2: {
 			UITouch *firstTouch = [[[event allTouches] allObjects] objectAtIndex:0];
@@ -121,29 +130,41 @@
 
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+	if (!self.image) return;
+	
 	switch ([[event allTouches] count]) {
 		case 1: {
 			UITouch *touch = [[[event allTouches] allObjects] objectAtIndex:0];
 			
 			switch ([touch tapCount]) {
 				case 1:
-					[delegate didSingleTapOnView:self];
+					[delegate didSingleTapOnView:self withPoint:[touch locationInView:self]];
 					break;
 				case 2:
 					if (currentZoomScale > 1.0) {
-						[self zoomToScale:1.0 withCenterPoint:[touch locationInView:self]];
+						[self zoomToScale:1.0];
 					} else {
-						[self zoomToScale:maximumZoomScale withCenterPoint:[touch locationInView:self]];
+						[self zoomToScale:maximumZoomScale];
 					}
 					
-					[delegate didDoubleTapOnView:self];
+					[delegate didDoubleTapOnView:self withPoint:[touch locationInView:self]];
 					break;
 			}
 			
 			break;
 		}
 		case 2: {
-			[delegate didEndZoomingOnView:self];
+			UITouch *firstTouch = [[[event allTouches] allObjects] objectAtIndex:0];
+			UITouch *secondTouch = [[[event allTouches] allObjects] objectAtIndex:1];
+			CGPoint firstTouchLocation = [firstTouch locationInView:self];
+			CGPoint secondTouchLocation = [secondTouch locationInView:self];
+			
+			CGPoint centerPoint = CGPointMake(
+				MIN(secondTouchLocation.x, firstTouchLocation.x) + abs(secondTouchLocation.x - firstTouchLocation.x) / 2, 
+				MIN(secondTouchLocation.y, firstTouchLocation.y) + abs(secondTouchLocation.y - firstTouchLocation.y) / 2
+			);
+			
+			[delegate didEndZoomingOnView:self withCenterPoint:centerPoint];
 			
 			break;
 		}
@@ -152,6 +173,8 @@
 
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+	if (!self.image) return;
+	
 	switch ([[event allTouches] count]) {
 		case 2: {
 			UITouch *firstTouch = [[[event allTouches] allObjects] objectAtIndex:0];
@@ -159,7 +182,7 @@
 			
 			CGFloat finalDistance = [self distanceBetweenTwoPoints:[firstTouch locationInView:self] toPoint:[secondTouch locationInView:self]];
 			
-			[self zoomToScale:currentZoomScale + ((finalDistance - initialDistance) / 200.0) withCenterPoint:[firstTouch locationInView:self]];
+			[self zoomToScale:currentZoomScale + ((finalDistance - initialDistance) / 200.0)];
 			
 			initialDistance = finalDistance;
 			
