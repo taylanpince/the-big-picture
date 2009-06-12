@@ -321,7 +321,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>ArticleViewController.m</string>
+								<string>PhotoView.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -329,11 +329,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>ArticleViewController.m</string>
+										<string>PhotoView.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>ECBA59F70FE2C2F40044A1AD</string>
+										<string>ECBA59FC0FE2C9D10044A1AD</string>
 										<key>history</key>
 										<array>
 											<string>EC264DA20FDF3C0100A83382</string>
@@ -352,12 +352,8 @@
 											<string>ECBA59E10FE2C1F00044A1AD</string>
 											<string>ECBA59E20FE2C1F00044A1AD</string>
 											<string>ECBA59E30FE2C1F00044A1AD</string>
-											<string>ECBA59E40FE2C1F00044A1AD</string>
-											<string>ECBA59E50FE2C1F00044A1AD</string>
-										</array>
-										<key>nextStack</key>
-										<array>
-											<string>ECBA59EA0FE2C1F00044A1AD</string>
+											<string>ECBA59F90FE2C9D10044A1AD</string>
+											<string>ECBA59FA0FE2C9D10044A1AD</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -406,6 +402,7 @@
 											<string>ECBA59E70FE2C1F00044A1AD</string>
 											<string>ECBA59E80FE2C1F00044A1AD</string>
 											<string>ECBA59E90FE2C1F00044A1AD</string>
+											<string>ECBA59FB0FE2C9D10044A1AD</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>

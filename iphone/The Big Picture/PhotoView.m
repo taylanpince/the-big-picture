@@ -24,6 +24,8 @@
 
 
 - (void)setImage:(UIImage *)image {
+	self.alpha = 0.0;
+	
 	[super setImage:image];
 	[loadingIndicator stopAnimating];
 	
@@ -32,6 +34,11 @@
 	} else {
 		maximumZoomScale = image.size.height / self.frame.size.height;
 	}
+	
+	[UIView beginAnimations:@"fadeIn" context:NULL];
+	[UIView setAnimationDuration:0.5];
+	[self setAlpha:1.0];
+	[UIView commitAnimations];
 }
 
 
