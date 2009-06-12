@@ -278,8 +278,7 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>19</integer>
-									<integer>17</integer>
+									<integer>25</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -314,14 +313,12 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>ArticleViewController.m</string>
+								<string>TheBigPicture-Info.plist</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -329,11 +326,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>ArticleViewController.m</string>
+										<string>TheBigPicture-Info.plist</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>ECBA599E0FE2B54C0044A1AD</string>
+										<string>ECBA59CB0FE2BAFC0044A1AD</string>
 										<key>history</key>
 										<array>
 											<string>EC264DA20FDF3C0100A83382</string>
@@ -342,7 +339,6 @@
 											<string>EC264E830FDF537500A83382</string>
 											<string>EC264E860FDF537500A83382</string>
 											<string>EC264EF40FDF5B9C00A83382</string>
-											<string>ECD2AD080FE01CBF0054A901</string>
 											<string>ECBA58A80FE298B40044A1AD</string>
 											<string>ECBA58A90FE298B40044A1AD</string>
 											<string>ECBA58AA0FE298B40044A1AD</string>
@@ -353,7 +349,8 @@
 											<string>ECBA58AF0FE298B40044A1AD</string>
 											<string>ECBA58B10FE298B40044A1AD</string>
 											<string>ECBA58E40FE298FE0044A1AD</string>
-											<string>ECBA58E50FE298FE0044A1AD</string>
+											<string>ECBA59BB0FE2BA860044A1AD</string>
+											<string>ECBA59BC0FE2BA860044A1AD</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -404,6 +401,7 @@
 											<string>ECBA58D20FE298B40044A1AD</string>
 											<string>ECBA58D30FE298B40044A1AD</string>
 											<string>ECBA58E60FE298FE0044A1AD</string>
+											<string>ECBA59BD0FE2BA860044A1AD</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>

@@ -136,6 +136,7 @@
 		
 		[imageList addObject:photo];
 		[imageViewsList addObject:[NSNull null]];
+		
 		[photo release];
 	}
 	
@@ -176,15 +177,17 @@
 
 		if ((NSNull *)previousView != [NSNull null]) {
 			[previousView removeFromSuperview];
+			
 			[imageViewsList replaceObjectAtIndex:activeIndex - 2 withObject:[NSNull null]];
 		}
 	}
 	
-	if (activeIndex < [imageList count] - 2) {
+	if (activeIndex < [imageList count] - 3) {
 		UIView *nextView = [imageViewsList objectAtIndex:activeIndex + 2];
 
 		if ((NSNull *)nextView != [NSNull null]) {
 			[nextView removeFromSuperview];
+			
 			[imageViewsList replaceObjectAtIndex:activeIndex + 2 withObject:[NSNull null]];
 		}
 	}

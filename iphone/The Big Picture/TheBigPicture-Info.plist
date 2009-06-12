@@ -5,11 +5,13 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleDisplayName</key>
-	<string>${PRODUCT_NAME}</string>
+	<string>Big Picture</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFile</key>
-	<string></string>
+	<string>Icon.png</string>
+	<key>UIPrerenderedIcon</key>
+	<true/>
 	<key>CFBundleIdentifier</key>
 	<string>com.taylanpince.TheBigPicture</string>
 	<key>CFBundleInfoDictionaryVersion</key>

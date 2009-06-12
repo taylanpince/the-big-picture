@@ -20,6 +20,7 @@
 		EC264E770FDF52CD00A83382 /* ArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */; };
 		EC264E7A0FDF537000A83382 /* ArticleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC264E790FDF537000A83382 /* ArticleView.xib */; };
 		EC264F440FDF5F7700A83382 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC264F430FDF5F7700A83382 /* QuartzCore.framework */; };
+		ECBA59B60FE2BA770044A1AD /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = ECBA59B50FE2BA770044A1AD /* Icon.png */; };
 		ECD2ADAC0FE030950054A901 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD2ADAB0FE030950054A901 /* Photo.m */; };
 		ECD2AE830FE04CB60054A901 /* ArticleView.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD2AE820FE04CB60054A901 /* ArticleView.m */; };
 		ECD2AEE50FE051FE0054A901 /* PhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD2AEE40FE051FE0054A901 /* PhotoView.m */; };
@@ -47,6 +48,7 @@
 		EC264E760FDF52CD00A83382 /* ArticleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleViewController.m; sourceTree = "<group>"; };
 		EC264E790FDF537000A83382 /* ArticleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleView.xib; sourceTree = "<group>"; };
 		EC264F430FDF5F7700A83382 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = ../../../../../../../../Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = SOURCE_ROOT; };
+		ECBA59B50FE2BA770044A1AD /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		ECD2ADAA0FE030950054A901 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
 		ECD2ADAB0FE030950054A901 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
 		ECD2AE810FE04CB60054A901 /* ArticleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticleView.h; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				ECBA59B50FE2BA770044A1AD /* Icon.png */,
 				EC264E790FDF537000A83382 /* ArticleView.xib */,
 				2899E55F0DE3E45000AC0155 /* RootViewController.xib */,
 				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
@@ -229,6 +232,7 @@
 				28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */,
 				2899E5600DE3E45000AC0155 /* RootViewController.xib in Resources */,
 				EC264E7A0FDF537000A83382 /* ArticleView.xib in Resources */,
+				ECBA59B60FE2BA770044A1AD /* Icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
