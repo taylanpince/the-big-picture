@@ -24,8 +24,7 @@
 
 
 - (void)setImage:(UIImage *)image {
-	self.alpha = 0.0;
-	
+	[self setAlpha:0.0];
 	[super setImage:image];
 	[loadingIndicator stopAnimating];
 	

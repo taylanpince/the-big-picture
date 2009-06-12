@@ -16,7 +16,7 @@
 
 @implementation ArticleViewController
 
-@synthesize article, loadingIndicator, imageList, imageViewsList, activeIndex, hideTimer;
+@synthesize article, loadingIndicator, imageList, imageViewsList, activeIndex, hideTimer, zooming;
 
 
 - (void)loadView {
@@ -179,6 +179,8 @@
 
 
 - (void)prepNeighbours {
+	if (zooming) return;
+	
 	if ((NSNull *)[imageViewsList objectAtIndex:activeIndex] == [NSNull null]) {
 		[self addPhoto:activeIndex];
 	}
@@ -229,31 +231,45 @@
 
 - (void)didEndZoomingOnView:(PhotoView *)view {
 	UIScrollView *scrollView = (UIScrollView *)[self view];
-
+	CGFloat viewHeight = (view.frame.size.height < scrollView.frame.size.height) ? scrollView.frame.size.height : view.frame.size.height;
+	CGFloat viewWidth = (view.frame.size.width < scrollView.frame.size.width - 15.0) ? scrollView.frame.size.width - 15.0 : view.frame.size.width;
+	
+	scrollView.scrollEnabled = YES;
+	
+	if (view.currentZoomScale <= 1.0) {
+		zooming = NO;
+		
+		view.frame = CGRectMake(scrollView.frame.size.width * view.tag, 0.0, viewWidth, viewHeight);
+		
+		scrollView.pagingEnabled = YES;
+		scrollView.directionalLockEnabled = YES;
+		scrollView.contentInset = UIEdgeInsetsZero;
+		scrollView.contentSize = CGSizeMake(scrollView.frame.size.width * [imageList count], scrollView.frame.size.height);
+		scrollView.contentOffset = CGPointMake(scrollView.frame.size.width * view.tag, 0.0);
+	} else {
+		zooming = YES;
+		
+		view.frame = CGRectMake(0.0, 0.0, viewWidth, viewHeight);
+		
+		scrollView.pagingEnabled = NO;
+		scrollView.directionalLockEnabled = NO;
+		scrollView.contentInset = UIEdgeInsetsZero;
+		scrollView.contentSize = view.frame.size;
+//		scrollView.contentOffset = view.frame.origin;
+	}
+	
 	for (UIView *subView in scrollView.subviews) {
-		if ([subView isKindOfClass:[PhotoView class]]) {
+		if ([subView isKindOfClass:[PhotoView class]] && subView.tag != view.tag) {
 			CGFloat x;
 			
 			if (subView.tag < view.tag) {
-				x = view.frame.origin.x - (view.tag - subView.tag) * 320.0;
+				x = view.frame.origin.x - (view.tag - subView.tag) * scrollView.frame.size.width;
 			} else if (subView.tag > view.tag) {
-				x = view.frame.origin.x + view.frame.size.width + (subView.tag - view.tag - 1) * 320.0;
+				x = view.frame.origin.x + view.frame.size.width + 15.0 + (subView.tag - view.tag - 1) * scrollView.frame.size.width;
 			}
-
+			
 			subView.frame = CGRectMake(x, subView.frame.origin.y, subView.frame.size.width, subView.frame.size.height);
 		}
-	}
-	
-	scrollView.scrollEnabled = YES;
-	NSLog(@"Zoom Scale: %f", view.currentZoomScale);
-	if (view.currentZoomScale <= 1.0) {
-		scrollView.pagingEnabled = YES;
-		scrollView.contentSize = CGSizeMake(640.0, 460.0);
-		scrollView.contentOffset = CGPointZero;
-	} else {
-		scrollView.pagingEnabled = NO;
-		scrollView.contentSize = view.frame.size;
-		scrollView.contentOffset = view.frame.origin;
 	}
 }
 
@@ -275,7 +291,7 @@
 
 
 - (void)didDoubleTapOnView:(PhotoView *)view {
-	NSLog(@"DOUBLE TAP!");
+	[self didEndZoomingOnView:view];
 }
 
 

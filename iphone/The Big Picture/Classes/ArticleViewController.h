@@ -18,6 +18,8 @@
 	NSMutableArray *imageViewsList;
 	NSUInteger activeIndex;
 	NSTimer *hideTimer;
+	
+	BOOL zooming;
 }
 
 @property (nonatomic, retain) Article *article;
@@ -26,5 +28,7 @@
 @property (nonatomic, retain) NSMutableArray *imageViewsList;
 @property (nonatomic, assign) NSUInteger activeIndex;
 @property (nonatomic, retain) NSTimer *hideTimer;
+
+@property (nonatomic, assign) BOOL zooming;
 
 @end
