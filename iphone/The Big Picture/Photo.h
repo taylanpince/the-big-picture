@@ -9,8 +9,13 @@
 
 @interface Photo : NSObject {
 	NSURL *url;
+	NSString *caption;
+	
+	BOOL graphic;
 }
 
 @property (nonatomic, retain) NSURL *url;
+@property (nonatomic, retain) NSString *caption;
+@property (nonatomic, assign) BOOL graphic;
 
 @end

@@ -18,7 +18,6 @@
 		EC264DC90FDF3DE900A83382 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = EC264DC80FDF3DE900A83382 /* RegexKitLite.m */; };
 		EC264E0D0FDF447E00A83382 /* Article.m in Sources */ = {isa = PBXBuildFile; fileRef = EC264E0C0FDF447E00A83382 /* Article.m */; };
 		EC264E770FDF52CD00A83382 /* ArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */; };
-		EC264E7A0FDF537000A83382 /* ArticleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC264E790FDF537000A83382 /* ArticleView.xib */; };
 		EC264F440FDF5F7700A83382 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC264F430FDF5F7700A83382 /* QuartzCore.framework */; };
 		ECAD08460FE4190100BCCCE1 /* ArticleView.m in Sources */ = {isa = PBXBuildFile; fileRef = ECAD08450FE4190100BCCCE1 /* ArticleView.m */; };
 		ECBA59B60FE2BA770044A1AD /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = ECBA59B50FE2BA770044A1AD /* Icon.png */; };
@@ -46,7 +45,6 @@
 		EC264E0C0FDF447E00A83382 /* Article.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Article.m; sourceTree = "<group>"; };
 		EC264E750FDF52CD00A83382 /* ArticleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticleViewController.h; sourceTree = "<group>"; };
 		EC264E760FDF52CD00A83382 /* ArticleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleViewController.m; sourceTree = "<group>"; };
-		EC264E790FDF537000A83382 /* ArticleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleView.xib; sourceTree = "<group>"; };
 		EC264F430FDF5F7700A83382 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = ../../../../../../../../Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = SOURCE_ROOT; };
 		ECAD08440FE4190100BCCCE1 /* ArticleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticleView.h; sourceTree = "<group>"; };
 		ECAD08450FE4190100BCCCE1 /* ArticleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleView.m; sourceTree = "<group>"; };
@@ -121,7 +119,6 @@
 			isa = PBXGroup;
 			children = (
 				ECBA59B50FE2BA770044A1AD /* Icon.png */,
-				EC264E790FDF537000A83382 /* ArticleView.xib */,
 				2899E55F0DE3E45000AC0155 /* RootViewController.xib */,
 				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* TheBigPicture-Info.plist */,
@@ -231,7 +228,6 @@
 			files = (
 				28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */,
 				2899E5600DE3E45000AC0155 /* RootViewController.xib in Resources */,
-				EC264E7A0FDF537000A83382 /* ArticleView.xib in Resources */,
 				ECBA59B60FE2BA770044A1AD /* Icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

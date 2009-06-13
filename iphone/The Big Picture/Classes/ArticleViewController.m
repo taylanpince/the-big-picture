@@ -206,17 +206,13 @@ static NSString *const RE_PHOTO = @"<div class=\"bpBoth\"><a name=\"photo[0-9]+\
 
 
 - (void)doneLoadingPage:(NSString *)htmlData {
-	NSArray *imgMatches;
-//	NSArray *photoMatches;
-	NSString *imgRegEx = @"<img src=\"(.*?)\" class=\"bpImage\"";
-//	NSString *captionRegEx = @"<div class=\"bpCaption\"><div class=\"photoNum\"><a href=\"#photo[0-9]+\">[0-9]+</a></div>(.*?)<a href";
+	NSArray *firstPhotoMatch = [htmlData captureComponentsMatchedByRegex:RE_FIRST_PHOTO];
 	
-	imgMatches = [htmlData arrayOfCaptureComponentsMatchedByRegex:imgRegEx];
-
-	for (NSArray *imgOptions in imgMatches) {
+	if (firstPhotoMatch != nil) {
 		Photo *photo = [[Photo alloc] init];
 		
-		photo.url = [NSURL URLWithString:[imgOptions objectAtIndex:1]];
+		photo.url = [NSURL URLWithString:[firstPhotoMatch objectAtIndex:1]];
+		photo.caption = [firstPhotoMatch objectAtIndex:2];
 		
 		[imageList addObject:photo];
 		[imageViewsList addObject:[NSNull null]];
@@ -224,8 +220,20 @@ static NSString *const RE_PHOTO = @"<div class=\"bpBoth\"><a name=\"photo[0-9]+\
 		[photo release];
 	}
 	
-//	photoMatches = [htmlData arrayOfCaptureComponentsMatchedByRegex:RE_PHOTO];
-//	NSLog(@"Photos: %@", photoMatches);
+	NSArray *photoMatches = [htmlData arrayOfCaptureComponentsMatchedByRegex:RE_PHOTO];
+	
+	for (NSArray *photoMatch in photoMatches) {
+		Photo *photo = [[Photo alloc] init];
+		
+		photo.url = [NSURL URLWithString:[photoMatch objectAtIndex:1]];
+		photo.caption = [photoMatch objectAtIndex:3];
+		photo.graphic = [[photoMatch objectAtIndex:2] isEqualToString:@"imghide"];
+		
+		[imageList addObject:photo];
+		[imageViewsList addObject:[NSNull null]];
+		
+		[photo release];
+	}
 	
 	UIScrollView *scrollView = (UIScrollView *)[self view];
 	
@@ -233,8 +241,8 @@ static NSString *const RE_PHOTO = @"<div class=\"bpBoth\"><a name=\"photo[0-9]+\
 	
 	[loadingIndicator stopAnimating];
 	
-	[self addPhoto:0];
-	[self addPhoto:1];
+	if ([imageList count] > 0) [self addPhoto:0];
+	if ([imageList count] > 1) [self addPhoto:1];
 }
 
 
@@ -301,8 +309,16 @@ static NSString *const RE_PHOTO = @"<div class=\"bpBoth\"><a name=\"photo[0-9]+\
 			}
 			
 			if (self.navigationController.navigationBar.alpha == 0.0) [self showInterface];
-		} else if (self.navigationController.navigationBar.alpha > 0.0 && hideTimer == nil) {
-			hideTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(hideInterface) userInfo:nil repeats:NO];
+		} else {
+			Photo *photo = (Photo *)[imageList objectAtIndex:activeIndex - 1];
+			
+			NSLog(@"Caption: %@", photo.caption);
+			
+			if (photo.graphic) NSLog(@"GRAPHIC PHOTO!");
+			
+			if (self.navigationController.navigationBar.alpha > 0.0 && hideTimer == nil) {
+				hideTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(hideInterface) userInfo:nil repeats:NO];
+			}
 		}
 		
 		[self prepNeighbours];
