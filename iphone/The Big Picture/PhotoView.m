@@ -12,14 +12,56 @@
 
 @implementation PhotoView
 
-@synthesize photo, loadingIndicator, initialDistance, maximumZoomScale, currentZoomScale, delegate;
+@synthesize photo, label, infoButton, loadingIndicator;
+@synthesize initialDistance, maximumZoomScale, currentZoomScale, delegate;
 
 
 - (id)initWithFrame:(CGRect)frame {
 	if (self = [super initWithFrame:frame]) {
 		currentZoomScale = 1.0;
+		
+		label = [[UILabel alloc] initWithFrame:CGRectZero];
+		
+		label.font = [UIFont systemFontOfSize:14.0];
+		label.textColor = [UIColor whiteColor];
+		label.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.5];
+		label.numberOfLines = 0;
+		label.lineBreakMode = UILineBreakModeWordWrap;
+		
+		[self addSubview:label];
+		
+		infoButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
+		
+		[infoButton setAlpha:0.0];
+		[infoButton setFrame:CGRectMake(frame.size.width - 16.0, frame.size.height - 16.0, 16.0, 16.0)];
+		[infoButton setShowsTouchWhenHighlighted:YES];
+		[infoButton addTarget:self action:@selector(toggleCaption) forControlEvents:UIControlEventTouchUpInside];
+		
+		[self addSubview:infoButton];
+		
+		loadingIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+		
+		loadingIndicator.center = CGPointMake(frame.size.width / 2, frame.size.height / 2);
+		loadingIndicator.hidesWhenStopped = YES;
+		
+		[self addSubview:loadingIndicator];
     }
     return self;
+}
+
+
+- (void)toggleCaption {
+	if (label.alpha > 0.0) {
+		[UIView beginAnimations:@"captionFadeOut" context:NULL];
+		[UIView setAnimationDuration:0.5];
+		[label setAlpha:0.0];
+		[UIView commitAnimations];
+	} else {
+		[UIView beginAnimations:@"captionFadeIn" context:NULL];
+		[UIView setAnimationDuration:0.5];
+		[label setAlpha:1.0];
+		[UIView commitAnimations];
+	}
 }
 
 
@@ -31,6 +73,11 @@
 	} else {
 		maximumZoomScale = self.image.size.height / self.frame.size.height;
 	}
+	
+	CGSize textSize = [photo.caption sizeWithFont:label.font constrainedToSize:CGSizeMake(self.frame.size.width - 30.0, 2000.0) lineBreakMode:UILineBreakModeWordWrap];
+	
+	[label setFrame:CGRectMake(15.0, self.frame.size.height - textSize.height - 10.0, self.frame.size.width - 30.0, textSize.height)];
+	[infoButton setCenter:CGPointMake(self.frame.size.width - 16.0, self.frame.size.height - 16.0)];
 }
 
 
@@ -41,6 +88,8 @@
 	
 	[self resetScale];
 	
+	[infoButton setAlpha:0.75];
+	
 	[UIView beginAnimations:@"fadeIn" context:NULL];
 	[UIView setAnimationDuration:0.5];
 	[self setAlpha:1.0];
@@ -49,20 +98,22 @@
 
 
 - (void)setPhoto:(Photo *)newPhoto {
-	if (loadingIndicator != nil) {
+	if (photo != newPhoto) {
+		[photo release];
+		
+		photo = [newPhoto retain];
+		
+		CGSize textSize = [newPhoto.caption sizeWithFont:label.font constrainedToSize:CGSizeMake(self.frame.size.width - 30.0, 2000.0) lineBreakMode:UILineBreakModeWordWrap];
+		
+		label.alpha = 0.0;
+		label.text = newPhoto.caption;
+		label.frame = CGRectMake(15.0, self.frame.size.height - textSize.height - 10.0, self.frame.size.width - 30.0, textSize.height);
+		
 		[loadingIndicator setHidden:NO];
 		[loadingIndicator startAnimating];
-	} else {
-		loadingIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
 		
-		loadingIndicator.center = CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2);
-		loadingIndicator.hidesWhenStopped = YES;
-		
-		[loadingIndicator startAnimating];
-		[self addSubview:loadingIndicator];
+		[self performSelectorInBackground:@selector(loadImage:) withObject:newPhoto.url];
 	}
-	
-	[self performSelectorInBackground:@selector(loadImage:) withObject:newPhoto.url];
 }
 
 
@@ -90,6 +141,7 @@
 
 - (void)zoomToScale:(CGFloat)scale {
 	if (scale >= 1.0 && scale <= maximumZoomScale) {
+		label.hidden = (scale > 1.0);
 		currentZoomScale = scale;
 		
 		CGFloat scaledWidth = scale * self.image.size.width / maximumZoomScale;
@@ -97,6 +149,7 @@
 		
 		self.bounds = CGRectMake(0.0, 0.0, scaledWidth, scaledHeight);
 	} else if (scale < 1.0) {
+		label.hidden = NO;
 		currentZoomScale = 1.0;
 		
 		CGFloat scaledWidth = currentZoomScale * self.image.size.width / maximumZoomScale;
@@ -104,6 +157,7 @@
 		
 		self.bounds = CGRectMake(0.0, 0.0, scaledWidth, scaledHeight);
 	} else if (scale > maximumZoomScale) {
+		label.hidden = YES;
 		currentZoomScale = maximumZoomScale;
 		
 		self.bounds = CGRectMake(0.0, 0.0, self.image.size.width, self.image.size.height);
@@ -194,6 +248,7 @@
 
 - (void)dealloc {
 	[photo release];
+	[label release];
 	[loadingIndicator release];
     [super dealloc];
 }

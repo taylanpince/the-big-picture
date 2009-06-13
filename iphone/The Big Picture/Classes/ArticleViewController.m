@@ -310,12 +310,6 @@ static NSString *const RE_PHOTO = @"<div class=\"bpBoth\"><a name=\"photo[0-9]+\
 			
 			if (self.navigationController.navigationBar.alpha == 0.0) [self showInterface];
 		} else {
-			Photo *photo = (Photo *)[imageList objectAtIndex:activeIndex - 1];
-			
-			NSLog(@"Caption: %@", photo.caption);
-			
-			if (photo.graphic) NSLog(@"GRAPHIC PHOTO!");
-			
 			if (self.navigationController.navigationBar.alpha > 0.0 && hideTimer == nil) {
 				hideTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(hideInterface) userInfo:nil repeats:NO];
 			}

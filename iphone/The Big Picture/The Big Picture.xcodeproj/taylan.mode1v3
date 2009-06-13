@@ -228,8 +228,6 @@
 			<key>Layout</key>
 			<array>
 				<dict>
-					<key>BecomeActive</key>
-					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -280,6 +278,7 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
+									<integer>27</integer>
 									<integer>25</integer>
 									<integer>0</integer>
 								</array>
@@ -315,12 +314,14 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>RootViewController.m</string>
+								<string>PhotoView.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -328,11 +329,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>RootViewController.m</string>
+										<string>PhotoView.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>ECAD08B90FE42B4D00BCCCE1</string>
+										<string>ECAD08FB0FE43A3900BCCCE1</string>
 										<key>history</key>
 										<array>
 											<string>EC264DA20FDF3C0100A83382</string>
@@ -341,18 +342,18 @@
 											<string>EC264E830FDF537500A83382</string>
 											<string>EC264EF40FDF5B9C00A83382</string>
 											<string>ECBA58AC0FE298B40044A1AD</string>
-											<string>ECBA5A770FE2F0740044A1AD</string>
 											<string>ECBA5AF90FE302A00044A1AD</string>
 											<string>ECCD8C060FE3FABC00FE0722</string>
-											<string>ECCD8C8A0FE4052500FE0722</string>
 											<string>ECCD8CEA0FE408B600FE0722</string>
 											<string>ECAD084A0FE41A5C00BCCCE1</string>
-											<string>ECAD08760FE41D2E00BCCCE1</string>
 											<string>ECAD087C0FE41E7900BCCCE1</string>
 											<string>ECAD08A60FE4285300BCCCE1</string>
 											<string>ECAD08A70FE4285300BCCCE1</string>
-											<string>ECAD08B70FE42B4D00BCCCE1</string>
-											<string>ECCD8C240FE3FCE400FE0722</string>
+											<string>ECAD08D90FE4393300BCCCE1</string>
+											<string>ECAD08DA0FE4393300BCCCE1</string>
+											<string>ECAD08DB0FE4393300BCCCE1</string>
+											<string>ECAD08DC0FE4393300BCCCE1</string>
+											<string>ECAD08DD0FE4393300BCCCE1</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -384,6 +385,21 @@
 											<string>ECAD08AA0FE4285300BCCCE1</string>
 											<string>ECAD08AB0FE4285300BCCCE1</string>
 											<string>ECAD08B80FE42B4D00BCCCE1</string>
+											<string>ECAD08DE0FE4393300BCCCE1</string>
+											<string>ECAD08DF0FE4393300BCCCE1</string>
+											<string>ECAD08E00FE4393300BCCCE1</string>
+											<string>ECAD08E10FE4393300BCCCE1</string>
+											<string>ECAD08E20FE4393300BCCCE1</string>
+											<string>ECAD08E30FE4393300BCCCE1</string>
+											<string>ECAD08E40FE4393300BCCCE1</string>
+											<string>ECAD08E50FE4393300BCCCE1</string>
+											<string>ECAD08E60FE4393300BCCCE1</string>
+											<string>ECAD08E70FE4393300BCCCE1</string>
+											<string>ECAD08E80FE4393300BCCCE1</string>
+											<string>ECAD08E90FE4393300BCCCE1</string>
+											<string>ECAD08EA0FE4393300BCCCE1</string>
+											<string>ECAD08EB0FE4393300BCCCE1</string>
+											<string>ECAD08EC0FE4393300BCCCE1</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -580,9 +596,9 @@
 		<string>ECAD08BA0FE42B4D00BCCCE1</string>
 		<string>ECAD08BB0FE42B4D00BCCCE1</string>
 		<string>EC264D9C0FDF3B6000A83382</string>
+		<string>/Users/taylan/Documents/Development/Personal/the-big-picture/iphone/The Big Picture/The Big Picture.xcodeproj</string>
 		<string>1C78EAAD065D492600B07095</string>
 		<string>1CD10A99069EF8BA00B06720</string>
-		<string>/Users/taylan/Documents/Development/Personal/the-big-picture/iphone/The Big Picture/The Big Picture.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
 	<string>4 55 1436 823 0 0 1440 878 </string>

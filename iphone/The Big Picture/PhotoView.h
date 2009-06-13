@@ -13,6 +13,8 @@
 
 @interface PhotoView : UIImageView {
 	Photo *photo;
+	UILabel *label;
+	UIButton *infoButton;
 	UIActivityIndicatorView *loadingIndicator;
 	
 	CGFloat initialDistance;
@@ -23,6 +25,8 @@
 }
 
 @property (nonatomic, retain) Photo *photo;
+@property (nonatomic, retain) UILabel *label;
+@property (nonatomic, retain) UIButton *infoButton;
 @property (nonatomic, retain) UIActivityIndicatorView *loadingIndicator;
 
 @property (nonatomic, assign) CGFloat initialDistance;
