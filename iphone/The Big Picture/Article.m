@@ -11,6 +11,6 @@
 
 @implementation Article
 
-@synthesize guid, title, description, url, timestamp;
+@synthesize guid, title, description, url, timestamp, unread;
 
 @end

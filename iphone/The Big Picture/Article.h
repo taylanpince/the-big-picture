@@ -13,6 +13,8 @@
 	NSString *description;
 	NSURL *url;
 	NSDate *timestamp;
+	
+	BOOL unread;
 }
 
 @property (nonatomic, copy) NSString *guid;
@@ -20,5 +22,6 @@
 @property (nonatomic, copy) NSString *description;
 @property (nonatomic, copy) NSURL *url;
 @property (nonatomic, copy) NSDate *timestamp;
+@property (nonatomic, assign) BOOL unread;
 
 @end

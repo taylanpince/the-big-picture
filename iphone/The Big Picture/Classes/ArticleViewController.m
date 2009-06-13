@@ -106,6 +106,10 @@ static NSString *const RE_PHOTO = @"<div class=\"bpBoth\"><a name=\"photo[0-9]+\
 	
 	if ([[(TheBigPictureAppDelegate *)[[UIApplication sharedApplication] delegate] articleData] objectForKey:article.guid] == nil) {
 		[[(TheBigPictureAppDelegate *)[[UIApplication sharedApplication] delegate] articleData] setObject:[NSNumber numberWithInt:0] forKey:article.guid];
+		
+		NSInteger unreadCount = [[UIApplication sharedApplication] applicationIconBadgeNumber];
+		
+		[[UIApplication sharedApplication] setApplicationIconBadgeNumber:unreadCount - 1];
 	}
 }
 

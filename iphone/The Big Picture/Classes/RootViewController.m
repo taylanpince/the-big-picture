@@ -69,6 +69,14 @@ static NSString *const RE_ARTICLE_DESC = @"<div class=\"bpBody\">(.*?)\\(<a href
 	[dateFormatter setDateStyle:NSDateFormatterFullStyle];
 
 	[self.tableView reloadData];
+	
+	NSInteger unreadCount = 0;
+	
+	for (Article *article in articleList) {
+		if (article.unread) unreadCount++;
+	}
+	
+	[[UIApplication sharedApplication] setApplicationIconBadgeNumber:unreadCount];
 }
 
 
@@ -135,6 +143,7 @@ static NSString *const RE_ARTICLE_DESC = @"<div class=\"bpBody\">(.*?)\\(<a href
 		article.url = [NSURL URLWithString:activeContent];
 	} else if ([elementName isEqualToString:@"guid"]) {
 		article.guid = activeContent;
+		article.unread = ([[(TheBigPictureAppDelegate *)[[UIApplication sharedApplication] delegate] articleData] objectForKey:article.guid] == nil);
 	} else if ([elementName isEqualToString:@"pubDate"]) {
 		article.timestamp = [dateFormatter dateFromString:[activeContent substringFromIndex:4]];
 	}
@@ -184,7 +193,7 @@ static NSString *const RE_ARTICLE_DESC = @"<div class=\"bpBody\">(.*?)\\(<a href
 	Article *article = (Article *)[articleList objectAtIndex:indexPath.row];
 
 	cell.mainTitle = article.title;
-	cell.unread = ([[(TheBigPictureAppDelegate *)[[UIApplication sharedApplication] delegate] articleData] objectForKey:article.guid] == nil);
+	cell.unread = article.unread;
 	cell.subTitle = [dateFormatter stringFromDate:article.timestamp];
 	
     return cell;
