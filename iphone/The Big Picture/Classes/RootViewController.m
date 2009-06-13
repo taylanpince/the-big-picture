@@ -201,9 +201,11 @@ static NSString *const RE_ARTICLE_DESC = @"<div class=\"bpBody\">(.*?)\\(<a href
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	Article *article = (Article *)[articleList objectAtIndex:indexPath.row];
 	ArticleViewController *controller = [[ArticleViewController alloc] init];
 	
-	controller.article = [articleList objectAtIndex:indexPath.row];
+	article.unread = NO;
+	controller.article = article;
 	
 	[self.navigationController pushViewController:controller animated:YES];
 	[controller release];
