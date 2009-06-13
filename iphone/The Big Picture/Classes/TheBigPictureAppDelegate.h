@@ -10,11 +10,14 @@
     UIWindow *window;
     UINavigationController *navigationController;
 	
+	NSMutableDictionary *articleData;
+	
 	BOOL reachable;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet UINavigationController *navigationController;
+@property (nonatomic, retain) NSMutableDictionary *articleData;
 
 @property (nonatomic, assign) BOOL reachable;
 

@@ -125,7 +125,9 @@ static UIImage *unreadDot = nil;
 	
 	top.y += subTextSize.height + 4.0;
 	
-	[unreadDot drawAtPoint:CGPointMake(20.0 - unreadDot.size.width / 2, top.y / 2 - unreadDot.size.height / 2)];
+	if (unread) {
+		[unreadDot drawAtPoint:CGPointMake(20.0 - unreadDot.size.width / 2, top.y / 2 - unreadDot.size.height / 2)];
+	}
 }
 
 @end

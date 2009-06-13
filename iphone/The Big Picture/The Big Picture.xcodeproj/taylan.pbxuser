@@ -3,15 +3,15 @@
 	1D3623240D0F684500981E51 /* TheBigPictureAppDelegate.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1114, 572}}";
-			sepNavSelRange = "{521, 18}";
-			sepNavVisRange = "{0, 547}";
+			sepNavSelRange = "{565, 0}";
+			sepNavVisRange = "{0, 648}";
 		};
 	};
 	1D3623250D0F684500981E51 /* TheBigPictureAppDelegate.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1836, 1343}}";
-			sepNavSelRange = "{1808, 0}";
-			sepNavVisRange = "{1037, 846}";
+			sepNavIntBoundsRect = "{{0, 0}, {1836, 1632}}";
+			sepNavSelRange = "{1635, 0}";
+			sepNavVisRange = "{1019, 920}";
 		};
 	};
 	1D6058900D05DD3D006BFB54 /* The Big Picture */ = {
@@ -36,15 +36,15 @@
 	};
 	28C286E00D94DF7D0034E888 /* RootViewController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1380, 3791}}";
-			sepNavSelRange = "{1751, 0}";
-			sepNavVisRange = "{600, 1195}";
+			sepNavIntBoundsRect = "{{0, 0}, {1380, 3859}}";
+			sepNavSelRange = "{1943, 0}";
+			sepNavVisRange = "{794, 1154}";
 		};
 	};
 	29B97313FDCFA39411CA2CEA /* Project object */ = {
 		activeBuildConfigurationName = Debug;
 		activeExecutable = EC264D780FDF390600A83382 /* The Big Picture */;
-		activeSDKPreference = iphoneos3.0;
+		activeSDKPreference = iphonesimulator3.0;
 		activeTarget = 1D6058900D05DD3D006BFB54 /* The Big Picture */;
 		addToTargets = (
 			1D6058900D05DD3D006BFB54 /* The Big Picture */,
@@ -388,6 +388,31 @@
 			ECAD0A4C0FE4568E00BCCCE1 /* PBXTextBookmark */ = ECAD0A4C0FE4568E00BCCCE1 /* PBXTextBookmark */;
 			ECAD0A4D0FE4568E00BCCCE1 /* PBXTextBookmark */ = ECAD0A4D0FE4568E00BCCCE1 /* PBXTextBookmark */;
 			ECAD0A4E0FE4568E00BCCCE1 /* PBXTextBookmark */ = ECAD0A4E0FE4568E00BCCCE1 /* PBXTextBookmark */;
+			ECAD0A620FE45C4F00BCCCE1 /* PBXTextBookmark */ = ECAD0A620FE45C4F00BCCCE1 /* PBXTextBookmark */;
+			ECAD0A630FE45C4F00BCCCE1 /* PBXTextBookmark */ = ECAD0A630FE45C4F00BCCCE1 /* PBXTextBookmark */;
+			ECAD0A640FE45C4F00BCCCE1 /* PBXTextBookmark */ = ECAD0A640FE45C4F00BCCCE1 /* PBXTextBookmark */;
+			ECAD0A650FE45C4F00BCCCE1 /* PBXTextBookmark */ = ECAD0A650FE45C4F00BCCCE1 /* PBXTextBookmark */;
+			ECAD0A660FE45C4F00BCCCE1 /* PBXTextBookmark */ = ECAD0A660FE45C4F00BCCCE1 /* PBXTextBookmark */;
+			ECAD0A670FE45C4F00BCCCE1 /* PBXTextBookmark */ = ECAD0A670FE45C4F00BCCCE1 /* PBXTextBookmark */;
+			ECAD0A680FE45C4F00BCCCE1 /* PBXTextBookmark */ = ECAD0A680FE45C4F00BCCCE1 /* PBXTextBookmark */;
+			ECAD0A690FE45C4F00BCCCE1 /* PBXTextBookmark */ = ECAD0A690FE45C4F00BCCCE1 /* PBXTextBookmark */;
+			ECAD0A6A0FE45C4F00BCCCE1 /* PBXTextBookmark */ = ECAD0A6A0FE45C4F00BCCCE1 /* PBXTextBookmark */;
+			ECAD0A6B0FE45C4F00BCCCE1 /* PBXTextBookmark */ = ECAD0A6B0FE45C4F00BCCCE1 /* PBXTextBookmark */;
+			ECAD0A6C0FE45C4F00BCCCE1 /* PBXTextBookmark */ = ECAD0A6C0FE45C4F00BCCCE1 /* PBXTextBookmark */;
+			ECAD0A6D0FE45C4F00BCCCE1 /* PBXTextBookmark */ = ECAD0A6D0FE45C4F00BCCCE1 /* PBXTextBookmark */;
+			ECAD0A790FE45C7200BCCCE1 /* PBXTextBookmark */ = ECAD0A790FE45C7200BCCCE1 /* PBXTextBookmark */;
+			ECAD0A7A0FE45C7200BCCCE1 /* PBXTextBookmark */ = ECAD0A7A0FE45C7200BCCCE1 /* PBXTextBookmark */;
+			ECAD0A7B0FE45C7200BCCCE1 /* PBXTextBookmark */ = ECAD0A7B0FE45C7200BCCCE1 /* PBXTextBookmark */;
+			ECAD0A7C0FE45C7200BCCCE1 /* PBXTextBookmark */ = ECAD0A7C0FE45C7200BCCCE1 /* PBXTextBookmark */;
+			ECAD0A7E0FE45C9B00BCCCE1 /* PBXTextBookmark */ = ECAD0A7E0FE45C9B00BCCCE1 /* PBXTextBookmark */;
+			ECAD0A7F0FE45C9B00BCCCE1 /* PBXTextBookmark */ = ECAD0A7F0FE45C9B00BCCCE1 /* PBXTextBookmark */;
+			ECAD0A800FE45C9B00BCCCE1 /* PBXTextBookmark */ = ECAD0A800FE45C9B00BCCCE1 /* PBXTextBookmark */;
+			ECAD0A810FE45C9B00BCCCE1 /* PBXTextBookmark */ = ECAD0A810FE45C9B00BCCCE1 /* PBXTextBookmark */;
+			ECAD0A830FE45CC200BCCCE1 /* PBXTextBookmark */ = ECAD0A830FE45CC200BCCCE1 /* PBXTextBookmark */;
+			ECAD0A840FE45CC200BCCCE1 /* PBXTextBookmark */ = ECAD0A840FE45CC200BCCCE1 /* PBXTextBookmark */;
+			ECAD0A850FE45CC200BCCCE1 /* PBXTextBookmark */ = ECAD0A850FE45CC200BCCCE1 /* PBXTextBookmark */;
+			ECAD0A860FE45CC200BCCCE1 /* PBXTextBookmark */ = ECAD0A860FE45CC200BCCCE1 /* PBXTextBookmark */;
+			ECAD0A870FE45CC200BCCCE1 /* PBXTextBookmark */ = ECAD0A870FE45CC200BCCCE1 /* PBXTextBookmark */;
 			ECBA58AA0FE298B40044A1AD = ECBA58AA0FE298B40044A1AD /* PBXTextBookmark */;
 			ECBA58AB0FE298B40044A1AD = ECBA58AB0FE298B40044A1AD /* PBXTextBookmark */;
 			ECBA58AC0FE298B40044A1AD = ECBA58AC0FE298B40044A1AD /* PBXTextBookmark */;
@@ -589,15 +614,15 @@
 	EC264E750FDF52CD00A83382 /* ArticleViewController.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1114, 595}}";
-			sepNavSelRange = "{647, 9}";
-			sepNavVisRange = "{0, 875}";
+			sepNavSelRange = "{153, 0}";
+			sepNavVisRange = "{3, 872}";
 		};
 	};
 	EC264E760FDF52CD00A83382 /* ArticleViewController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {2628, 7106}}";
-			sepNavSelRange = "{10243, 0}";
-			sepNavVisRange = "{5512, 1444}";
+			sepNavIntBoundsRect = "{{0, 0}, {2628, 7055}}";
+			sepNavSelRange = "{4211, 0}";
+			sepNavVisRange = "{3100, 1275}";
 			sepNavVisRect = "{{0, 1456}, {1067, 407}}";
 			sepNavWindowFrame = "{{19, 54}, {1182, 819}}";
 		};
@@ -607,7 +632,7 @@
 		fRef = 1D3623240D0F684500981E51 /* TheBigPictureAppDelegate.h */;
 		name = "TheBigPictureAppDelegate.h: 19";
 		rLen = 0;
-		rLoc = 547;
+		rLoc = 648;
 		rType = 0;
 		vrLen = 457;
 		vrLoc = 0;
@@ -627,7 +652,7 @@
 		fRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */;
 		name = "ArticleViewController.m: 236";
 		rLen = 0;
-		rLoc = 8307;
+		rLoc = 8628;
 		rType = 0;
 		vrLen = 848;
 		vrLoc = 8010;
@@ -671,7 +696,7 @@
 		fRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */;
 		name = "ArticleViewController.m: 103";
 		rLen = 0;
-		rLoc = 3917;
+		rLoc = 4238;
 		rType = 0;
 		vrLen = 1002;
 		vrLoc = 2893;
@@ -681,7 +706,7 @@
 		fRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */;
 		name = "ArticleViewController.m: 236";
 		rLen = 0;
-		rLoc = 8307;
+		rLoc = 8628;
 		rType = 0;
 		vrLen = 848;
 		vrLoc = 8010;
@@ -711,7 +736,7 @@
 		fRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */;
 		name = "ArticleViewController.m: 103";
 		rLen = 0;
-		rLoc = 3917;
+		rLoc = 4238;
 		rType = 0;
 		vrLen = 1082;
 		vrLoc = 2813;
@@ -741,7 +766,7 @@
 		fRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */;
 		name = "ArticleViewController.m: 88";
 		rLen = 0;
-		rLoc = 3263;
+		rLoc = 3300;
 		rType = 0;
 		vrLen = 961;
 		vrLoc = 2893;
@@ -751,7 +776,7 @@
 		fRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */;
 		name = "ArticleViewController.m: 91";
 		rLen = 0;
-		rLoc = 3515;
+		rLoc = 3552;
 		rType = 0;
 		vrLen = 1015;
 		vrLoc = 2893;
@@ -771,7 +796,7 @@
 		fRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */;
 		name = "ArticleViewController.m: 91";
 		rLen = 0;
-		rLoc = 3515;
+		rLoc = 3552;
 		rType = 0;
 		vrLen = 1015;
 		vrLoc = 2893;
@@ -821,7 +846,7 @@
 		fRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */;
 		name = "ArticleViewController.m: 91";
 		rLen = 0;
-		rLoc = 3515;
+		rLoc = 3552;
 		rType = 0;
 		vrLen = 1015;
 		vrLoc = 2893;
@@ -841,7 +866,7 @@
 		fRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */;
 		name = "ArticleViewController.m: 93";
 		rLen = 0;
-		rLoc = 3573;
+		rLoc = 3610;
 		rType = 0;
 		vrLen = 1138;
 		vrLoc = 2771;
@@ -851,7 +876,7 @@
 		fRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */;
 		name = "ArticleViewController.m: 93";
 		rLen = 0;
-		rLoc = 3573;
+		rLoc = 3610;
 		rType = 0;
 		vrLen = 1143;
 		vrLoc = 2771;
@@ -861,7 +886,7 @@
 		fRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */;
 		name = "ArticleViewController.m: 93";
 		rLen = 0;
-		rLoc = 3686;
+		rLoc = 3723;
 		rType = 0;
 		vrLen = 1152;
 		vrLoc = 2771;
@@ -881,7 +906,7 @@
 		fRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */;
 		name = "ArticleViewController.m: 93";
 		rLen = 0;
-		rLoc = 3686;
+		rLoc = 3723;
 		rType = 0;
 		vrLen = 1189;
 		vrLoc = 2771;
@@ -901,7 +926,7 @@
 		fRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */;
 		name = "ArticleViewController.m: 91";
 		rLen = 0;
-		rLoc = 3513;
+		rLoc = 3550;
 		rType = 0;
 		vrLen = 1151;
 		vrLoc = 2771;
@@ -911,7 +936,7 @@
 		fRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */;
 		name = "ArticleViewController.m: 91";
 		rLen = 0;
-		rLoc = 3513;
+		rLoc = 3550;
 		rType = 0;
 		vrLen = 1188;
 		vrLoc = 2771;
@@ -921,7 +946,7 @@
 		fRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */;
 		name = "ArticleViewController.m: 91";
 		rLen = 0;
-		rLoc = 3513;
+		rLoc = 3550;
 		rType = 0;
 		vrLen = 1188;
 		vrLoc = 2771;
@@ -951,7 +976,7 @@
 		fRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */;
 		name = "ArticleViewController.m: 91";
 		rLen = 0;
-		rLoc = 3513;
+		rLoc = 3550;
 		rType = 0;
 		vrLen = 1188;
 		vrLoc = 2771;
@@ -971,7 +996,7 @@
 		fRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */;
 		name = "ArticleViewController.m: 285";
 		rLen = 0;
-		rLoc = 9987;
+		rLoc = 10308;
 		rType = 0;
 		vrLen = 1078;
 		vrLoc = 9264;
@@ -981,7 +1006,7 @@
 		fRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */;
 		name = "ArticleViewController.m: 285";
 		rLen = 0;
-		rLoc = 9987;
+		rLoc = 10308;
 		rType = 0;
 		vrLen = 1105;
 		vrLoc = 9264;
@@ -1001,7 +1026,7 @@
 		fRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */;
 		name = "ArticleViewController.m: 285";
 		rLen = 0;
-		rLoc = 9987;
+		rLoc = 10308;
 		rType = 0;
 		vrLen = 1068;
 		vrLoc = 9120;
@@ -1011,7 +1036,7 @@
 		fRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */;
 		name = "ArticleViewController.m: 285";
 		rLen = 0;
-		rLoc = 9987;
+		rLoc = 10308;
 		rType = 0;
 		vrLen = 1068;
 		vrLoc = 9120;
@@ -1031,7 +1056,7 @@
 		fRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */;
 		name = "ArticleViewController.m: 278";
 		rLen = 0;
-		rLoc = 9798;
+		rLoc = 10119;
 		rType = 0;
 		vrLen = 975;
 		vrLoc = 7839;
@@ -1041,7 +1066,7 @@
 		fRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */;
 		name = "ArticleViewController.m: 178";
 		rLen = 0;
-		rLoc = 6579;
+		rLoc = 6900;
 		rType = 0;
 		vrLen = 1179;
 		vrLoc = 5346;
@@ -1051,7 +1076,7 @@
 		fRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */;
 		name = "ArticleViewController.m: 173";
 		rLen = 0;
-		rLoc = 6002;
+		rLoc = 6323;
 		rType = 0;
 		vrLen = 1257;
 		vrLoc = 5346;
@@ -1061,7 +1086,7 @@
 		fRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */;
 		name = "ArticleViewController.m: 299";
 		rLen = 0;
-		rLoc = 10335;
+		rLoc = 10656;
 		rType = 0;
 		vrLen = 1010;
 		vrLoc = 9410;
@@ -1071,7 +1096,7 @@
 		fRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */;
 		name = "ArticleViewController.m: 300";
 		rLen = 0;
-		rLoc = 10479;
+		rLoc = 10800;
 		rType = 0;
 		vrLen = 1010;
 		vrLoc = 9410;
@@ -1081,7 +1106,7 @@
 		fRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */;
 		name = "ArticleViewController.m: 300";
 		rLen = 0;
-		rLoc = 10479;
+		rLoc = 10800;
 		rType = 0;
 		vrLen = 1010;
 		vrLoc = 9410;
@@ -1091,7 +1116,7 @@
 		fRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */;
 		name = "ArticleViewController.m: 298";
 		rLen = 0;
-		rLoc = 10239;
+		rLoc = 10560;
 		rType = 0;
 		vrLen = 1061;
 		vrLoc = 9410;
@@ -1101,7 +1126,7 @@
 		fRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */;
 		name = "ArticleViewController.m: 303";
 		rLen = 0;
-		rLoc = 10240;
+		rLoc = 10561;
 		rType = 0;
 		vrLen = 949;
 		vrLoc = 9525;
@@ -1111,7 +1136,7 @@
 		fRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */;
 		name = "ArticleViewController.m: 304";
 		rLen = 0;
-		rLoc = 10305;
+		rLoc = 10626;
 		rType = 0;
 		vrLen = 932;
 		vrLoc = 9525;
@@ -1121,7 +1146,7 @@
 		fRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */;
 		name = "ArticleViewController.m: 306";
 		rLen = 0;
-		rLoc = 10420;
+		rLoc = 10741;
 		rType = 0;
 		vrLen = 952;
 		vrLoc = 9525;
@@ -1131,7 +1156,7 @@
 		fRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */;
 		name = "ArticleViewController.m: 90";
 		rLen = 0;
-		rLoc = 3462;
+		rLoc = 3499;
 		rType = 0;
 		vrLen = 1431;
 		vrLoc = 2468;
@@ -1141,7 +1166,7 @@
 		fRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */;
 		name = "ArticleViewController.m: 362";
 		rLen = 0;
-		rLoc = 12739;
+		rLoc = 13060;
 		rType = 0;
 		vrLen = 1303;
 		vrLoc = 11893;
@@ -1151,7 +1176,7 @@
 		fRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */;
 		name = "ArticleViewController.m: 338";
 		rLen = 0;
-		rLoc = 11678;
+		rLoc = 11999;
 		rType = 0;
 		vrLen = 1502;
 		vrLoc = 10812;
@@ -1161,7 +1186,7 @@
 		fRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */;
 		name = "ArticleViewController.m: 358";
 		rLen = 0;
-		rLoc = 12618;
+		rLoc = 12939;
 		rType = 0;
 		vrLen = 1433;
 		vrLoc = 11519;
@@ -1171,7 +1196,7 @@
 		fRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */;
 		name = "ArticleViewController.m: 361";
 		rLen = 0;
-		rLoc = 12682;
+		rLoc = 13003;
 		rType = 0;
 		vrLen = 1423;
 		vrLoc = 11519;
@@ -1181,7 +1206,7 @@
 		fRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */;
 		name = "ArticleViewController.m: 229";
 		rLen = 0;
-		rLoc = 8154;
+		rLoc = 8475;
 		rType = 0;
 		vrLen = 947;
 		vrLoc = 8469;
@@ -1191,7 +1216,7 @@
 		fRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */;
 		name = "ArticleViewController.m: 356";
 		rLen = 3;
-		rLoc = 12627;
+		rLoc = 12948;
 		rType = 0;
 		vrLen = 1423;
 		vrLoc = 11485;
@@ -1201,7 +1226,7 @@
 		fRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */;
 		name = "ArticleViewController.m: 213";
 		rLen = 0;
-		rLoc = 7773;
+		rLoc = 8094;
 		rType = 0;
 		vrLen = 1099;
 		vrLoc = 7150;
@@ -1231,7 +1256,7 @@
 		fRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */;
 		name = "ArticleViewController.m: 213";
 		rLen = 0;
-		rLoc = 7773;
+		rLoc = 8094;
 		rType = 0;
 		vrLen = 1101;
 		vrLoc = 7150;
@@ -1241,7 +1266,7 @@
 		fRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */;
 		name = "ArticleViewController.m: 213";
 		rLen = 0;
-		rLoc = 7773;
+		rLoc = 8094;
 		rType = 0;
 		vrLen = 1101;
 		vrLoc = 7150;
@@ -1271,7 +1296,7 @@
 		fRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */;
 		name = "ArticleViewController.m: 225";
 		rLen = 0;
-		rLoc = 7773;
+		rLoc = 8094;
 		rType = 0;
 		vrLen = 936;
 		vrLoc = 7220;
@@ -1281,7 +1306,7 @@
 		fRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */;
 		name = "ArticleViewController.m: 315";
 		rLen = 0;
-		rLoc = 10338;
+		rLoc = 10659;
 		rType = 0;
 		vrLen = 908;
 		vrLoc = 9914;
@@ -1291,7 +1316,7 @@
 		fRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */;
 		name = "ArticleViewController.m: 317";
 		rLen = 0;
-		rLoc = 10338;
+		rLoc = 10659;
 		rType = 0;
 		vrLen = 853;
 		vrLoc = 9914;
@@ -1301,7 +1326,7 @@
 		fRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */;
 		name = "ArticleViewController.m: 314";
 		rLen = 0;
-		rLoc = 10338;
+		rLoc = 10659;
 		rType = 0;
 		vrLen = 903;
 		vrLoc = 9914;
@@ -1311,7 +1336,7 @@
 		fRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */;
 		name = "ArticleViewController.m: 314";
 		rLen = 0;
-		rLoc = 10338;
+		rLoc = 10659;
 		rType = 0;
 		vrLen = 903;
 		vrLoc = 9914;
@@ -1321,7 +1346,7 @@
 		fRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */;
 		name = "RootViewController.m: 173";
 		rLen = 11;
-		rLoc = 5721;
+		rLoc = 5893;
 		rType = 0;
 		vrLen = 954;
 		vrLoc = 4319;
@@ -1331,7 +1356,7 @@
 		fRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */;
 		name = "RootViewController.m: 171";
 		rLen = 0;
-		rLoc = 5587;
+		rLoc = 5759;
 		rType = 0;
 		vrLen = 954;
 		vrLoc = 4319;
@@ -1341,7 +1366,7 @@
 		fRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */;
 		name = "ArticleViewController.m: 313";
 		rLen = 0;
-		rLoc = 10338;
+		rLoc = 10659;
 		rType = 0;
 		vrLen = 827;
 		vrLoc = 9914;
@@ -1381,7 +1406,7 @@
 		fRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */;
 		name = "RootViewController.m: 171";
 		rLen = 0;
-		rLoc = 5587;
+		rLoc = 5759;
 		rType = 0;
 		vrLen = 954;
 		vrLoc = 4319;
@@ -1461,7 +1486,7 @@
 		fRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */;
 		name = "ArticleViewController.m: 313";
 		rLen = 0;
-		rLoc = 10338;
+		rLoc = 10659;
 		rType = 0;
 		vrLen = 827;
 		vrLoc = 9914;
@@ -1879,9 +1904,9 @@
 	};
 	ECAD09420FE4400C00BCCCE1 /* ArticleCell.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1332, 2414}}";
-			sepNavSelRange = "{2103, 0}";
-			sepNavVisRange = "{1970, 275}";
+			sepNavIntBoundsRect = "{{0, 0}, {1332, 2278}}";
+			sepNavSelRange = "{2660, 0}";
+			sepNavVisRange = "{1895, 894}";
 		};
 	};
 	ECAD09470FE442D000BCCCE1 /* PBXTextBookmark */ = {
@@ -1919,7 +1944,7 @@
 		fRef = ECAD09420FE4400C00BCCCE1 /* ArticleCell.m */;
 		name = "ArticleCell.m: 72";
 		rLen = 0;
-		rLoc = 2775;
+		rLoc = 2794;
 		rType = 0;
 		vrLen = 543;
 		vrLoc = 143;
@@ -1929,7 +1954,7 @@
 		fRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */;
 		name = "RootViewController.m: 168";
 		rLen = 0;
-		rLoc = 5583;
+		rLoc = 5755;
 		rType = 0;
 		vrLen = 1153;
 		vrLoc = 2038;
@@ -1959,7 +1984,7 @@
 		fRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */;
 		name = "RootViewController.m: 168";
 		rLen = 0;
-		rLoc = 5583;
+		rLoc = 5755;
 		rType = 0;
 		vrLen = 1155;
 		vrLoc = 2036;
@@ -1999,7 +2024,7 @@
 		fRef = ECAD09420FE4400C00BCCCE1 /* ArticleCell.m */;
 		name = "ArticleCell.m: 97";
 		rLen = 0;
-		rLoc = 2774;
+		rLoc = 2793;
 		rType = 0;
 		vrLen = 752;
 		vrLoc = 751;
@@ -2039,7 +2064,7 @@
 		fRef = ECAD09420FE4400C00BCCCE1 /* ArticleCell.m */;
 		name = "ArticleCell.m: 72";
 		rLen = 0;
-		rLoc = 2775;
+		rLoc = 2794;
 		rType = 0;
 		vrLen = 543;
 		vrLoc = 143;
@@ -2049,7 +2074,7 @@
 		fRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */;
 		name = "RootViewController.m: 166";
 		rLen = 0;
-		rLoc = 5565;
+		rLoc = 5737;
 		rType = 0;
 		vrLen = 1077;
 		vrLoc = 4087;
@@ -2079,7 +2104,7 @@
 		fRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */;
 		name = "ArticleViewController.m: 313";
 		rLen = 0;
-		rLoc = 10338;
+		rLoc = 10659;
 		rType = 0;
 		vrLen = 861;
 		vrLoc = 9879;
@@ -2089,7 +2114,7 @@
 		fRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */;
 		name = "RootViewController.m: 166";
 		rLen = 0;
-		rLoc = 5565;
+		rLoc = 5737;
 		rType = 0;
 		vrLen = 1078;
 		vrLoc = 4087;
@@ -2099,7 +2124,7 @@
 		fRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */;
 		name = "RootViewController.m: 166";
 		rLen = 0;
-		rLoc = 5565;
+		rLoc = 5737;
 		rType = 0;
 		vrLen = 1078;
 		vrLoc = 4087;
@@ -2109,7 +2134,7 @@
 		fRef = ECAD09420FE4400C00BCCCE1 /* ArticleCell.m */;
 		name = "ArticleCell.m: 72";
 		rLen = 0;
-		rLoc = 2775;
+		rLoc = 2794;
 		rType = 0;
 		vrLen = 540;
 		vrLoc = 146;
@@ -2129,7 +2154,7 @@
 		fRef = ECAD09420FE4400C00BCCCE1 /* ArticleCell.m */;
 		name = "ArticleCell.m: 72";
 		rLen = 0;
-		rLoc = 2775;
+		rLoc = 2794;
 		rType = 0;
 		vrLen = 616;
 		vrLoc = 0;
@@ -2159,7 +2184,7 @@
 		fRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */;
 		name = "ArticleViewController.m: 313";
 		rLen = 0;
-		rLoc = 10338;
+		rLoc = 10659;
 		rType = 0;
 		vrLen = 861;
 		vrLoc = 9879;
@@ -2169,7 +2194,7 @@
 		fRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */;
 		name = "RootViewController.m: 168";
 		rLen = 0;
-		rLoc = 5565;
+		rLoc = 5737;
 		rType = 0;
 		vrLen = 1074;
 		vrLoc = 4087;
@@ -2179,7 +2204,7 @@
 		fRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */;
 		name = "RootViewController.m: 168";
 		rLen = 0;
-		rLoc = 5565;
+		rLoc = 5737;
 		rType = 0;
 		vrLen = 1075;
 		vrLoc = 4087;
@@ -2199,7 +2224,7 @@
 		fRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */;
 		name = "RootViewController.m: 168";
 		rLen = 0;
-		rLoc = 5565;
+		rLoc = 5737;
 		rType = 0;
 		vrLen = 1075;
 		vrLoc = 4087;
@@ -2389,7 +2414,7 @@
 		fRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */;
 		name = "RootViewController.m: 168";
 		rLen = 0;
-		rLoc = 5565;
+		rLoc = 5737;
 		rType = 0;
 		vrLen = 1107;
 		vrLoc = 4055;
@@ -2459,7 +2484,7 @@
 		fRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */;
 		name = "RootViewController.m: 53";
 		rLen = 0;
-		rLoc = 2032;
+		rLoc = 2064;
 		rType = 0;
 		vrLen = 795;
 		vrLoc = 1028;
@@ -2469,7 +2494,7 @@
 		fRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */;
 		name = "RootViewController.m: 55";
 		rLen = 0;
-		rLoc = 2033;
+		rLoc = 2065;
 		rType = 0;
 		vrLen = 748;
 		vrLoc = 1028;
@@ -2479,7 +2504,7 @@
 		fRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */;
 		name = "RootViewController.m: 55";
 		rLen = 0;
-		rLoc = 2033;
+		rLoc = 2065;
 		rType = 0;
 		vrLen = 800;
 		vrLoc = 1028;
@@ -2499,7 +2524,7 @@
 		fRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */;
 		name = "RootViewController.m: 55";
 		rLen = 0;
-		rLoc = 2033;
+		rLoc = 2065;
 		rType = 0;
 		vrLen = 800;
 		vrLoc = 1028;
@@ -2529,7 +2554,7 @@
 		fRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */;
 		name = "RootViewController.m: 190";
 		rLen = 0;
-		rLoc = 6154;
+		rLoc = 6326;
 		rType = 0;
 		vrLen = 1077;
 		vrLoc = 4664;
@@ -2569,7 +2594,7 @@
 		fRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */;
 		name = "RootViewController.m: 192";
 		rLen = 0;
-		rLoc = 6325;
+		rLoc = 6497;
 		rType = 0;
 		vrLen = 1065;
 		vrLoc = 4664;
@@ -2579,7 +2604,7 @@
 		fRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */;
 		name = "RootViewController.m: 192";
 		rLen = 0;
-		rLoc = 6322;
+		rLoc = 6494;
 		rType = 0;
 		vrLen = 1065;
 		vrLoc = 4664;
@@ -2589,7 +2614,7 @@
 		fRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */;
 		name = "RootViewController.m: 192";
 		rLen = 0;
-		rLoc = 6322;
+		rLoc = 6494;
 		rType = 0;
 		vrLen = 1065;
 		vrLoc = 4664;
@@ -2619,7 +2644,7 @@
 		fRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */;
 		name = "RootViewController.m: 190";
 		rLen = 0;
-		rLoc = 6210;
+		rLoc = 6382;
 		rType = 0;
 		vrLen = 1062;
 		vrLoc = 4738;
@@ -2629,7 +2654,7 @@
 		fRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */;
 		name = "RootViewController.m: 190";
 		rLen = 0;
-		rLoc = 6210;
+		rLoc = 6382;
 		rType = 0;
 		vrLen = 1062;
 		vrLoc = 4738;
@@ -2659,7 +2684,7 @@
 		fRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */;
 		name = "RootViewController.m: 191";
 		rLen = 0;
-		rLoc = 6293;
+		rLoc = 6465;
 		rType = 0;
 		vrLen = 1115;
 		vrLoc = 4664;
@@ -2669,7 +2694,7 @@
 		fRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */;
 		name = "RootViewController.m: 168";
 		rLen = 0;
-		rLoc = 5464;
+		rLoc = 5496;
 		rType = 0;
 		vrLen = 1288;
 		vrLoc = 4208;
@@ -2679,7 +2704,7 @@
 		fRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */;
 		name = "RootViewController.m: 168";
 		rLen = 0;
-		rLoc = 5464;
+		rLoc = 5496;
 		rType = 0;
 		vrLen = 1482;
 		vrLoc = 4208;
@@ -2709,7 +2734,7 @@
 		fRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */;
 		name = "RootViewController.m: 168";
 		rLen = 0;
-		rLoc = 5464;
+		rLoc = 5496;
 		rType = 0;
 		vrLen = 1482;
 		vrLoc = 4208;
@@ -2769,7 +2794,7 @@
 		fRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */;
 		name = "RootViewController.m: 166";
 		rLen = 0;
-		rLoc = 5389;
+		rLoc = 5421;
 		rType = 0;
 		vrLen = 1218;
 		vrLoc = 4078;
@@ -2799,7 +2824,7 @@
 		fRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */;
 		name = "RootViewController.m: 166";
 		rLen = 0;
-		rLoc = 5389;
+		rLoc = 5421;
 		rType = 0;
 		vrLen = 1218;
 		vrLoc = 4078;
@@ -2829,7 +2854,7 @@
 		fRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */;
 		name = "ArticleViewController.m: 310";
 		rLen = 0;
-		rLoc = 10243;
+		rLoc = 10564;
 		rType = 0;
 		vrLen = 1444;
 		vrLoc = 5512;
@@ -2839,7 +2864,7 @@
 		fRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */;
 		name = "RootViewController.m: 166";
 		rLen = 0;
-		rLoc = 5389;
+		rLoc = 5421;
 		rType = 0;
 		vrLen = 1218;
 		vrLoc = 4078;
@@ -2859,7 +2884,7 @@
 		fRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */;
 		name = "ArticleViewController.m: 310";
 		rLen = 0;
-		rLoc = 10243;
+		rLoc = 10564;
 		rType = 0;
 		vrLen = 1444;
 		vrLoc = 5512;
@@ -2869,7 +2894,7 @@
 		fRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */;
 		name = "RootViewController.m: 169";
 		rLen = 0;
-		rLoc = 5466;
+		rLoc = 5498;
 		rType = 0;
 		vrLen = 1093;
 		vrLoc = 4078;
@@ -2879,7 +2904,7 @@
 		fRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */;
 		name = "RootViewController.m: 169";
 		rLen = 0;
-		rLoc = 5466;
+		rLoc = 5498;
 		rType = 0;
 		vrLen = 1166;
 		vrLoc = 4078;
@@ -2899,7 +2924,7 @@
 		fRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */;
 		name = "RootViewController.m: 169";
 		rLen = 0;
-		rLoc = 5466;
+		rLoc = 5498;
 		rType = 0;
 		vrLen = 1166;
 		vrLoc = 4078;
@@ -2919,7 +2944,7 @@
 		fRef = ECAD09420FE4400C00BCCCE1 /* ArticleCell.m */;
 		name = "ArticleCell.m: 126";
 		rLen = 0;
-		rLoc = 2763;
+		rLoc = 2779;
 		rType = 0;
 		vrLen = 843;
 		vrLoc = 1805;
@@ -2929,7 +2954,7 @@
 		fRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */;
 		name = "RootViewController.m: 191";
 		rLen = 0;
-		rLoc = 6295;
+		rLoc = 6467;
 		rType = 0;
 		vrLen = 1057;
 		vrLoc = 4735;
@@ -2939,7 +2964,7 @@
 		fRef = ECAD09420FE4400C00BCCCE1 /* ArticleCell.m */;
 		name = "ArticleCell.m: 126";
 		rLen = 0;
-		rLoc = 2763;
+		rLoc = 2779;
 		rType = 0;
 		vrLen = 844;
 		vrLoc = 1805;
@@ -2949,7 +2974,7 @@
 		fRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */;
 		name = "RootViewController.m: 191";
 		rLen = 0;
-		rLoc = 6295;
+		rLoc = 6467;
 		rType = 0;
 		vrLen = 1057;
 		vrLoc = 4735;
@@ -2959,7 +2984,7 @@
 		fRef = ECAD09420FE4400C00BCCCE1 /* ArticleCell.m */;
 		name = "ArticleCell.m: 128";
 		rLen = 0;
-		rLoc = 2724;
+		rLoc = 2740;
 		rType = 0;
 		vrLen = 872;
 		vrLoc = 1895;
@@ -2969,7 +2994,7 @@
 		fRef = ECAD09420FE4400C00BCCCE1 /* ArticleCell.m */;
 		name = "ArticleCell.m: 128";
 		rLen = 0;
-		rLoc = 2763;
+		rLoc = 2779;
 		rType = 0;
 		vrLen = 825;
 		vrLoc = 1895;
@@ -2979,7 +3004,7 @@
 		fRef = ECAD09420FE4400C00BCCCE1 /* ArticleCell.m */;
 		name = "ArticleCell.m: 128";
 		rLen = 0;
-		rLoc = 2695;
+		rLoc = 2711;
 		rType = 0;
 		vrLen = 825;
 		vrLoc = 1895;
@@ -2989,7 +3014,7 @@
 		fRef = ECAD09420FE4400C00BCCCE1 /* ArticleCell.m */;
 		name = "ArticleCell.m: 128";
 		rLen = 0;
-		rLoc = 2763;
+		rLoc = 2779;
 		rType = 0;
 		vrLen = 880;
 		vrLoc = 1895;
@@ -2999,7 +3024,7 @@
 		comments = "error: 'UIBarStyleBlack' undeclared (first use in this function)";
 		fRef = 1D3623250D0F684500981E51 /* TheBigPictureAppDelegate.m */;
 		rLen = 1;
-		rLoc = 53;
+		rLoc = 59;
 		rType = 1;
 	};
 	ECAD09EA0FE4533000BCCCE1 /* PBXTextBookmark */ = {
@@ -3007,7 +3032,7 @@
 		fRef = 1D3623250D0F684500981E51 /* TheBigPictureAppDelegate.m */;
 		name = "TheBigPictureAppDelegate.m: 52";
 		rLen = 64;
-		rLoc = 1486;
+		rLoc = 1682;
 		rType = 0;
 		vrLen = 205;
 		vrLoc = 1452;
@@ -3017,7 +3042,7 @@
 		fRef = 1D3623250D0F684500981E51 /* TheBigPictureAppDelegate.m */;
 		name = "TheBigPictureAppDelegate.m: 52";
 		rLen = 0;
-		rLoc = 1548;
+		rLoc = 1744;
 		rType = 0;
 		vrLen = 230;
 		vrLoc = 1452;
@@ -3035,7 +3060,7 @@
 		fRef = 1D3623250D0F684500981E51 /* TheBigPictureAppDelegate.m */;
 		name = "TheBigPictureAppDelegate.m: 52";
 		rLen = 0;
-		rLoc = 1548;
+		rLoc = 1744;
 		rType = 0;
 		vrLen = 230;
 		vrLoc = 1452;
@@ -3055,7 +3080,7 @@
 		fRef = 1D3623240D0F684500981E51 /* TheBigPictureAppDelegate.h */;
 		name = "TheBigPictureAppDelegate.h: 19";
 		rLen = 0;
-		rLoc = 540;
+		rLoc = 641;
 		rType = 0;
 		vrLen = 518;
 		vrLoc = 0;
@@ -3096,7 +3121,7 @@
 		fRef = 1D3623250D0F684500981E51 /* TheBigPictureAppDelegate.m */;
 		name = "TheBigPictureAppDelegate.m: 54";
 		rLen = 0;
-		rLoc = 1641;
+		rLoc = 1837;
 		rType = 0;
 		vrLen = 763;
 		vrLoc = 1016;
@@ -3106,7 +3131,7 @@
 		fRef = ECAD09420FE4400C00BCCCE1 /* ArticleCell.m */;
 		name = "ArticleCell.m: 128";
 		rLen = 0;
-		rLoc = 2763;
+		rLoc = 2779;
 		rType = 0;
 		vrLen = 875;
 		vrLoc = 1895;
@@ -3116,7 +3141,7 @@
 		fRef = ECAD09420FE4400C00BCCCE1 /* ArticleCell.m */;
 		name = "ArticleCell.m: 128";
 		rLen = 0;
-		rLoc = 2763;
+		rLoc = 2779;
 		rType = 0;
 		vrLen = 880;
 		vrLoc = 1895;
@@ -3126,7 +3151,7 @@
 		fRef = 1D3623240D0F684500981E51 /* TheBigPictureAppDelegate.h */;
 		name = "TheBigPictureAppDelegate.h: 19";
 		rLen = 0;
-		rLoc = 540;
+		rLoc = 641;
 		rType = 0;
 		vrLen = 518;
 		vrLoc = 0;
@@ -3177,7 +3202,7 @@
 		fRef = 1D3623250D0F684500981E51 /* TheBigPictureAppDelegate.m */;
 		name = "TheBigPictureAppDelegate.m: 54";
 		rLen = 0;
-		rLoc = 1641;
+		rLoc = 1837;
 		rType = 0;
 		vrLen = 763;
 		vrLoc = 1016;
@@ -3207,7 +3232,7 @@
 		fRef = 1D3623250D0F684500981E51 /* TheBigPictureAppDelegate.m */;
 		name = "TheBigPictureAppDelegate.m: 54";
 		rLen = 0;
-		rLoc = 1641;
+		rLoc = 1837;
 		rType = 0;
 		vrLen = 773;
 		vrLoc = 1006;
@@ -3227,7 +3252,7 @@
 		fRef = 1D3623250D0F684500981E51 /* TheBigPictureAppDelegate.m */;
 		name = "TheBigPictureAppDelegate.m: 52";
 		rLen = 0;
-		rLoc = 1548;
+		rLoc = 1744;
 		rType = 0;
 		vrLen = 1133;
 		vrLoc = 589;
@@ -3237,7 +3262,7 @@
 		fRef = 1D3623250D0F684500981E51 /* TheBigPictureAppDelegate.m */;
 		name = "TheBigPictureAppDelegate.m: 46";
 		rLen = 0;
-		rLoc = 1334;
+		rLoc = 1347;
 		rType = 0;
 		vrLen = 835;
 		vrLoc = 1016;
@@ -3257,7 +3282,7 @@
 		fRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */;
 		name = "RootViewController.m: 191";
 		rLen = 0;
-		rLoc = 6295;
+		rLoc = 6467;
 		rType = 0;
 		vrLen = 1057;
 		vrLoc = 4735;
@@ -3267,7 +3292,7 @@
 		fRef = 1D3623250D0F684500981E51 /* TheBigPictureAppDelegate.m */;
 		name = "TheBigPictureAppDelegate.m: 46";
 		rLen = 0;
-		rLoc = 1334;
+		rLoc = 1347;
 		rType = 0;
 		vrLen = 835;
 		vrLoc = 1016;
@@ -3277,7 +3302,7 @@
 		fRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */;
 		name = "RootViewController.m: 191";
 		rLen = 0;
-		rLoc = 6295;
+		rLoc = 6467;
 		rType = 0;
 		vrLen = 1057;
 		vrLoc = 4735;
@@ -3317,7 +3342,7 @@
 		fRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */;
 		name = "RootViewController.m: 74";
 		rLen = 0;
-		rLoc = 2201;
+		rLoc = 2233;
 		rType = 0;
 		vrLen = 781;
 		vrLoc = 1583;
@@ -3327,7 +3352,7 @@
 		fRef = 1D3623240D0F684500981E51 /* TheBigPictureAppDelegate.h */;
 		name = "TheBigPictureAppDelegate.h: 21";
 		rLen = 18;
-		rLoc = 521;
+		rLoc = 622;
 		rType = 0;
 		vrLen = 547;
 		vrLoc = 0;
@@ -3337,7 +3362,7 @@
 		fRef = 1D3623250D0F684500981E51 /* TheBigPictureAppDelegate.m */;
 		name = "TheBigPictureAppDelegate.m: 68";
 		rLen = 0;
-		rLoc = 1808;
+		rLoc = 2207;
 		rType = 0;
 		vrLen = 846;
 		vrLoc = 1037;
@@ -3367,7 +3392,7 @@
 		fRef = 1D3623250D0F684500981E51 /* TheBigPictureAppDelegate.m */;
 		name = "TheBigPictureAppDelegate.m: 68";
 		rLen = 0;
-		rLoc = 1808;
+		rLoc = 2207;
 		rType = 0;
 		vrLen = 1058;
 		vrLoc = 277;
@@ -3377,7 +3402,7 @@
 		fRef = 1D3623240D0F684500981E51 /* TheBigPictureAppDelegate.h */;
 		name = "TheBigPictureAppDelegate.h: 21";
 		rLen = 18;
-		rLoc = 521;
+		rLoc = 622;
 		rType = 0;
 		vrLen = 547;
 		vrLoc = 0;
@@ -3387,7 +3412,7 @@
 		fRef = 1D3623250D0F684500981E51 /* TheBigPictureAppDelegate.m */;
 		name = "TheBigPictureAppDelegate.m: 68";
 		rLen = 0;
-		rLoc = 1808;
+		rLoc = 2207;
 		rType = 0;
 		vrLen = 846;
 		vrLoc = 1037;
@@ -3401,6 +3426,256 @@
 		rType = 0;
 		vrLen = 1195;
 		vrLoc = 600;
+	};
+	ECAD0A620FE45C4F00BCCCE1 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623240D0F684500981E51 /* TheBigPictureAppDelegate.h */;
+		name = "TheBigPictureAppDelegate.h: 20";
+		rLen = 0;
+		rLoc = 565;
+		rType = 0;
+		vrLen = 648;
+		vrLoc = 0;
+	};
+	ECAD0A630FE45C4F00BCCCE1 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623250D0F684500981E51 /* TheBigPictureAppDelegate.m */;
+		name = "TheBigPictureAppDelegate.m: 74";
+		rLen = 0;
+		rLoc = 2030;
+		rType = 0;
+		vrLen = 1180;
+		vrLoc = 567;
+	};
+	ECAD0A640FE45C4F00BCCCE1 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = EC264E750FDF52CD00A83382 /* ArticleViewController.h */;
+		name = "ArticleViewController.h: 9";
+		rLen = 0;
+		rLoc = 153;
+		rType = 0;
+		vrLen = 872;
+		vrLoc = 3;
+	};
+	ECAD0A650FE45C4F00BCCCE1 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */;
+		name = "ArticleViewController.m: 108";
+		rLen = 0;
+		rLoc = 4211;
+		rType = 0;
+		vrLen = 1275;
+		vrLoc = 3100;
+	};
+	ECAD0A660FE45C4F00BCCCE1 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */;
+		name = "RootViewController.m: 54";
+		rLen = 0;
+		rLoc = 1751;
+		rType = 0;
+		vrLen = 1012;
+		vrLoc = 1050;
+	};
+	ECAD0A670FE45C4F00BCCCE1 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */;
+		name = "RootViewController.m: 54";
+		rLen = 0;
+		rLoc = 1751;
+		rType = 0;
+		vrLen = 1023;
+		vrLoc = 0;
+	};
+	ECAD0A680FE45C4F00BCCCE1 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623240D0F684500981E51 /* TheBigPictureAppDelegate.h */;
+		name = "TheBigPictureAppDelegate.h: 20";
+		rLen = 0;
+		rLoc = 565;
+		rType = 0;
+		vrLen = 648;
+		vrLoc = 0;
+	};
+	ECAD0A690FE45C4F00BCCCE1 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623250D0F684500981E51 /* TheBigPictureAppDelegate.m */;
+		name = "TheBigPictureAppDelegate.m: 74";
+		rLen = 0;
+		rLoc = 2030;
+		rType = 0;
+		vrLen = 1180;
+		vrLoc = 567;
+	};
+	ECAD0A6A0FE45C4F00BCCCE1 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */;
+		name = "RootViewController.m: 54";
+		rLen = 0;
+		rLoc = 1751;
+		rType = 0;
+		vrLen = 1039;
+		vrLoc = 1023;
+	};
+	ECAD0A6B0FE45C4F00BCCCE1 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = EC264E750FDF52CD00A83382 /* ArticleViewController.h */;
+		name = "ArticleViewController.h: 9";
+		rLen = 0;
+		rLoc = 153;
+		rType = 0;
+		vrLen = 872;
+		vrLoc = 3;
+	};
+	ECAD0A6C0FE45C4F00BCCCE1 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */;
+		name = "ArticleViewController.m: 108";
+		rLen = 0;
+		rLoc = 4211;
+		rType = 0;
+		vrLen = 1275;
+		vrLoc = 3100;
+	};
+	ECAD0A6D0FE45C4F00BCCCE1 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */;
+		name = "RootViewController.m: 185";
+		rLen = 0;
+		rLoc = 5530;
+		rType = 0;
+		vrLen = 1204;
+		vrLoc = 4862;
+	};
+	ECAD0A790FE45C7200BCCCE1 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */;
+		name = "RootViewController.m: 185";
+		rLen = 0;
+		rLoc = 5530;
+		rType = 0;
+		vrLen = 1375;
+		vrLoc = 4862;
+	};
+	ECAD0A7A0FE45C7200BCCCE1 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623250D0F684500981E51 /* TheBigPictureAppDelegate.m */;
+		name = "TheBigPictureAppDelegate.m: 74";
+		rLen = 0;
+		rLoc = 2030;
+		rType = 0;
+		vrLen = 1163;
+		vrLoc = 584;
+	};
+	ECAD0A7B0FE45C7200BCCCE1 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */;
+		name = "RootViewController.m: 185";
+		rLen = 0;
+		rLoc = 5530;
+		rType = 0;
+		vrLen = 1375;
+		vrLoc = 4862;
+	};
+	ECAD0A7C0FE45C7200BCCCE1 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623250D0F684500981E51 /* TheBigPictureAppDelegate.m */;
+		name = "TheBigPictureAppDelegate.m: 58";
+		rLen = 0;
+		rLoc = 1633;
+		rType = 0;
+		vrLen = 958;
+		vrLoc = 1019;
+	};
+	ECAD0A7E0FE45C9B00BCCCE1 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623250D0F684500981E51 /* TheBigPictureAppDelegate.m */;
+		name = "TheBigPictureAppDelegate.m: 59";
+		rLen = 0;
+		rLoc = 1635;
+		rType = 0;
+		vrLen = 920;
+		vrLoc = 1019;
+	};
+	ECAD0A7F0FE45C9B00BCCCE1 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = ECAD09420FE4400C00BCCCE1 /* ArticleCell.m */;
+		name = "ArticleCell.m: 109";
+		rLen = 0;
+		rLoc = 2106;
+		rType = 0;
+		vrLen = 650;
+		vrLoc = 862;
+	};
+	ECAD0A800FE45C9B00BCCCE1 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623250D0F684500981E51 /* TheBigPictureAppDelegate.m */;
+		name = "TheBigPictureAppDelegate.m: 59";
+		rLen = 0;
+		rLoc = 1635;
+		rType = 0;
+		vrLen = 920;
+		vrLoc = 1019;
+	};
+	ECAD0A810FE45C9B00BCCCE1 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = ECAD09420FE4400C00BCCCE1 /* ArticleCell.m */;
+		name = "ArticleCell.m: 128";
+		rLen = 0;
+		rLoc = 2660;
+		rType = 0;
+		vrLen = 893;
+		vrLoc = 1895;
+	};
+	ECAD0A830FE45CC200BCCCE1 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = ECAD09420FE4400C00BCCCE1 /* ArticleCell.m */;
+		name = "ArticleCell.m: 128";
+		rLen = 0;
+		rLoc = 2660;
+		rType = 0;
+		vrLen = 894;
+		vrLoc = 1895;
+	};
+	ECAD0A840FE45CC200BCCCE1 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28C286DF0D94DF7D0034E888 /* RootViewController.h */;
+		name = "RootViewController.h: 20";
+		rLen = 0;
+		rLoc = 606;
+		rType = 0;
+		vrLen = 613;
+		vrLoc = 0;
+	};
+	ECAD0A850FE45CC200BCCCE1 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = ECAD09420FE4400C00BCCCE1 /* ArticleCell.m */;
+		name = "ArticleCell.m: 128";
+		rLen = 0;
+		rLoc = 2660;
+		rType = 0;
+		vrLen = 894;
+		vrLoc = 1895;
+	};
+	ECAD0A860FE45CC200BCCCE1 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28C286DF0D94DF7D0034E888 /* RootViewController.h */;
+		name = "RootViewController.h: 20";
+		rLen = 0;
+		rLoc = 606;
+		rType = 0;
+		vrLen = 613;
+		vrLoc = 0;
+	};
+	ECAD0A870FE45CC200BCCCE1 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */;
+		name = "RootViewController.m: 63";
+		rLen = 0;
+		rLoc = 1943;
+		rType = 0;
+		vrLen = 1154;
+		vrLoc = 794;
 	};
 	ECBA58AA0FE298B40044A1AD /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -3508,7 +3783,7 @@
 		fRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */;
 		name = "RootViewController.m: 110";
 		rLen = 0;
-		rLoc = 3877;
+		rLoc = 3909;
 		rType = 0;
 		vrLen = 909;
 		vrLoc = 0;
@@ -3518,7 +3793,7 @@
 		fRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */;
 		name = "RootViewController.m: 168";
 		rLen = 0;
-		rLoc = 5583;
+		rLoc = 5755;
 		rType = 0;
 		vrLen = 750;
 		vrLoc = 1308;
@@ -3528,7 +3803,7 @@
 		fRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */;
 		name = "RootViewController.m: 168";
 		rLen = 0;
-		rLoc = 5583;
+		rLoc = 5755;
 		rType = 0;
 		vrLen = 750;
 		vrLoc = 1308;
@@ -3538,7 +3813,7 @@
 		fRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */;
 		name = "ArticleViewController.m: 77";
 		rLen = 81;
-		rLoc = 2924;
+		rLoc = 2961;
 		rType = 0;
 		vrLen = 1299;
 		vrLoc = 2531;
@@ -3568,7 +3843,7 @@
 		fRef = 1D3623250D0F684500981E51 /* TheBigPictureAppDelegate.m */;
 		name = "TheBigPictureAppDelegate.m: 24";
 		rLen = 0;
-		rLoc = 1620;
+		rLoc = 1816;
 		rType = 0;
 		vrLen = 657;
 		vrLoc = 155;
@@ -3578,7 +3853,7 @@
 		fRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */;
 		name = "ArticleViewController.m: 89";
 		rLen = 0;
-		rLoc = 3263;
+		rLoc = 3300;
 		rType = 0;
 		vrLen = 1563;
 		vrLoc = 2255;
@@ -3588,7 +3863,7 @@
 		fRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */;
 		name = "ArticleViewController.m: 89";
 		rLen = 0;
-		rLoc = 3263;
+		rLoc = 3300;
 		rType = 0;
 		vrLen = 1565;
 		vrLoc = 2253;
@@ -3598,7 +3873,7 @@
 		fRef = 1D3623250D0F684500981E51 /* TheBigPictureAppDelegate.m */;
 		name = "TheBigPictureAppDelegate.m: 24";
 		rLen = 0;
-		rLoc = 1620;
+		rLoc = 1816;
 		rType = 0;
 		vrLen = 657;
 		vrLoc = 155;
@@ -3608,7 +3883,7 @@
 		fRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */;
 		name = "ArticleViewController.m: 236";
 		rLen = 0;
-		rLoc = 8307;
+		rLoc = 8628;
 		rType = 0;
 		vrLen = 848;
 		vrLoc = 8010;

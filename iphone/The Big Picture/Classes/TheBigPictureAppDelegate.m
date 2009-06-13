@@ -16,7 +16,7 @@
 
 @synthesize window;
 @synthesize navigationController;
-@synthesize reachable;
+@synthesize articleData, reachable;
 
 
 - (void)updateReachability {
@@ -50,6 +50,12 @@
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
 	[self updateReachability];
 	
+	articleData = [[[NSUserDefaults standardUserDefaults] objectForKey:@"articleData"] mutableCopy];
+	
+	if (articleData == nil) {
+		articleData = [[NSMutableDictionary alloc] init];
+	}
+
 	window.backgroundColor = [UIColor blackColor];
 	navigationController.navigationBar.barStyle = UIBarStyleBlack;
 	navigationController.navigationBar.translucent = YES;
@@ -64,12 +70,24 @@
 }
 
 
-- (void)applicationWillTerminate:(UIApplication *)application {
+- (void)saveApplicationData {
+	[[NSUserDefaults standardUserDefaults] setObject:articleData forKey:@"articleData"];
+	[[NSUserDefaults standardUserDefaults] synchronize];
+}
 
+
+- (void)applicationWillTerminate:(UIApplication *)application {
+	[self saveApplicationData];
+}
+
+
+- (void)applicationWillResignActive:(UIApplication *)application {
+	[self saveApplicationData];
 }
 
 
 - (void)dealloc {
+	[articleData release];
 	[navigationController release];
 	[window release];
 	[super dealloc];

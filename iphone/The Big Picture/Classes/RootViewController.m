@@ -59,6 +59,8 @@ static NSString *const RE_ARTICLE_DESC = @"<div class=\"bpBody\">(.*?)\\(<a href
 	[super viewDidAppear:animated];
 	
 	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque];
+	
+	[self.tableView reloadData];
 }
 
 
@@ -182,6 +184,7 @@ static NSString *const RE_ARTICLE_DESC = @"<div class=\"bpBody\">(.*?)\\(<a href
 	Article *article = (Article *)[articleList objectAtIndex:indexPath.row];
 
 	cell.mainTitle = article.title;
+	cell.unread = ([[(TheBigPictureAppDelegate *)[[UIApplication sharedApplication] delegate] articleData] objectForKey:article.guid] == nil);
 	cell.subTitle = [dateFormatter stringFromDate:article.timestamp];
 	
     return cell;

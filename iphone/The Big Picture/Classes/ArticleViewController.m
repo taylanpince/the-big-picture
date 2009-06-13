@@ -6,12 +6,13 @@
 //  Copyright 2009 Taylan Pince. All rights reserved.
 //
 
+#import "RegexKitLite.h"
+#import "TheBigPictureAppDelegate.h"
 #import "ArticleViewController.h"
 #import "ArticleView.h"
 #import "PhotoView.h"
 #import "Article.h"
 #import "Photo.h"
-#import "RegexKitLite.h"
 
 
 static NSString *const RE_FIRST_PHOTO = @"<div class=\"bpImageTop\"><a name=\"photo1\"></a><a href=\".*?\"><img src=\"(.*?)\" class=\"bpImage\" style=\".*?\" /></a><br/><div class=\"bpCaption\">(.*?)<div";
@@ -102,6 +103,10 @@ static NSString *const RE_PHOTO = @"<div class=\"bpBoth\"><a name=\"photo[0-9]+\
 	[articleView release];
 	
 	activeIndex = 0;
+	
+	if ([[(TheBigPictureAppDelegate *)[[UIApplication sharedApplication] delegate] articleData] objectForKey:article.guid] == nil) {
+		[[(TheBigPictureAppDelegate *)[[UIApplication sharedApplication] delegate] articleData] setObject:[NSNumber numberWithInt:0] forKey:article.guid];
+	}
 }
 
 
