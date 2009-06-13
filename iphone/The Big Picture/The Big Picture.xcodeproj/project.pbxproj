@@ -20,6 +20,7 @@
 		EC264E770FDF52CD00A83382 /* ArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */; };
 		EC264F440FDF5F7700A83382 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC264F430FDF5F7700A83382 /* QuartzCore.framework */; };
 		ECAD08460FE4190100BCCCE1 /* ArticleView.m in Sources */ = {isa = PBXBuildFile; fileRef = ECAD08450FE4190100BCCCE1 /* ArticleView.m */; };
+		ECAD09000FE43B3000BCCCE1 /* CaptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = ECAD08FF0FE43B3000BCCCE1 /* CaptionView.m */; };
 		ECBA59B60FE2BA770044A1AD /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = ECBA59B50FE2BA770044A1AD /* Icon.png */; };
 		ECD2ADAC0FE030950054A901 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD2ADAB0FE030950054A901 /* Photo.m */; };
 		ECD2AEE50FE051FE0054A901 /* PhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD2AEE40FE051FE0054A901 /* PhotoView.m */; };
@@ -48,6 +49,8 @@
 		EC264F430FDF5F7700A83382 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = ../../../../../../../../Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = SOURCE_ROOT; };
 		ECAD08440FE4190100BCCCE1 /* ArticleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticleView.h; sourceTree = "<group>"; };
 		ECAD08450FE4190100BCCCE1 /* ArticleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleView.m; sourceTree = "<group>"; };
+		ECAD08FE0FE43B3000BCCCE1 /* CaptionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaptionView.h; sourceTree = "<group>"; };
+		ECAD08FF0FE43B3000BCCCE1 /* CaptionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaptionView.m; sourceTree = "<group>"; };
 		ECBA59B50FE2BA770044A1AD /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		ECD2ADAA0FE030950054A901 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
 		ECD2ADAB0FE030950054A901 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
@@ -173,6 +176,8 @@
 				ECAD08450FE4190100BCCCE1 /* ArticleView.m */,
 				ECD2AEE30FE051FE0054A901 /* PhotoView.h */,
 				ECD2AEE40FE051FE0054A901 /* PhotoView.m */,
+				ECAD08FE0FE43B3000BCCCE1 /* CaptionView.h */,
+				ECAD08FF0FE43B3000BCCCE1 /* CaptionView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -248,6 +253,7 @@
 				ECD2ADAC0FE030950054A901 /* Photo.m in Sources */,
 				ECD2AEE50FE051FE0054A901 /* PhotoView.m in Sources */,
 				ECAD08460FE4190100BCCCE1 /* ArticleView.m in Sources */,
+				ECAD09000FE43B3000BCCCE1 /* CaptionView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

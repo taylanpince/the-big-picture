@@ -8,12 +8,12 @@
 
 @protocol PhotoViewDelegate;
 
-@class Photo;
+@class Photo, CaptionView;
 
 
 @interface PhotoView : UIImageView {
 	Photo *photo;
-	UILabel *label;
+	CaptionView *label;
 	UIButton *infoButton;
 	UIActivityIndicatorView *loadingIndicator;
 	
@@ -25,7 +25,7 @@
 }
 
 @property (nonatomic, retain) Photo *photo;
-@property (nonatomic, retain) UILabel *label;
+@property (nonatomic, retain) CaptionView *label;
 @property (nonatomic, retain) UIButton *infoButton;
 @property (nonatomic, retain) UIActivityIndicatorView *loadingIndicator;
 

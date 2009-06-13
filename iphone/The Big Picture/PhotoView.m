@@ -7,6 +7,7 @@
 //
 
 #import "PhotoView.h"
+#import "CaptionView.h"
 #import "Photo.h"
 
 
@@ -20,13 +21,7 @@
 	if (self = [super initWithFrame:frame]) {
 		currentZoomScale = 1.0;
 		
-		label = [[UILabel alloc] initWithFrame:CGRectZero];
-		
-		label.font = [UIFont systemFontOfSize:14.0];
-		label.textColor = [UIColor whiteColor];
-		label.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.5];
-		label.numberOfLines = 0;
-		label.lineBreakMode = UILineBreakModeWordWrap;
+		label = [[CaptionView alloc] initWithFrame:CGRectZero];
 		
 		[self addSubview:label];
 		
@@ -74,9 +69,7 @@
 		maximumZoomScale = self.image.size.height / self.frame.size.height;
 	}
 	
-	CGSize textSize = [photo.caption sizeWithFont:label.font constrainedToSize:CGSizeMake(self.frame.size.width - 30.0, 2000.0) lineBreakMode:UILineBreakModeWordWrap];
-	
-	[label setFrame:CGRectMake(15.0, self.frame.size.height - textSize.height - 10.0, self.frame.size.width - 30.0, textSize.height)];
+	[label setFrame:CGRectMake(0.0, self.frame.size.height, self.frame.size.width, 0.0)];
 	[infoButton setCenter:CGPointMake(self.frame.size.width - 16.0, self.frame.size.height - 16.0)];
 }
 
@@ -88,7 +81,7 @@
 	
 	[self resetScale];
 	
-	[infoButton setAlpha:0.75];
+	[infoButton setAlpha:0.50];
 	
 	[UIView beginAnimations:@"fadeIn" context:NULL];
 	[UIView setAnimationDuration:0.5];
@@ -103,11 +96,8 @@
 		
 		photo = [newPhoto retain];
 		
-		CGSize textSize = [newPhoto.caption sizeWithFont:label.font constrainedToSize:CGSizeMake(self.frame.size.width - 30.0, 2000.0) lineBreakMode:UILineBreakModeWordWrap];
-		
 		label.alpha = 0.0;
-		label.text = newPhoto.caption;
-		label.frame = CGRectMake(15.0, self.frame.size.height - textSize.height - 10.0, self.frame.size.width - 30.0, textSize.height);
+		label.caption = newPhoto.caption;
 		
 		[loadingIndicator setHidden:NO];
 		[loadingIndicator startAnimating];
@@ -140,8 +130,10 @@
 
 
 - (void)zoomToScale:(CGFloat)scale {
+	infoButton.hidden = (scale > 1.0);
+	label.hidden = (scale > 1.0);
+
 	if (scale >= 1.0 && scale <= maximumZoomScale) {
-		label.hidden = (scale > 1.0);
 		currentZoomScale = scale;
 		
 		CGFloat scaledWidth = scale * self.image.size.width / maximumZoomScale;
@@ -149,7 +141,6 @@
 		
 		self.bounds = CGRectMake(0.0, 0.0, scaledWidth, scaledHeight);
 	} else if (scale < 1.0) {
-		label.hidden = NO;
 		currentZoomScale = 1.0;
 		
 		CGFloat scaledWidth = currentZoomScale * self.image.size.width / maximumZoomScale;
@@ -157,7 +148,6 @@
 		
 		self.bounds = CGRectMake(0.0, 0.0, scaledWidth, scaledHeight);
 	} else if (scale > maximumZoomScale) {
-		label.hidden = YES;
 		currentZoomScale = maximumZoomScale;
 		
 		self.bounds = CGRectMake(0.0, 0.0, self.image.size.width, self.image.size.height);
