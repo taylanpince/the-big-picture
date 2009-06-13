@@ -8,7 +8,11 @@
 
 
 @interface ArticleView : UIScrollView {
-
+	NSString *article;
+	UILabel *label;
 }
+
+@property (nonatomic, retain) NSString *article;
+@property (nonatomic, retain) UILabel *label;
 
 @end

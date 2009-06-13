@@ -6,12 +6,14 @@
 //  Copyright Taylan Pince 2009. All rights reserved.
 //
 
+#import "RegexKitLite.h"
 #import "RootViewController.h"
 #import "ArticleViewController.h"
 #import "Article.h"
 
 
-static NSString *rssURL = @"http://www.boston.com/bigpicture/index.xml";
+static NSString *const RSS_URL = @"http://www.boston.com/bigpicture/index.xml";
+static NSString *const RE_ARTICLE_DESC = @"<div class=\"bpBody\">(.*?)\\(<a href=";
 
 
 @implementation RootViewController
@@ -65,7 +67,7 @@ static NSString *rssURL = @"http://www.boston.com/bigpicture/index.xml";
 	[[NSURLCache sharedURLCache] setMemoryCapacity:0];
 	[[NSURLCache sharedURLCache] setDiskCapacity:0];
 	
-	NSXMLParser *parser = [[[NSXMLParser alloc] initWithContentsOfURL:[NSURL URLWithString:rssURL]] autorelease];
+	NSXMLParser *parser = [[[NSXMLParser alloc] initWithContentsOfURL:[NSURL URLWithString:RSS_URL]] autorelease];
 	
 	[parser setDelegate:self];
 	
@@ -102,7 +104,11 @@ static NSString *rssURL = @"http://www.boston.com/bigpicture/index.xml";
     if ([elementName isEqualToString:@"title"]) {
         article.title = activeContent;
     } else if ([elementName isEqualToString:@"description"]) {
-		article.description = activeContent;
+		NSArray *descriptionMatch = [activeContent captureComponentsMatchedByRegex:RE_ARTICLE_DESC];
+		
+		if (descriptionMatch != nil && [descriptionMatch count] > 0) {
+			article.description = [descriptionMatch objectAtIndex:1];
+		}
 	} else if ([elementName isEqualToString:@"link"]) {
 		article.url = [NSURL URLWithString:activeContent];
 	} else if ([elementName isEqualToString:@"guid"]) {

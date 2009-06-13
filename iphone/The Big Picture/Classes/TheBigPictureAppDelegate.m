@@ -17,6 +17,7 @@
 
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
+	window.backgroundColor = [UIColor blackColor];
 	navigationController.navigationBar.barStyle = UIBarStyleBlack;
 	navigationController.navigationBar.translucent = YES;
 

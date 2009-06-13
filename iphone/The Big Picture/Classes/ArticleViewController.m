@@ -14,6 +14,10 @@
 #import "RegexKitLite.h"
 
 
+static NSString *const RE_FIRST_PHOTO = @"<div class=\"bpImageTop\"><a name=\"photo1\"></a><a href=\".*?\"><img src=\"(.*?)\" class=\"bpImage\" style=\".*?\" /></a><br/><div class=\"bpCaption\">(.*?)<div";
+static NSString *const RE_PHOTO = @"<div class=\"bpBoth\"><a name=\"photo[0-9]+\"></a><img src=\"(.*?)\" class=\"bpImage\" style=\".*?\" /><br/><div onclick=\"this.style.display='none'\" class=\"(.*?)\" style=\".*?\"></div><div class=\"bpCaption\"><div class=\"photoNum\"><a href=\"#photo[0-9]+\">[0-9]+</a></div>(.*?)<a href";
+
+
 @implementation ArticleViewController
 
 @synthesize article, loadingIndicator, imageList, imageViewsList, activeIndex, hideTimer, zooming;
@@ -22,20 +26,20 @@
 - (void)loadView {
 	self.title = article.title;
 	
-	UIScrollView *articleView = [[UIScrollView alloc] initWithFrame:CGRectZero];
+	UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectZero];
 	
-	articleView.delegate = self;
-	articleView.backgroundColor = [UIColor blackColor];
-	articleView.showsVerticalScrollIndicator = NO;
-	articleView.showsHorizontalScrollIndicator = NO;
-	articleView.pagingEnabled = YES;
-	articleView.scrollsToTop = NO;
-	articleView.backgroundColor = [UIColor blackColor];
-	articleView.directionalLockEnabled = YES;
+	scrollView.delegate = self;
+	scrollView.backgroundColor = [UIColor blackColor];
+	scrollView.showsVerticalScrollIndicator = NO;
+	scrollView.showsHorizontalScrollIndicator = NO;
+	scrollView.pagingEnabled = YES;
+	scrollView.scrollsToTop = NO;
+	scrollView.backgroundColor = [UIColor blackColor];
+	scrollView.directionalLockEnabled = YES;
 	
-	self.view = articleView;
+	self.view = scrollView;
 	
-	[articleView release];
+	[scrollView release];
 
 	imageList = [[NSMutableArray alloc] init];
 	imageViewsList = [[NSMutableArray alloc] init];
@@ -43,15 +47,17 @@
 
 
 - (void)setupLayouts {
-	UIScrollView *articleView = (UIScrollView *)[self view];
+	UIScrollView *scrollView = (UIScrollView *)[self view];
 	CGRect screenBounds = [[UIScreen mainScreen] bounds];
 	
+	scrollView.superview.backgroundColor = [UIColor blackColor];
+	
 	if (self.interfaceOrientation == UIDeviceOrientationPortrait) {
-		articleView.superview.frame = CGRectMake(0.0, 0.0, screenBounds.size.width, screenBounds.size.height);
-		articleView.frame = CGRectMake(0.0, 0.0, screenBounds.size.width + 15.0, screenBounds.size.height);
+		scrollView.superview.frame = CGRectMake(0.0, 0.0, screenBounds.size.width, screenBounds.size.height);
+		scrollView.frame = CGRectMake(0.0, 0.0, screenBounds.size.width + 15.0, screenBounds.size.height);
 	} else {
-		articleView.superview.frame = CGRectMake(0.0, 0.0, screenBounds.size.height, screenBounds.size.width);
-		articleView.frame = CGRectMake(0.0, 0.0, screenBounds.size.height + 15.0, screenBounds.size.width);
+		scrollView.superview.frame = CGRectMake(0.0, 0.0, screenBounds.size.height, screenBounds.size.width);
+		scrollView.frame = CGRectMake(0.0, 0.0, screenBounds.size.height + 15.0, screenBounds.size.width);
 	}
 }
 
@@ -64,15 +70,38 @@
 	
 	loadingIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
 	
-	loadingIndicator.center = CGPointMake((self.view.frame.size.width - 15.0) / 2, (self.view.frame.size.height / 2) - self.navigationController.navigationBar.frame.size.height);
+	loadingIndicator.center = CGPointMake(self.view.frame.size.width + (self.view.frame.size.width - 15.0) / 2, (self.view.frame.size.height / 2) - self.navigationController.navigationBar.frame.size.height);
 	loadingIndicator.hidesWhenStopped = YES;
 	
 	[loadingIndicator startAnimating];
 	[self.view addSubview:loadingIndicator];
 	
 	[self performSelectorInBackground:@selector(loadPage:) withObject:article.url];
+
+	UIScrollView *scrollView = (UIScrollView *)[self view];
 	
-	hideTimer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(hideInterface) userInfo:nil repeats:NO];
+	[scrollView setContentOffset:CGPointZero];
+	[scrollView setContentInset:UIEdgeInsetsZero];
+	[scrollView setContentSize:CGSizeMake(scrollView.frame.size.width * 2, scrollView.frame.size.height)];
+	
+	ArticleView *articleView = [[ArticleView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.frame.size.width - 15.0, self.view.frame.size.height)];
+	
+	articleView.alpha = 0.0;
+	articleView.tag = 0;
+	articleView.backgroundColor = [UIColor blackColor];
+	articleView.article = article.description;
+	articleView.contentInset = UIEdgeInsetsMake(self.navigationController.navigationBar.frame.size.height + 30.0, 0.0, 0.0, 0.0);
+	
+	[self.view addSubview:articleView];
+	
+	[UIView beginAnimations:@"fadeIn" context:NULL];
+	[UIView setAnimationDuration:0.5];
+	[articleView setAlpha:1.0];
+	[UIView commitAnimations];
+	
+	[articleView release];
+	
+	activeIndex = 0;
 }
 
 
@@ -110,7 +139,9 @@
 		[self.navigationController.navigationBar setAlpha:1.0];
 		[UIView commitAnimations];
 		
-		hideTimer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(hideInterface) userInfo:nil repeats:NO];
+		if (activeIndex > 0) {
+			hideTimer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(hideInterface) userInfo:nil repeats:NO];
+		}
 	}
 }
 
@@ -133,30 +164,36 @@
 
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
-	UIScrollView *articleView = (UIScrollView *)[self view];
+	UIScrollView *scrollView = (UIScrollView *)[self view];
 
 	[self setupLayouts];
 	
-	for (PhotoView *subView in self.view.subviews) {
+	for (UIView *subView in self.view.subviews) {
 		if ([subView isKindOfClass:[PhotoView class]]) {
-			subView.frame = CGRectMake(subView.tag * articleView.frame.size.width, 0.0, (articleView.frame.size.width - 15.0), articleView.frame.size.height);
+			subView.frame = CGRectMake(subView.tag * scrollView.frame.size.width, 0.0, (scrollView.frame.size.width - 15.0), scrollView.frame.size.height);
 			
-			[subView resetScale];
+			[(PhotoView *)subView resetScale];
+		} else if ([subView isKindOfClass:[ArticleView class]]) {
+			subView.frame = CGRectMake(0.0, 0.0, (scrollView.frame.size.width - 15.0), scrollView.frame.size.height);
+			
+			[(ArticleView *)subView setContentInset:UIEdgeInsetsMake(self.navigationController.navigationBar.frame.size.height + 30.0, 0.0, 0.0, 0.0)];
+			
+			[subView setNeedsLayout];
 		}
 	}
 
-	[articleView setContentSize:CGSizeMake(articleView.frame.size.width * [imageList count], articleView.frame.size.height)];
-	[articleView setContentOffset:CGPointMake(articleView.frame.size.width * activeIndex, 0.0)];
-	[articleView setContentInset:UIEdgeInsetsZero];
+	[scrollView setContentSize:CGSizeMake(scrollView.frame.size.width * ([imageList count] + 1), scrollView.frame.size.height)];
+	[scrollView setContentOffset:CGPointMake(scrollView.frame.size.width * activeIndex, 0.0)];
+	[scrollView setContentInset:UIEdgeInsetsZero];
 }
 
 
 - (void)addPhoto:(NSUInteger)indexNum {
 	Photo *photo = [imageList objectAtIndex:indexNum];
-	PhotoView *imageView = [[PhotoView alloc] initWithFrame:CGRectMake(indexNum * self.view.frame.size.width, 0.0, (self.view.frame.size.width - 15.0), self.view.frame.size.height)];
+	PhotoView *imageView = [[PhotoView alloc] initWithFrame:CGRectMake((indexNum + 1) * self.view.frame.size.width, 0.0, (self.view.frame.size.width - 15.0), self.view.frame.size.height)];
 
 	imageView.photo = photo;
-	imageView.tag = indexNum;
+	imageView.tag = indexNum + 1;
 	imageView.contentMode = UIViewContentModeScaleAspectFit;
 	imageView.userInteractionEnabled = YES;
 	imageView.delegate = self;
@@ -169,11 +206,13 @@
 
 
 - (void)doneLoadingPage:(NSString *)htmlData {
-	NSString *imgRegEx = @"<img src=\"(.*?)\" class=\"bpImage\"";
 	NSArray *imgMatches;
+//	NSArray *photoMatches;
+	NSString *imgRegEx = @"<img src=\"(.*?)\" class=\"bpImage\"";
+//	NSString *captionRegEx = @"<div class=\"bpCaption\"><div class=\"photoNum\"><a href=\"#photo[0-9]+\">[0-9]+</a></div>(.*?)<a href";
 	
 	imgMatches = [htmlData arrayOfCaptureComponentsMatchedByRegex:imgRegEx];
-	
+
 	for (NSArray *imgOptions in imgMatches) {
 		Photo *photo = [[Photo alloc] init];
 		
@@ -185,13 +224,12 @@
 		[photo release];
 	}
 	
-	activeIndex = 0;
+//	photoMatches = [htmlData arrayOfCaptureComponentsMatchedByRegex:RE_PHOTO];
+//	NSLog(@"Photos: %@", photoMatches);
 	
-	UIScrollView *articleView = (UIScrollView *)[self view];
+	UIScrollView *scrollView = (UIScrollView *)[self view];
 	
-	[articleView setContentSize:CGSizeMake(articleView.frame.size.width * [imageList count], articleView.frame.size.height)];
-	[articleView setContentOffset:CGPointZero];
-	[articleView setContentInset:UIEdgeInsetsZero];
+	[scrollView setContentSize:CGSizeMake(scrollView.frame.size.width * ([imageList count] + 1), scrollView.contentSize.height)];
 	
 	[loadingIndicator stopAnimating];
 	
@@ -215,45 +253,57 @@
 
 
 - (void)prepNeighbours {
-	if (zooming) return;
+	if (zooming || activeIndex < 1) return;
 	
-	if ((NSNull *)[imageViewsList objectAtIndex:activeIndex] == [NSNull null]) {
-		[self addPhoto:activeIndex];
+	if ((NSNull *)[imageViewsList objectAtIndex:activeIndex - 1] == [NSNull null]) {
+		[self addPhoto:activeIndex - 1];
 	}
 	
-	if (activeIndex > 1) {
-		UIView *previousView = [imageViewsList objectAtIndex:activeIndex - 2];
+	if (activeIndex > 2) {
+		UIView *previousView = [imageViewsList objectAtIndex:activeIndex - 3];
 
 		if ((NSNull *)previousView != [NSNull null]) {
 			[previousView removeFromSuperview];
 			
-			[imageViewsList replaceObjectAtIndex:activeIndex - 2 withObject:[NSNull null]];
+			[imageViewsList replaceObjectAtIndex:activeIndex - 3 withObject:[NSNull null]];
 		}
 	}
 	
-	if (activeIndex < [imageList count] - 3) {
-		UIView *nextView = [imageViewsList objectAtIndex:activeIndex + 2];
+	if (activeIndex < [imageList count] - 4) {
+		UIView *nextView = [imageViewsList objectAtIndex:activeIndex + 1];
 
 		if ((NSNull *)nextView != [NSNull null]) {
 			[nextView removeFromSuperview];
 			
-			[imageViewsList replaceObjectAtIndex:activeIndex + 2 withObject:[NSNull null]];
+			[imageViewsList replaceObjectAtIndex:activeIndex + 1 withObject:[NSNull null]];
 		}
 	}
 	
-	if (activeIndex < [imageList count] - 1 && (NSNull *)[imageViewsList objectAtIndex:activeIndex + 1] == [NSNull null]) {
-		[self addPhoto:activeIndex + 1];
+	if (activeIndex < [imageList count] && (NSNull *)[imageViewsList objectAtIndex:activeIndex] == [NSNull null]) {
+		[self addPhoto:activeIndex];
 	}
 	
-	if (activeIndex > 0 && (NSNull *)[imageViewsList objectAtIndex:activeIndex - 1] == [NSNull null]) {
-		[self addPhoto:activeIndex - 1];
+	if (activeIndex > 1 && (NSNull *)[imageViewsList objectAtIndex:activeIndex - 2] == [NSNull null]) {
+		[self addPhoto:activeIndex - 2];
 	}
 }
 
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
 	if (!zooming) {
-		activeIndex = (scrollView.contentOffset.x < 0) ? 0 : floor(scrollView.contentOffset.x / self.view.frame.size.width);
+		activeIndex = (scrollView.contentOffset.x < 0.0) ? 0 : floor(scrollView.contentOffset.x / self.view.frame.size.width);
+		
+		if (activeIndex == 0) {
+			if (hideTimer != nil) {
+				[hideTimer invalidate];
+				
+				hideTimer = nil;
+			}
+			
+			if (self.navigationController.navigationBar.alpha == 0.0) [self showInterface];
+		} else if (self.navigationController.navigationBar.alpha > 0.0 && hideTimer == nil) {
+			hideTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(hideInterface) userInfo:nil repeats:NO];
+		}
 		
 		[self prepNeighbours];
 	}
@@ -282,7 +332,7 @@
 		scrollView.pagingEnabled = YES;
 		scrollView.directionalLockEnabled = YES;
 		scrollView.contentInset = UIEdgeInsetsZero;
-		scrollView.contentSize = CGSizeMake(scrollView.frame.size.width * [imageList count], scrollView.frame.size.height);
+		scrollView.contentSize = CGSizeMake(scrollView.frame.size.width * ([imageList count] + 1), scrollView.frame.size.height);
 		scrollView.contentOffset = CGPointMake(scrollView.frame.size.width * view.tag, 0.0);
 	} else {
 		zooming = YES;
@@ -303,7 +353,7 @@
 	}
 	
 	for (UIView *subView in scrollView.subviews) {
-		if ([subView isKindOfClass:[PhotoView class]] && subView.tag != view.tag) {
+		if ([subView isKindOfClass:[ArticleView class]] || ([subView isKindOfClass:[PhotoView class]] && subView.tag != view.tag)) {
 			CGFloat x;
 			
 			if (subView.tag < view.tag) {

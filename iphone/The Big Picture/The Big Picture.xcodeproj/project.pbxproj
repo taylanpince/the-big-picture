@@ -20,9 +20,9 @@
 		EC264E770FDF52CD00A83382 /* ArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */; };
 		EC264E7A0FDF537000A83382 /* ArticleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC264E790FDF537000A83382 /* ArticleView.xib */; };
 		EC264F440FDF5F7700A83382 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC264F430FDF5F7700A83382 /* QuartzCore.framework */; };
+		ECAD08460FE4190100BCCCE1 /* ArticleView.m in Sources */ = {isa = PBXBuildFile; fileRef = ECAD08450FE4190100BCCCE1 /* ArticleView.m */; };
 		ECBA59B60FE2BA770044A1AD /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = ECBA59B50FE2BA770044A1AD /* Icon.png */; };
 		ECD2ADAC0FE030950054A901 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD2ADAB0FE030950054A901 /* Photo.m */; };
-		ECD2AE830FE04CB60054A901 /* ArticleView.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD2AE820FE04CB60054A901 /* ArticleView.m */; };
 		ECD2AEE50FE051FE0054A901 /* PhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD2AEE40FE051FE0054A901 /* PhotoView.m */; };
 /* End PBXBuildFile section */
 
@@ -48,11 +48,11 @@
 		EC264E760FDF52CD00A83382 /* ArticleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleViewController.m; sourceTree = "<group>"; };
 		EC264E790FDF537000A83382 /* ArticleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleView.xib; sourceTree = "<group>"; };
 		EC264F430FDF5F7700A83382 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = ../../../../../../../../Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = SOURCE_ROOT; };
+		ECAD08440FE4190100BCCCE1 /* ArticleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticleView.h; sourceTree = "<group>"; };
+		ECAD08450FE4190100BCCCE1 /* ArticleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleView.m; sourceTree = "<group>"; };
 		ECBA59B50FE2BA770044A1AD /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		ECD2ADAA0FE030950054A901 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
 		ECD2ADAB0FE030950054A901 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
-		ECD2AE810FE04CB60054A901 /* ArticleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticleView.h; sourceTree = "<group>"; };
-		ECD2AE820FE04CB60054A901 /* ArticleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleView.m; sourceTree = "<group>"; };
 		ECD2AEE30FE051FE0054A901 /* PhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoView.h; sourceTree = "<group>"; };
 		ECD2AEE40FE051FE0054A901 /* PhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -172,8 +172,8 @@
 		ECD2AD340FE0207F0054A901 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				ECD2AE810FE04CB60054A901 /* ArticleView.h */,
-				ECD2AE820FE04CB60054A901 /* ArticleView.m */,
+				ECAD08440FE4190100BCCCE1 /* ArticleView.h */,
+				ECAD08450FE4190100BCCCE1 /* ArticleView.m */,
 				ECD2AEE30FE051FE0054A901 /* PhotoView.h */,
 				ECD2AEE40FE051FE0054A901 /* PhotoView.m */,
 			);
@@ -250,8 +250,8 @@
 				EC264E0D0FDF447E00A83382 /* Article.m in Sources */,
 				EC264E770FDF52CD00A83382 /* ArticleViewController.m in Sources */,
 				ECD2ADAC0FE030950054A901 /* Photo.m in Sources */,
-				ECD2AE830FE04CB60054A901 /* ArticleView.m in Sources */,
 				ECD2AEE50FE051FE0054A901 /* PhotoView.m in Sources */,
+				ECAD08460FE4190100BCCCE1 /* ArticleView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
