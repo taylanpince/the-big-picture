@@ -279,7 +279,7 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>26</integer>
+									<integer>24</integer>
 									<integer>22</integer>
 									<integer>0</integer>
 								</array>
@@ -322,7 +322,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>RootViewController.m</string>
+								<string>ArticleViewController.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -330,17 +330,16 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>RootViewController.m</string>
+										<string>ArticleViewController.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>ECAD0AAE0FE4623F00BCCCE1</string>
+										<string>ECAD0ADB0FE4677400BCCCE1</string>
 										<key>history</key>
 										<array>
 											<string>EC264DE60FDF3F2700A83382</string>
 											<string>ECAD084A0FE41A5C00BCCCE1</string>
 											<string>ECAD08A60FE4285300BCCCE1</string>
-											<string>ECAD08A70FE4285300BCCCE1</string>
 											<string>ECAD09050FE43E6200BCCCE1</string>
 											<string>ECAD09070FE43E6200BCCCE1</string>
 											<string>ECAD09220FE43F4100BCCCE1</string>
@@ -354,11 +353,12 @@
 											<string>ECAD0A640FE45C4F00BCCCE1</string>
 											<string>ECAD0A7E0FE45C9B00BCCCE1</string>
 											<string>ECAD0A830FE45CC200BCCCE1</string>
-											<string>ECAD0A950FE45F2D00BCCCE1</string>
-											<string>ECAD0A960FE45F2D00BCCCE1</string>
 											<string>ECAD0A970FE45F2D00BCCCE1</string>
-											<string>ECAD0AAB0FE4623F00BCCCE1</string>
-											<string>ECAD0AAC0FE4623F00BCCCE1</string>
+											<string>ECAD0ACF0FE4669100BCCCE1</string>
+											<string>ECAD0AD00FE4669100BCCCE1</string>
+											<string>ECAD0AD60FE4677400BCCCE1</string>
+											<string>ECAD0AD70FE4677400BCCCE1</string>
+											<string>ECAD0AD80FE4677400BCCCE1</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -455,6 +455,10 @@
 											<string>ECAD0A9F0FE45F2D00BCCCE1</string>
 											<string>ECAD0AA50FE45FD200BCCCE1</string>
 											<string>ECAD0AAD0FE4623F00BCCCE1</string>
+											<string>ECAD0AD10FE4669100BCCCE1</string>
+											<string>ECAD0AD20FE4669100BCCCE1</string>
+											<string>ECAD0AD90FE4677400BCCCE1</string>
+											<string>ECAD0ADA0FE4677400BCCCE1</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>

@@ -119,7 +119,10 @@ static NSString *const RE_ARTICLE_DESC = @"<div class=\"bpBody\">(.*?)\\(<a href
     }
 	
 	if ([elementName isEqualToString:@"item"]) {
-		[articleList addObject:[[Article alloc] init]];
+		Article *article = [[Article alloc] init];
+		
+		[articleList addObject:article];
+		[article release];
 	}
 }
 

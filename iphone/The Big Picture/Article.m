@@ -13,4 +13,13 @@
 
 @synthesize guid, title, description, url, timestamp, unread;
 
+- (void)dealloc {
+	[guid release];
+	[title release];
+	[description release];
+	[url release];
+	[timestamp release];
+	[super dealloc];
+}
+
 @end

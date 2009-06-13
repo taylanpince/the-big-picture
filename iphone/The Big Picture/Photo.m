@@ -13,6 +13,10 @@
 
 @synthesize url, caption, graphic;
 
-
+- (void)dealloc {
+	[url release];
+	[caption release];
+	[super dealloc];
+}
 
 @end
