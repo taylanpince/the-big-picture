@@ -21,6 +21,10 @@
 		EC264F440FDF5F7700A83382 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC264F430FDF5F7700A83382 /* QuartzCore.framework */; };
 		ECAD08460FE4190100BCCCE1 /* ArticleView.m in Sources */ = {isa = PBXBuildFile; fileRef = ECAD08450FE4190100BCCCE1 /* ArticleView.m */; };
 		ECAD09000FE43B3000BCCCE1 /* CaptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = ECAD08FF0FE43B3000BCCCE1 /* CaptionView.m */; };
+		ECAD09430FE4400C00BCCCE1 /* ArticleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ECAD09420FE4400C00BCCCE1 /* ArticleCell.m */; };
+		ECAD09CE0FE44F6200BCCCE1 /* dot.png in Resources */ = {isa = PBXBuildFile; fileRef = ECAD09CD0FE44F6200BCCCE1 /* dot.png */; };
+		ECAD09E40FE452CA00BCCCE1 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECAD09E30FE452CA00BCCCE1 /* CFNetwork.framework */; };
+		ECAD0A530FE4570F00BCCCE1 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = ECAD0A520FE4570F00BCCCE1 /* Default.png */; };
 		ECBA59B60FE2BA770044A1AD /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = ECBA59B50FE2BA770044A1AD /* Icon.png */; };
 		ECD2ADAC0FE030950054A901 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD2ADAB0FE030950054A901 /* Photo.m */; };
 		ECD2AEE50FE051FE0054A901 /* PhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD2AEE40FE051FE0054A901 /* PhotoView.m */; };
@@ -51,6 +55,11 @@
 		ECAD08450FE4190100BCCCE1 /* ArticleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleView.m; sourceTree = "<group>"; };
 		ECAD08FE0FE43B3000BCCCE1 /* CaptionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaptionView.h; sourceTree = "<group>"; };
 		ECAD08FF0FE43B3000BCCCE1 /* CaptionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaptionView.m; sourceTree = "<group>"; };
+		ECAD09410FE4400C00BCCCE1 /* ArticleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticleCell.h; sourceTree = "<group>"; };
+		ECAD09420FE4400C00BCCCE1 /* ArticleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleCell.m; sourceTree = "<group>"; };
+		ECAD09CD0FE44F6200BCCCE1 /* dot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dot.png; sourceTree = "<group>"; };
+		ECAD09E30FE452CA00BCCCE1 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		ECAD0A520FE4570F00BCCCE1 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		ECBA59B50FE2BA770044A1AD /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		ECD2ADAA0FE030950054A901 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
 		ECD2ADAB0FE030950054A901 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
@@ -67,6 +76,7 @@
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */,
 				EC264F440FDF5F7700A83382 /* QuartzCore.framework in Frameworks */,
+				ECAD09E40FE452CA00BCCCE1 /* CFNetwork.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +106,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				ECAD09400FE43FEE00BCCCE1 /* Cells */,
 				ECD2AD340FE0207F0054A901 /* Views */,
 				EC264E780FDF52DB00A83382 /* App Delegate */,
 				EC264E0A0FDF447400A83382 /* Models */,
@@ -121,6 +132,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				ECAD0A520FE4570F00BCCCE1 /* Default.png */,
+				ECAD09CD0FE44F6200BCCCE1 /* dot.png */,
 				ECBA59B50FE2BA770044A1AD /* Icon.png */,
 				2899E55F0DE3E45000AC0155 /* RootViewController.xib */,
 				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
@@ -132,6 +145,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ECAD09E30FE452CA00BCCCE1 /* CFNetwork.framework */,
 				EC264F430FDF5F7700A83382 /* QuartzCore.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
@@ -167,6 +181,15 @@
 				1D3623250D0F684500981E51 /* TheBigPictureAppDelegate.m */,
 			);
 			name = "App Delegate";
+			sourceTree = "<group>";
+		};
+		ECAD09400FE43FEE00BCCCE1 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				ECAD09410FE4400C00BCCCE1 /* ArticleCell.h */,
+				ECAD09420FE4400C00BCCCE1 /* ArticleCell.m */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 		ECD2AD340FE0207F0054A901 /* Views */ = {
@@ -234,6 +257,8 @@
 				28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */,
 				2899E5600DE3E45000AC0155 /* RootViewController.xib in Resources */,
 				ECBA59B60FE2BA770044A1AD /* Icon.png in Resources */,
+				ECAD09CE0FE44F6200BCCCE1 /* dot.png in Resources */,
+				ECAD0A530FE4570F00BCCCE1 /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,6 +279,7 @@
 				ECD2AEE50FE051FE0054A901 /* PhotoView.m in Sources */,
 				ECAD08460FE4190100BCCCE1 /* ArticleView.m in Sources */,
 				ECAD09000FE43B3000BCCCE1 /* CaptionView.m in Sources */,
+				ECAD09430FE4400C00BCCCE1 /* ArticleCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

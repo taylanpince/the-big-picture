@@ -6,9 +6,11 @@
 //  Copyright Taylan Pince 2009. All rights reserved.
 //
 
+#import "TheBigPictureAppDelegate.h"
 #import "RegexKitLite.h"
 #import "RootViewController.h"
 #import "ArticleViewController.h"
+#import "ArticleCell.h"
 #import "Article.h"
 
 
@@ -18,7 +20,7 @@ static NSString *const RE_ARTICLE_DESC = @"<div class=\"bpBody\">(.*?)\\(<a href
 
 @implementation RootViewController
 
-@synthesize articleList, activeContent, dateFormatter;
+@synthesize articleList, activeContent, dateFormatter, loadingIndicator;
 
 
 - (void)viewDidLoad {
@@ -26,18 +28,30 @@ static NSString *const RE_ARTICLE_DESC = @"<div class=\"bpBody\">(.*?)\\(<a href
 	
 	self.title = @"The Big Picture";
 	
-	UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshArticles:)];
-	
-	[self.navigationItem setLeftBarButtonItem:refreshButton];
-	[refreshButton release];
-	
-	activeContent = [[NSMutableString alloc] init];
-	articleList = [[NSMutableArray alloc] init];
-	dateFormatter = [[NSDateFormatter alloc] init];
-	
-	[dateFormatter setDateFormat:@"dd MMM yyyy HH:mm:ss ZZZ"];
-	
-	[self performSelectorInBackground:@selector(loadArticles) withObject:nil];
+	if ([(TheBigPictureAppDelegate *)[[UIApplication sharedApplication] delegate] isNetworkReachable] == YES) {
+		UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshArticles:)];
+		
+		[self.navigationItem setLeftBarButtonItem:refreshButton];
+		[refreshButton release];
+		
+		activeContent = [[NSMutableString alloc] init];
+		articleList = [[NSMutableArray alloc] init];
+		dateFormatter = [[NSDateFormatter alloc] init];
+		
+		[dateFormatter setDateFormat:@"dd MMM yyyy HH:mm:ss ZZZ"];
+		
+		loadingIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+		
+		[loadingIndicator setHidesWhenStopped:YES];
+		[loadingIndicator startAnimating];
+		
+		UIBarButtonItem *loadingBarItem = [[UIBarButtonItem alloc] initWithCustomView:loadingIndicator];
+		
+		[self.navigationItem setRightBarButtonItem:loadingBarItem];
+		[loadingBarItem release];
+		
+		[self performSelectorInBackground:@selector(loadArticles) withObject:nil];
+	}
 }
 
 
@@ -49,6 +63,9 @@ static NSString *const RE_ARTICLE_DESC = @"<div class=\"bpBody\">(.*?)\\(<a href
 
 
 - (void)doneParsing {
+	[loadingIndicator stopAnimating];
+	[dateFormatter setDateStyle:NSDateFormatterFullStyle];
+
 	[self.tableView reloadData];
 }
 
@@ -57,6 +74,9 @@ static NSString *const RE_ARTICLE_DESC = @"<div class=\"bpBody\">(.*?)\\(<a href
 	[articleList removeAllObjects];
 	[self.tableView reloadData];
 	
+	[loadingIndicator startAnimating];
+	[dateFormatter setDateFormat:@"dd MMM yyyy HH:mm:ss ZZZ"];
+
 	[self performSelectorInBackground:@selector(loadArticles) withObject:nil];
 }
 
@@ -149,21 +169,20 @@ static NSString *const RE_ARTICLE_DESC = @"<div class=\"bpBody\">(.*?)\\(<a href
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     static NSString *CellIdentifier = @"Cell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    ArticleCell *cell = (ArticleCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 	
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[[ArticleCell alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier] autorelease];
 		cell.selectionStyle = UITableViewCellSelectionStyleBlue;
 		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
 	
 	Article *article = (Article *)[articleList objectAtIndex:indexPath.row];
-    
-	cell.textLabel.text = article.title;
-	cell.detailTextLabel.text = [article.timestamp description];
+
+	cell.mainTitle = article.title;
+	cell.subTitle = [dateFormatter stringFromDate:article.timestamp];
 	
     return cell;
 }
@@ -176,6 +195,15 @@ static NSString *const RE_ARTICLE_DESC = @"<div class=\"bpBody\">(.*?)\\(<a href
 	
 	[self.navigationController pushViewController:controller animated:YES];
 	[controller release];
+}
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+	Article *article = (Article *)[articleList objectAtIndex:indexPath.row];
+	
+	CGSize mainSize = [article.title sizeWithFont:[UIFont boldSystemFontOfSize:18.0] constrainedToSize:CGSizeMake(tableView.frame.size.width - 65.0, 600.0f) lineBreakMode:UILineBreakModeWordWrap];
+
+	return mainSize.height + 24.0;
 }
 
 
