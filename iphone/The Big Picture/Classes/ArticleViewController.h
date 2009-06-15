@@ -19,8 +19,12 @@
 	NSMutableArray *imageViewsList;
 	NSUInteger activeIndex;
 	NSTimer *hideTimer;
+	URLCacheConnection *activeConnection;
+
+	UIDeviceOrientation activeOrientation;
 	
 	BOOL zooming;
+	BOOL rotating;
 }
 
 @property (nonatomic, retain) Article *article;
@@ -29,7 +33,11 @@
 @property (nonatomic, retain) NSMutableArray *imageViewsList;
 @property (nonatomic, assign) NSUInteger activeIndex;
 @property (nonatomic, retain) NSTimer *hideTimer;
+@property (nonatomic, retain) URLCacheConnection *activeConnection;
+
+@property (nonatomic, assign) UIDeviceOrientation activeOrientation;
 
 @property (nonatomic, assign) BOOL zooming;
+@property (nonatomic, assign) BOOL rotating;
 
 @end

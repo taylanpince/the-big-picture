@@ -14,8 +14,8 @@
 
 @implementation PhotoView
 
-@synthesize photo, label, infoButton, loadingIndicator;
-@synthesize initialDistance, maximumZoomScale, currentZoomScale, delegate;
+@synthesize photo, label, infoButton, loadingIndicator, activeConnection;
+@synthesize initialDistance, maximumZoomScale, currentZoomScale, orientation, delegate;
 
 
 - (id)initWithFrame:(CGRect)frame {
@@ -70,8 +70,26 @@
 		maximumZoomScale = self.image.size.height / self.frame.size.height;
 	}
 	
-	[label setFrame:CGRectMake(0.0, self.frame.size.height, self.frame.size.width, 0.0)];
-	[infoButton setCenter:CGPointMake(self.frame.size.width - 16.0, self.frame.size.height - 16.0)];
+	if (orientation == UIDeviceOrientationPortrait || orientation == 0) {
+		[label setOrientation:orientation];
+		[label setFrame:CGRectMake(0.0, self.frame.size.height, self.frame.size.width, 0.0)];
+		[infoButton setCenter:CGPointMake(self.frame.size.width - 16.0, self.frame.size.height - 16.0)];
+	} else {
+		[label setOrientation:orientation];
+		[label setFrame:CGRectMake(0.0, self.frame.size.width, self.frame.size.height, 0.0)];
+		[infoButton setCenter:CGPointMake(self.frame.size.height - 16.0, self.frame.size.width - 16.0)];
+	}
+}
+
+
+- (void)setFrame:(CGRect)frame {
+	[super setFrame:frame];
+	
+	if (orientation == UIDeviceOrientationPortrait || orientation == 0) {
+		loadingIndicator.center = CGPointMake(frame.size.width / 2, frame.size.height / 2);
+	} else {
+		loadingIndicator.center = CGPointMake(frame.size.height / 2, frame.size.width / 2);
+	}
 }
 
 
@@ -103,21 +121,9 @@
 		[loadingIndicator setHidden:NO];
 		[loadingIndicator startAnimating];
 		
-//		[self performSelectorInBackground:@selector(loadImage:) withObject:newPhoto.url];
-		(void) [[URLCacheConnection alloc] initWithURL:newPhoto.url delegate:self];
+		activeConnection = [[URLCacheConnection alloc] initWithURL:newPhoto.url delegate:self];
 	}
 }
-
-
-//- (void)loadImage:(NSURL *)url {
-//	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-//	
-//	UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
-//	
-//	[self performSelectorOnMainThread:@selector(setImage:) withObject:image waitUntilDone:NO];
-//	
-//	[pool release];
-//}
 
 
 - (CGFloat)distanceBetweenTwoPoints:(CGPoint)firstPoint toPoint:(CGPoint)secondPoint {
@@ -235,15 +241,16 @@
 }
 
 
-- (void) connectionDidFail:(URLCacheConnection *)theConnection {
-	NSLog(@"Connection Failed");
-	[theConnection release];
+- (void)connectionDidFail:(URLCacheConnection *)theConnection {
+	[activeConnection release];
+	activeConnection = nil;
 }
 
 
-- (void) connectionDidFinish:(URLCacheConnection *)theConnection {
+- (void)connectionDidFinish:(URLCacheConnection *)theConnection {
 	[self setImage:[UIImage imageWithData:theConnection.receivedData]];
-	[theConnection release];
+	[activeConnection release];
+	activeConnection = nil;
 }
 
 
@@ -251,6 +258,12 @@
 	[photo release];
 	[label release];
 	[loadingIndicator release];
+	
+	if (activeConnection) {
+		[activeConnection cancelConnection];
+		[activeConnection release];
+	}
+	
     [super dealloc];
 }
 

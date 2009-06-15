@@ -18,10 +18,13 @@
 	CaptionView *label;
 	UIButton *infoButton;
 	UIActivityIndicatorView *loadingIndicator;
+	URLCacheConnection *activeConnection;
 	
 	CGFloat initialDistance;
 	CGFloat maximumZoomScale;
 	CGFloat currentZoomScale;
+	
+	UIDeviceOrientation orientation;
 	
 	id <PhotoViewDelegate> delegate;
 }
@@ -30,10 +33,12 @@
 @property (nonatomic, retain) CaptionView *label;
 @property (nonatomic, retain) UIButton *infoButton;
 @property (nonatomic, retain) UIActivityIndicatorView *loadingIndicator;
+@property (nonatomic, retain) URLCacheConnection *activeConnection;
 
 @property (nonatomic, assign) CGFloat initialDistance;
 @property (nonatomic, assign) CGFloat maximumZoomScale;
 @property (nonatomic, assign) CGFloat currentZoomScale;
+@property (nonatomic, assign) UIDeviceOrientation orientation;
 
 @property (nonatomic, assign) id <PhotoViewDelegate> delegate;
 

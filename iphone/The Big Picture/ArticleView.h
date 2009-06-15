@@ -10,9 +10,13 @@
 @interface ArticleView : UIScrollView {
 	NSString *article;
 	UILabel *label;
+	
+	UIDeviceOrientation orientation;
 }
 
 @property (nonatomic, retain) NSString *article;
 @property (nonatomic, retain) UILabel *label;
+
+@property (nonatomic, assign) UIDeviceOrientation orientation;
 
 @end

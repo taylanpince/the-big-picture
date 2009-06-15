@@ -22,11 +22,13 @@ static NSString *const RE_PHOTO = @"<div class=\"bpBoth\"><a name=\"photo[0-9]+\
 
 @implementation ArticleViewController
 
-@synthesize article, loadingIndicator, imageList, imageViewsList, activeIndex, hideTimer, zooming;
+@synthesize article, loadingIndicator, imageList, imageViewsList, hideTimer, activeConnection;
+@synthesize zooming, rotating, activeIndex, activeOrientation;
 
 
 - (void)loadView {
 	self.title = article.title;
+	self.wantsFullScreenLayout = YES;
 	
 	UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectZero];
 	
@@ -36,43 +38,37 @@ static NSString *const RE_PHOTO = @"<div class=\"bpBoth\"><a name=\"photo[0-9]+\
 	scrollView.showsHorizontalScrollIndicator = NO;
 	scrollView.pagingEnabled = YES;
 	scrollView.scrollsToTop = NO;
-	scrollView.backgroundColor = [UIColor blackColor];
+	scrollView.backgroundColor = [UIColor purpleColor];
 	scrollView.directionalLockEnabled = YES;
 	
 	self.view = scrollView;
 	
-	[scrollView release];
-
 	imageList = [[NSMutableArray alloc] init];
 	imageViewsList = [[NSMutableArray alloc] init];
 }
 
 
-- (void)setupLayouts {
-	UIScrollView *scrollView = (UIScrollView *)[self view];
-	CGRect screenBounds = [[UIScreen mainScreen] bounds];
+- (void)viewWillAppear:(BOOL)animated {
+	[super viewWillAppear:animated];
 	
-	scrollView.superview.backgroundColor = [UIColor blackColor];
-	
-	if (self.interfaceOrientation == UIDeviceOrientationPortrait) {
-		scrollView.superview.frame = CGRectMake(0.0, 0.0, screenBounds.size.width, screenBounds.size.height);
-		scrollView.frame = CGRectMake(0.0, 0.0, screenBounds.size.width + 15.0, screenBounds.size.height);
-	} else {
-		scrollView.superview.frame = CGRectMake(0.0, 0.0, screenBounds.size.height, screenBounds.size.width);
-		scrollView.frame = CGRectMake(0.0, 0.0, screenBounds.size.height + 15.0, screenBounds.size.width);
-	}
+	[[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(willRotate) name:UIDeviceOrientationDidChangeNotification object:nil];
 }
 
 
 - (void)viewDidAppear:(BOOL)animated {
 	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
 	
-	[self setupLayouts];
+	CGRect screenBounds = [[UIScreen mainScreen] bounds];
+	
+	self.view.superview.frame = CGRectMake(0.0, 0.0, screenBounds.size.width, screenBounds.size.height);
+	self.view.frame = CGRectMake(0.0, 0.0, screenBounds.size.width + 15.0, screenBounds.size.height + 15.0);
+	
 	[super viewDidAppear:animated];
 	
 	loadingIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
 	
-	loadingIndicator.center = CGPointMake(self.view.frame.size.width + (self.view.frame.size.width - 15.0) / 2, (self.view.frame.size.height / 2) - self.navigationController.navigationBar.frame.size.height);
+	loadingIndicator.center = CGPointMake(self.view.frame.size.width + (self.view.frame.size.width - 15.0) / 2, ((self.view.frame.size.height - 15.0) / 2) - self.navigationController.navigationBar.frame.size.height);
 	loadingIndicator.hidesWhenStopped = YES;
 	
 	[loadingIndicator startAnimating];
@@ -80,8 +76,7 @@ static NSString *const RE_PHOTO = @"<div class=\"bpBoth\"><a name=\"photo[0-9]+\
 	
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 	
-//	[self performSelectorInBackground:@selector(loadPage:) withObject:article.url];
-	(void) [[URLCacheConnection alloc] initWithURL:article.url delegate:self];
+	activeConnection = [[URLCacheConnection alloc] initWithURL:article.url delegate:self];
 
 	UIScrollView *scrollView = (UIScrollView *)[self view];
 	
@@ -89,7 +84,7 @@ static NSString *const RE_PHOTO = @"<div class=\"bpBoth\"><a name=\"photo[0-9]+\
 	[scrollView setContentInset:UIEdgeInsetsZero];
 	[scrollView setContentSize:CGSizeMake(scrollView.frame.size.width * 2, scrollView.frame.size.height)];
 	
-	ArticleView *articleView = [[ArticleView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.frame.size.width - 15.0, self.view.frame.size.height)];
+	ArticleView *articleView = [[ArticleView alloc] initWithFrame:CGRectMake(0.0, 0.0, scrollView.frame.size.width - 15.0, scrollView.frame.size.height - 15.0)];
 	
 	articleView.alpha = 0.0;
 	articleView.tag = 0;
@@ -97,7 +92,7 @@ static NSString *const RE_PHOTO = @"<div class=\"bpBoth\"><a name=\"photo[0-9]+\
 	articleView.article = article.description;
 	articleView.contentInset = UIEdgeInsetsMake(self.navigationController.navigationBar.frame.size.height + 30.0, 0.0, 0.0, 0.0);
 	
-	[self.view addSubview:articleView];
+	[scrollView addSubview:articleView];
 	
 	[UIView beginAnimations:@"fadeIn" context:NULL];
 	[UIView setAnimationDuration:0.5];
@@ -126,6 +121,9 @@ static NSString *const RE_PHOTO = @"<div class=\"bpBoth\"><a name=\"photo[0-9]+\
 		
 		hideTimer = nil;
 	}
+	
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
+	[[UIDevice currentDevice] endGeneratingDeviceOrientationNotifications];
 }
 
 
@@ -145,7 +143,7 @@ static NSString *const RE_PHOTO = @"<div class=\"bpBoth\"><a name=\"photo[0-9]+\
 	if ([[UIApplication sharedApplication] isStatusBarHidden] == YES) {
 		[[UIApplication sharedApplication] setStatusBarHidden:NO animated:YES];
 		
-		self.navigationController.navigationBar.frame = CGRectMake(0.0, 20.0, self.navigationController.navigationBar.frame.size.width, self.navigationController.navigationBar.frame.size.height);
+//		self.navigationController.navigationBar.frame = CGRectMake(0.0, 20.0, self.navigationController.navigationBar.frame.size.width, self.navigationController.navigationBar.frame.size.height);
 		
 		[UIView beginAnimations:@"fadeIn" context:NULL];
 		[UIView setAnimationDuration:0.5];
@@ -160,57 +158,162 @@ static NSString *const RE_PHOTO = @"<div class=\"bpBoth\"><a name=\"photo[0-9]+\
 
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-	return (interfaceOrientation != UIDeviceOrientationPortraitUpsideDown);
+	return NO;
 }
 
 
-- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+- (void)willRotate {
+	rotating = YES;
+	activeOrientation = [[UIDevice currentDevice] orientation];
+	
+	UIScrollView *scrollView = (UIScrollView *)[self view];
+
+	if (activeOrientation == UIInterfaceOrientationPortrait) {
+		[scrollView setContentSize:CGSizeMake(scrollView.frame.size.width * ([imageList count] + 1), scrollView.frame.size.height)];
+		[scrollView setContentOffset:CGPointMake(scrollView.frame.size.width * activeIndex, 0.0)];
+	} else {
+		[scrollView setContentSize:CGSizeMake(scrollView.frame.size.width, scrollView.frame.size.height * ([imageList count] + 1))];
+		[scrollView setContentOffset:CGPointMake(0.0, scrollView.frame.size.height * activeIndex)];
+	}
+	
 	if (zooming) {
 		zooming = NO;
-		
-		UIScrollView *scrollView = (UIScrollView *)[self view];
 		
 		scrollView.pagingEnabled = YES;
 		scrollView.directionalLockEnabled = YES;
 	}
+	
+	CGFloat angle;
+	
+	if (activeOrientation == UIInterfaceOrientationPortrait) {
+		angle = 0.0;
+	} else if (activeOrientation == UIInterfaceOrientationLandscapeRight) {
+		angle = M_PI / 2.0;
+	} else if (activeOrientation == UIInterfaceOrientationLandscapeLeft) {
+		angle = -M_PI / 2.0;
+	}
+	
+	[self hideInterface];
+	
+	for (UIView *subView in scrollView.subviews) {
+		if ([subView isKindOfClass:[PhotoView class]] || [subView isKindOfClass:[ArticleView class]]) {
+			if (activeOrientation == UIDeviceOrientationPortrait) {
+				subView.center = CGPointMake(subView.tag * scrollView.frame.size.width + subView.frame.size.width / 2, subView.frame.size.height / 2);
+			} else  {
+				subView.center = CGPointMake(subView.frame.size.width / 2, subView.tag * scrollView.frame.size.height + subView.frame.size.height / 2);
+			}
+
+			if (subView.tag == activeIndex) {
+				[UIView beginAnimations:@"rotateActiveView" context:NULL];
+				[UIView setAnimationDuration:0.5];
+			}
+			
+			subView.transform = CGAffineTransformMakeRotation(angle);
+			
+			if ([subView isKindOfClass:[PhotoView class]]) {
+				if (activeOrientation == UIDeviceOrientationPortrait) {
+					subView.center = CGPointMake(subView.tag * scrollView.frame.size.width + subView.frame.size.width / 2, subView.frame.size.height / 2);
+				} else  {
+					subView.center = CGPointMake(subView.frame.size.width / 2, subView.tag * scrollView.frame.size.height + subView.frame.size.height / 2);
+				}
+
+				subView.frame = CGRectMake(subView.frame.origin.x, subView.frame.origin.y, (scrollView.frame.size.width - 15.0), scrollView.frame.size.height - 15.0);
+				
+				if (subView.tag == activeIndex) {
+					[[(PhotoView *)subView label] setHidden:YES];
+					[[(PhotoView *)subView infoButton] setHidden:YES];
+				} else {
+					[(PhotoView *)subView setOrientation:activeOrientation];
+					[(PhotoView *)subView resetScale];
+				}
+			} else if ([subView isKindOfClass:[ArticleView class]]) {
+				subView.frame = CGRectMake(0.0, 0.0, (scrollView.frame.size.width - 15.0), (scrollView.frame.size.height - 15.0));
+				
+				if (subView.tag != activeIndex) {
+					[(ArticleView *)subView setOrientation:activeOrientation];
+					[(ArticleView *)subView setContentInset:UIEdgeInsetsMake(self.navigationController.navigationBar.frame.size.height + 30.0, 0.0, 0.0, 0.0)];
+					
+					[subView setNeedsLayout];
+				}
+			}
+			
+			if (subView.tag == activeIndex) {
+				[UIView setAnimationDelegate:self];
+				[UIView setAnimationDidStopSelector:@selector(didRotate)];
+				[UIView commitAnimations];
+			}
+		}
+	}
 }
 
 
-- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
-	UIScrollView *scrollView = (UIScrollView *)[self view];
-
-	[self setupLayouts];
+- (void)didRotate {
+	rotating = NO;
 	
-	for (UIView *subView in self.view.subviews) {
-		if ([subView isKindOfClass:[PhotoView class]]) {
-			subView.frame = CGRectMake(subView.tag * scrollView.frame.size.width, 0.0, (scrollView.frame.size.width - 15.0), scrollView.frame.size.height);
-			
-			[(PhotoView *)subView resetScale];
-		} else if ([subView isKindOfClass:[ArticleView class]]) {
-			subView.frame = CGRectMake(0.0, 0.0, (scrollView.frame.size.width - 15.0), scrollView.frame.size.height);
-			
-			[(ArticleView *)subView setContentInset:UIEdgeInsetsMake(self.navigationController.navigationBar.frame.size.height + 30.0, 0.0, 0.0, 0.0)];
-			
-			[subView setNeedsLayout];
-		}
+	UIView *subView = [self.view viewWithTag:activeIndex];
+	
+	if ([subView isKindOfClass:[PhotoView class]]) {
+		[[(PhotoView *)subView infoButton] setHidden:NO];
+		[[(PhotoView *)subView label] setHidden:NO];
+		[(PhotoView *)subView setOrientation:activeOrientation];
+		[(PhotoView *)subView resetScale];
+	} else if ([subView isKindOfClass:[ArticleView class]]) {
+		[(ArticleView *)subView setOrientation:activeOrientation];
+		[(ArticleView *)subView setContentInset:UIEdgeInsetsMake(self.navigationController.navigationBar.frame.size.height + 30.0, 0.0, 0.0, 0.0)];
+		
+		[subView setNeedsLayout];
 	}
 
-	[scrollView setContentSize:CGSizeMake(scrollView.frame.size.width * ([imageList count] + 1), scrollView.frame.size.height)];
-	[scrollView setContentOffset:CGPointMake(scrollView.frame.size.width * activeIndex, 0.0)];
-	[scrollView setContentInset:UIEdgeInsetsZero];
+	[[UIApplication sharedApplication] setStatusBarOrientation:activeOrientation];
+
+	CGFloat angle;
+	CGRect frame;
+	CGRect screenBounds = [[UIScreen mainScreen] bounds];
+	
+	if (activeOrientation == UIInterfaceOrientationPortrait) {
+		angle = 0.0;
+		frame = CGRectMake(0.0, 20.0, screenBounds.size.width, 44.0);
+	} else if (activeOrientation == UIInterfaceOrientationLandscapeRight) {
+		angle = M_PI / 2.0;
+		frame = CGRectMake(screenBounds.size.width - (20.0 + 44.0), 0.0, 44.0, screenBounds.size.height);
+	} else if (activeOrientation == UIInterfaceOrientationLandscapeLeft) {
+		angle = -M_PI / 2.0;
+		frame = CGRectMake(20.0, 0.0, 44.0, screenBounds.size.height);
+	}
+	
+	[self.navigationController.navigationBar setTransform:CGAffineTransformMakeRotation(angle)];
+	[self.navigationController.navigationBar setFrame:frame];
+	
+	if (activeIndex == 0) {
+		[self showInterface];
+	}
 }
 
 
 - (void)addPhoto:(NSUInteger)indexNum {
 	Photo *photo = [imageList objectAtIndex:indexNum];
-	PhotoView *imageView = [[PhotoView alloc] initWithFrame:CGRectMake((indexNum + 1) * self.view.frame.size.width, 0.0, (self.view.frame.size.width - 15.0), self.view.frame.size.height)];
+	PhotoView *imageView = [[PhotoView alloc] initWithFrame:CGRectZero];
 
 	imageView.photo = photo;
 	imageView.tag = indexNum + 1;
 	imageView.contentMode = UIViewContentModeScaleAspectFit;
 	imageView.userInteractionEnabled = YES;
 	imageView.delegate = self;
+	imageView.orientation = activeOrientation;
+	imageView.backgroundColor = [UIColor redColor];
+	
+	if (activeOrientation == UIDeviceOrientationPortrait || activeOrientation == 0) {
+		imageView.frame = CGRectMake((indexNum + 1) * self.view.frame.size.width, 0.0, (self.view.frame.size.width - 15.0), (self.view.frame.size.height - 15.0));
+	} else {
+		if (activeOrientation == UIDeviceOrientationLandscapeLeft) {
+			imageView.transform = CGAffineTransformMakeRotation(M_PI / 2.0);
+		} else if (activeOrientation == UIDeviceOrientationLandscapeRight) {
+			imageView.transform = CGAffineTransformMakeRotation(-M_PI / 2.0);
+		}
 
+		imageView.frame = CGRectMake(0.0, (indexNum + 1) * self.view.frame.size.height, (self.view.frame.size.width - 15.0), (self.view.frame.size.height - 15.0));
+	}
+	
 	[self.view addSubview:imageView];
 	[imageViewsList replaceObjectAtIndex:indexNum withObject:imageView];
 	
@@ -260,19 +363,8 @@ static NSString *const RE_PHOTO = @"<div class=\"bpBoth\"><a name=\"photo[0-9]+\
 }
 
 
-//- (void)loadPage:(NSURL *)pageURL {
-//	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-//	
-//	NSString *html = [NSString stringWithContentsOfURL:pageURL];
-//	
-//	[self performSelectorOnMainThread:@selector(doneLoadingPage:) withObject:html waitUntilDone:NO];
-//	
-//	[pool release];
-//}
-
-
 - (void)prepNeighbours {
-	if (zooming || activeIndex < 1) return;
+	if (zooming || rotating || activeIndex < 1 || [imageList count] == 0) return;
 	
 	if ((NSNull *)[imageViewsList objectAtIndex:activeIndex - 1] == [NSNull null]) {
 		[self addPhoto:activeIndex - 1];
@@ -309,9 +401,13 @@ static NSString *const RE_PHOTO = @"<div class=\"bpBoth\"><a name=\"photo[0-9]+\
 
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-	if (!zooming) {
-		activeIndex = (scrollView.contentOffset.x < 0.0) ? 0 : floor(scrollView.contentOffset.x / self.view.frame.size.width);
-		
+	if (!zooming && !rotating) {
+		if (activeOrientation == UIDeviceOrientationPortrait || activeOrientation == 0) {
+			activeIndex = (scrollView.contentOffset.x < 0.0) ? 0 : floor(scrollView.contentOffset.x / scrollView.frame.size.width);
+		} else {
+			activeIndex = (scrollView.contentOffset.y < 0.0) ? 0 : floor(scrollView.contentOffset.y / scrollView.frame.size.height);
+		}
+
 		if (activeIndex == 0) {
 			if (hideTimer != nil) {
 				[hideTimer invalidate];
@@ -332,15 +428,13 @@ static NSString *const RE_PHOTO = @"<div class=\"bpBoth\"><a name=\"photo[0-9]+\
 
 
 - (void)didBeginZoomingOnView:(PhotoView *)view {
-	UIScrollView *scrollView = (UIScrollView *)[self view];
-	
-	scrollView.scrollEnabled = NO;
+	[(UIScrollView *)[self view] setScrollEnabled:NO];
 }
 
 
 - (void)didEndZoomingOnView:(PhotoView *)view withCenterPoint:(CGPoint)centerPoint {
 	UIScrollView *scrollView = (UIScrollView *)[self view];
-	CGFloat viewHeight = (view.frame.size.height < scrollView.frame.size.height) ? scrollView.frame.size.height : view.frame.size.height;
+	CGFloat viewHeight = (view.frame.size.height < scrollView.frame.size.height - 15.0) ? scrollView.frame.size.height - 15.0 : view.frame.size.height;
 	CGFloat viewWidth = (view.frame.size.width < scrollView.frame.size.width - 15.0) ? scrollView.frame.size.width - 15.0 : view.frame.size.width;
 	
 	scrollView.scrollEnabled = YES;
@@ -359,7 +453,7 @@ static NSString *const RE_PHOTO = @"<div class=\"bpBoth\"><a name=\"photo[0-9]+\
 		zooming = YES;
 		
 		CGFloat centerX = (view.frame.size.width < scrollView.frame.size.width - 15.0) ? 0.0 : centerPoint.x + 8.0 - scrollView.frame.size.width / 2;
-		CGFloat centerY = (view.frame.size.height < scrollView.frame.size.height) ? 0.0 : centerPoint.y - scrollView.frame.size.height / 2;
+		CGFloat centerY = (view.frame.size.height < scrollView.frame.size.height - 15.0) ? 0.0 : centerPoint.y - scrollView.frame.size.height / 2;
 		
 		view.frame = CGRectMake(0.0, 0.0, viewWidth, viewHeight);
 		
@@ -405,19 +499,20 @@ static NSString *const RE_PHOTO = @"<div class=\"bpBoth\"><a name=\"photo[0-9]+\
 }
 
 
-- (void) connectionDidFail:(URLCacheConnection *)theConnection {
-	NSLog(@"Connection Failed");
-	[theConnection release];
+- (void)connectionDidFail:(URLCacheConnection *)theConnection {
+	[activeConnection release];
+	activeConnection = nil;
 }
 
 
-- (void) connectionDidFinish:(URLCacheConnection *)theConnection {
+- (void)connectionDidFinish:(URLCacheConnection *)theConnection {
 	NSString *htmlData = [[NSString alloc] initWithData:theConnection.receivedData encoding:NSASCIIStringEncoding];
 
 	[self doneLoadingPage:htmlData];
 	
 	[htmlData release];
-	[theConnection release];
+	[activeConnection release];
+	activeConnection = nil;
 }
 
 
@@ -431,6 +526,12 @@ static NSString *const RE_PHOTO = @"<div class=\"bpBoth\"><a name=\"photo[0-9]+\
 	[loadingIndicator release];
 	[imageList release];
 	[imageViewsList release];
+	
+	if (activeConnection) {
+		[activeConnection cancelConnection];
+		[activeConnection release];
+	}
+	
     [super dealloc];
 }
 

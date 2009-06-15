@@ -53,14 +53,14 @@
 @synthesize delegate;
 @synthesize receivedData;
 @synthesize lastModified;
+@synthesize activeConnection;
 
 
 /* This method initiates the load request. The connection is asynchronous, 
  and we implement a set of delegate methods that act as callbacks during 
  the load. */
 
-- (id) initWithURL:(NSURL *)theURL delegate:(id<URLCacheConnectionDelegate>)theDelegate
-{
+- (id)initWithURL:(NSURL *)theURL delegate:(id<URLCacheConnectionDelegate>)theDelegate {
 	if (self = [super init]) {
 		
 		self.delegate = theDelegate;
@@ -80,10 +80,10 @@
 		 data. The connection object is owned both by the creator and the
 		 loading system. */
 		
-		NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:theRequest 
-																	  delegate:self 
-															  startImmediately:YES];
-		if (connection == nil) {
+		activeConnection = [[NSURLConnection alloc] initWithRequest:theRequest 
+														   delegate:self 
+												   startImmediately:YES];
+		if (activeConnection == nil) {
 			/* inform the user that the connection failed */
 			NSLog(@"Connection Failed");
 		}
@@ -93,18 +93,22 @@
 }
 
 
-- (void)dealloc
-{
+- (void)dealloc {
 	[receivedData release];
 	[lastModified release];
 	[super dealloc];
 }
 
 
+- (void)cancelConnection {
+	[activeConnection cancel];
+	[activeConnection release];
+}
+
+
 #pragma mark NSURLConnection delegate methods
 
-- (void) connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
-{
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
     /* This method is called when the server has determined that it has
 	 enough information to create the NSURLResponse. It can be called
 	 multiple times, for example in the case of a redirect, so each time
@@ -132,31 +136,26 @@
 }
 
 
-- (void) connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
-{
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
     /* Append the new data to the received data. */
     [self.receivedData appendData:data];
 }
 
 
-- (void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
-{
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
 	[self.delegate connectionDidFail:self];
 	[connection release];
 }
 
 
-- (NSCachedURLResponse *) connection:(NSURLConnection *)connection 
-				   willCacheResponse:(NSCachedURLResponse *)cachedResponse
-{
-	/* this application does not use a NSURLCache disk or memory cache */
-    return nil;
+- (NSCachedURLResponse *) connection:(NSURLConnection *)connection willCacheResponse:(NSCachedURLResponse *)cachedResponse {
+    return cachedResponse;
 }
 
 
-- (void) connectionDidFinishLoading:(NSURLConnection *)connection
-{
+- (void) connectionDidFinishLoading:(NSURLConnection *)connection {
 	[self.delegate connectionDidFinish:self];
+	
 	[connection release];
 }
 

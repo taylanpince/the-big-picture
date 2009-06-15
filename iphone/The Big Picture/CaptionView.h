@@ -10,9 +10,13 @@
 @interface CaptionView : UIView {
 	UILabel *label;
 	NSString *caption;
+	
+	UIDeviceOrientation orientation;
 }
 
 @property (nonatomic, retain) UILabel *label;
 @property (nonatomic, retain) NSString *caption;
+
+@property (nonatomic, assign) UIDeviceOrientation orientation;
 
 @end

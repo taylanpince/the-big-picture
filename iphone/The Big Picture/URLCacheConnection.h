@@ -51,20 +51,23 @@
 	id <URLCacheConnectionDelegate> delegate;
 	NSMutableData *receivedData;
 	NSDate *lastModified;
+	NSURLConnection *activeConnection;
 }
 
 @property (nonatomic, assign) id delegate;
 @property (nonatomic, retain) NSMutableData *receivedData;
 @property (nonatomic, retain) NSDate *lastModified;
+@property (nonatomic, retain) NSURLConnection *activeConnection;
 
-- (id) initWithURL:(NSURL *)theURL delegate:(id<URLCacheConnectionDelegate>)theDelegate;
+- (id)initWithURL:(NSURL *)theURL delegate:(id<URLCacheConnectionDelegate>)theDelegate;
+- (void)cancelConnection;
 
 @end
 
 
 @protocol URLCacheConnectionDelegate<NSObject>
 
-- (void) connectionDidFail:(URLCacheConnection *)theConnection;
-- (void) connectionDidFinish:(URLCacheConnection *)theConnection;
+- (void)connectionDidFail:(URLCacheConnection *)theConnection;
+- (void)connectionDidFinish:(URLCacheConnection *)theConnection;
 
 @end

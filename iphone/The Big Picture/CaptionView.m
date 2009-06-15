@@ -11,7 +11,7 @@
 
 @implementation CaptionView
 
-@synthesize label, caption;
+@synthesize label, caption, orientation;
 
 
 - (id)initWithFrame:(CGRect)frame {
@@ -49,7 +49,12 @@
 	
 	[label setText:caption];
 	[label setFrame:CGRectMake(15.0, 10.0, textSize.width, textSize.height)];
-	[self setFrame:CGRectMake(0.0, self.superview.frame.size.height - textSize.height - 20.0, self.frame.size.width, textSize.height + 20.0)];
+	
+	if (orientation == UIDeviceOrientationPortrait || orientation == 0) {
+		[self setFrame:CGRectMake(0.0, self.superview.frame.size.height - textSize.height - 20.0, self.frame.size.width, textSize.height + 20.0)];
+	} else {
+		[self setFrame:CGRectMake(0.0, self.superview.frame.size.width - textSize.height - 20.0, self.frame.size.width, textSize.height + 20.0)];
+	}
 }
 
 

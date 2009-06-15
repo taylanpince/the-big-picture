@@ -11,7 +11,7 @@
 
 @implementation ArticleView
 
-@synthesize article, label;
+@synthesize article, label, orientation;
 
 
 - (id)initWithFrame:(CGRect)frame {
@@ -41,25 +41,19 @@
 
 
 - (void)layoutSubviews {
-	CGSize textSize = [article sizeWithFont:label.font constrainedToSize:CGSizeMake(self.frame.size.width - 30.0, 2000.0) lineBreakMode:UILineBreakModeWordWrap];
+	CGSize textSize;
+	
+	if (orientation == UIDeviceOrientationPortrait || orientation == 0) {
+		textSize = [article sizeWithFont:label.font constrainedToSize:CGSizeMake(self.frame.size.width - 30.0, 2000.0) lineBreakMode:UILineBreakModeWordWrap];
+	} else {
+		textSize = [article sizeWithFont:label.font constrainedToSize:CGSizeMake(self.frame.size.height - 30.0, 2000.0) lineBreakMode:UILineBreakModeWordWrap];
+	}
 	
 	label.text = article;
 	label.frame = CGRectMake(15.0, 0.0, textSize.width, textSize.height);
 	
 	self.contentSize = CGSizeMake(textSize.width, textSize.height + 15.0);
 }
-
-
-//- (void)drawRect:(CGRect)rect {
-//	NSLog(@"Rect: %f, %f", rect.origin.x, rect.origin.y);
-//	UIColor *mainColor = [UIColor whiteColor];
-//	
-//	[mainColor set];
-//	
-//	CGSize articleSize = [article drawInRect:CGRectMake(15.0, 10.0, rect.size.width - 30.0, 1000.0) withFont:mainFont lineBreakMode:UILineBreakModeWordWrap];
-//
-//	self.contentSize = articleSize;
-//}
 
 
 - (void)dealloc {

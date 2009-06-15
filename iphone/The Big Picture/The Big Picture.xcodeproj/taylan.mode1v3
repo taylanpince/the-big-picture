@@ -280,7 +280,7 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>29</integer>
+									<integer>27</integer>
 									<integer>25</integer>
 									<integer>0</integer>
 								</array>
@@ -323,7 +323,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>RootViewController.m</string>
+								<string>ArticleViewController.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -331,19 +331,15 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>RootViewController.m</string>
+										<string>ArticleViewController.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>ECBC64790FE68693007D4012</string>
+										<string>ECBC67360FE70A19007D4012</string>
 										<key>history</key>
 										<array>
 											<string>EC264DE60FDF3F2700A83382</string>
-											<string>ECAD084A0FE41A5C00BCCCE1</string>
 											<string>ECAD08A60FE4285300BCCCE1</string>
-											<string>ECAD09050FE43E6200BCCCE1</string>
-											<string>ECAD09220FE43F4100BCCCE1</string>
-											<string>ECAD096F0FE4474100BCCCE1</string>
 											<string>ECAD09D10FE44FDF00BCCCE1</string>
 											<string>ECAD09F40FE4539800BCCCE1</string>
 											<string>ECAD09F50FE4539800BCCCE1</string>
@@ -353,15 +349,19 @@
 											<string>ECAD0A830FE45CC200BCCCE1</string>
 											<string>ECAD0A970FE45F2D00BCCCE1</string>
 											<string>ECAD0AD00FE4669100BCCCE1</string>
-											<string>ECAD0AD60FE4677400BCCCE1</string>
 											<string>ECAD0AD70FE4677400BCCCE1</string>
-											<string>ECBC64360FE68097007D4012</string>
-											<string>ECBC644E0FE6812B007D4012</string>
-											<string>ECBC644F0FE6812B007D4012</string>
-											<string>ECBC64610FE682CC007D4012</string>
-											<string>ECBC64690FE684C1007D4012</string>
-											<string>ECBC64750FE68693007D4012</string>
-											<string>ECBC64760FE68693007D4012</string>
+											<string>ECBC647B0FE68718007D4012</string>
+											<string>ECBC65EF0FE6DB29007D4012</string>
+											<string>ECBC66070FE6E04D007D4012</string>
+											<string>ECBC66090FE6E04D007D4012</string>
+											<string>ECBC66290FE6E85D007D4012</string>
+											<string>ECBC662B0FE6E85D007D4012</string>
+											<string>ECBC66420FE6E8C6007D4012</string>
+											<string>ECBC664A0FE6E966007D4012</string>
+											<string>ECBC664B0FE6E966007D4012</string>
+											<string>ECBC67210FE70735007D4012</string>
+											<string>ECBC67220FE70735007D4012</string>
+											<string>ECBC67230FE70735007D4012</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -397,11 +397,72 @@
 											<string>ECBC64520FE6812B007D4012</string>
 											<string>ECBC64530FE6812B007D4012</string>
 											<string>ECBC64540FE6812B007D4012</string>
-											<string>ECBC64630FE682CC007D4012</string>
-											<string>ECBC64640FE682CC007D4012</string>
-											<string>ECBC646B0FE684C1007D4012</string>
 											<string>ECBC64770FE68693007D4012</string>
-											<string>ECBC64780FE68693007D4012</string>
+											<string>ECBC647D0FE68718007D4012</string>
+											<string>ECBC64C80FE69460007D4012</string>
+											<string>ECBC652A0FE6AD4D007D4012</string>
+											<string>ECBC656D0FE6B8CC007D4012</string>
+											<string>ECBC65810FE6CBEF007D4012</string>
+											<string>ECBC65830FE6CBEF007D4012</string>
+											<string>ECBC65B10FE6D672007D4012</string>
+											<string>ECBC65B30FE6D672007D4012</string>
+											<string>ECBC65B50FE6D672007D4012</string>
+											<string>ECBC65C00FE6D729007D4012</string>
+											<string>ECBC65C90FE6D817007D4012</string>
+											<string>ECBC65CA0FE6D817007D4012</string>
+											<string>ECBC65D70FE6DA14007D4012</string>
+											<string>ECBC65D80FE6DA14007D4012</string>
+											<string>ECBC65D90FE6DA14007D4012</string>
+											<string>ECBC65DF0FE6DA73007D4012</string>
+											<string>ECBC65E40FE6DAB0007D4012</string>
+											<string>ECBC65E90FE6DAD9007D4012</string>
+											<string>ECBC65F00FE6DB29007D4012</string>
+											<string>ECBC65F10FE6DB29007D4012</string>
+											<string>ECBC65FD0FE6DBA6007D4012</string>
+											<string>ECBC660B0FE6E04D007D4012</string>
+											<string>ECBC660C0FE6E04D007D4012</string>
+											<string>ECBC660D0FE6E04D007D4012</string>
+											<string>ECBC660E0FE6E04D007D4012</string>
+											<string>ECBC660F0FE6E04D007D4012</string>
+											<string>ECBC66100FE6E04D007D4012</string>
+											<string>ECBC66110FE6E04D007D4012</string>
+											<string>ECBC661D0FE6E30A007D4012</string>
+											<string>ECBC66240FE6E436007D4012</string>
+											<string>ECBC66250FE6E436007D4012</string>
+											<string>ECBC662D0FE6E85D007D4012</string>
+											<string>ECBC662E0FE6E85D007D4012</string>
+											<string>ECBC662F0FE6E85D007D4012</string>
+											<string>ECBC66300FE6E85D007D4012</string>
+											<string>ECBC66310FE6E85D007D4012</string>
+											<string>ECBC66320FE6E85D007D4012</string>
+											<string>ECBC66330FE6E85D007D4012</string>
+											<string>ECBC66340FE6E85D007D4012</string>
+											<string>ECBC66350FE6E85D007D4012</string>
+											<string>ECBC66360FE6E85D007D4012</string>
+											<string>ECBC66370FE6E85D007D4012</string>
+											<string>ECBC66380FE6E85D007D4012</string>
+											<string>ECBC66390FE6E85D007D4012</string>
+											<string>ECBC663A0FE6E85D007D4012</string>
+											<string>ECBC663B0FE6E85D007D4012</string>
+											<string>ECBC66400FE6E881007D4012</string>
+											<string>ECBC66440FE6E8C6007D4012</string>
+											<string>ECBC664D0FE6E966007D4012</string>
+											<string>ECBC664E0FE6E966007D4012</string>
+											<string>ECBC664F0FE6E966007D4012</string>
+											<string>ECBC66500FE6E966007D4012</string>
+											<string>ECBC66510FE6E966007D4012</string>
+											<string>ECBC66520FE6E966007D4012</string>
+											<string>ECBC666C0FE6EF0F007D4012</string>
+											<string>ECBC666D0FE6EF0F007D4012</string>
+											<string>ECBC666E0FE6EF0F007D4012</string>
+											<string>ECBC66980FE6F823007D4012</string>
+											<string>ECBC66990FE6F823007D4012</string>
+											<string>ECBC669A0FE6F823007D4012</string>
+											<string>ECBC669F0FE6F830007D4012</string>
+											<string>ECBC66A40FE6F8D4007D4012</string>
+											<string>ECBC67240FE70735007D4012</string>
+											<string>ECBC67250FE70735007D4012</string>
+											<string>ECBC67260FE70735007D4012</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
