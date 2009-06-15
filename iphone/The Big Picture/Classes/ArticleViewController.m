@@ -77,6 +77,8 @@ static NSString *const RE_PHOTO = @"<div class=\"bpBoth\"><a name=\"photo[0-9]+\
 	[loadingIndicator startAnimating];
 	[self.view addSubview:loadingIndicator];
 	
+	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+	
 	[self performSelectorInBackground:@selector(loadPage:) withObject:article.url];
 
 	UIScrollView *scrollView = (UIScrollView *)[self view];
@@ -248,6 +250,7 @@ static NSString *const RE_PHOTO = @"<div class=\"bpBoth\"><a name=\"photo[0-9]+\
 	
 	[scrollView setContentSize:CGSizeMake(scrollView.frame.size.width * ([imageList count] + 1), scrollView.contentSize.height)];
 	
+	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 	[loadingIndicator stopAnimating];
 	
 	if ([imageList count] > 0) [self addPhoto:0];
@@ -257,9 +260,6 @@ static NSString *const RE_PHOTO = @"<div class=\"bpBoth\"><a name=\"photo[0-9]+\
 
 - (void)loadPage:(NSURL *)pageURL {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-	
-//	[[NSURLCache sharedURLCache] setMemoryCapacity:0];
-//	[[NSURLCache sharedURLCache] setDiskCapacity:0];
 	
 	NSString *html = [NSString stringWithContentsOfURL:pageURL];
 	

@@ -110,9 +110,6 @@
 - (void)loadImage:(NSURL *)url {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	
-//	[[NSURLCache sharedURLCache] setMemoryCapacity:0];
-//	[[NSURLCache sharedURLCache] setDiskCapacity:0];
-	
 	UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
 	
 	[self performSelectorOnMainThread:@selector(setImage:) withObject:image waitUntilDone:NO];

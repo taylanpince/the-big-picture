@@ -51,6 +51,8 @@ static NSString *const RE_ARTICLE_DESC = @"<div class=\"bpBody\">(.*?)\\(<a href
 		[self.navigationItem setRightBarButtonItem:loadingBarItem];
 		[loadingBarItem release];
 		
+		[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+		
 		[self performSelectorInBackground:@selector(loadArticles) withObject:nil];
 	}
 }
@@ -66,6 +68,7 @@ static NSString *const RE_ARTICLE_DESC = @"<div class=\"bpBody\">(.*?)\\(<a href
 
 
 - (void)doneParsing {
+	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 	[loadingIndicator stopAnimating];
 	[self.navigationItem.leftBarButtonItem setEnabled:YES];
 	[dateFormatter setDateStyle:NSDateFormatterFullStyle];
@@ -87,6 +90,7 @@ static NSString *const RE_ARTICLE_DESC = @"<div class=\"bpBody\">(.*?)\\(<a href
 	[self.tableView reloadData];
 	
 	[self.navigationItem.leftBarButtonItem setEnabled:NO];
+	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 	[loadingIndicator startAnimating];
 	[dateFormatter setDateFormat:@"dd MMM yyyy HH:mm:ss ZZZ"];
 
@@ -96,9 +100,6 @@ static NSString *const RE_ARTICLE_DESC = @"<div class=\"bpBody\">(.*?)\\(<a href
 
 - (void)loadArticles {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-	
-//	[[NSURLCache sharedURLCache] setMemoryCapacity:0];
-//	[[NSURLCache sharedURLCache] setDiskCapacity:0];
 	
 	NSXMLParser *parser = [[[NSXMLParser alloc] initWithContentsOfURL:[NSURL URLWithString:RSS_URL]] autorelease];
 	
