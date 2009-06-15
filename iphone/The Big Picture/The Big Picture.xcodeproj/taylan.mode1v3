@@ -228,8 +228,6 @@
 			<key>Layout</key>
 			<array>
 				<dict>
-					<key>BecomeActive</key>
-					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -281,7 +279,8 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>30</integer>
+									<integer>24</integer>
+									<integer>22</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -316,6 +315,8 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -333,7 +334,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>ECAD0AEA0FE4744300BCCCE1</string>
+										<string>ECBC632F0FE674BE007D4012</string>
 										<key>history</key>
 										<array>
 											<string>EC264DE60FDF3F2700A83382</string>
@@ -343,7 +344,6 @@
 											<string>ECAD09070FE43E6200BCCCE1</string>
 											<string>ECAD09220FE43F4100BCCCE1</string>
 											<string>ECAD096F0FE4474100BCCCE1</string>
-											<string>ECAD09700FE4474100BCCCE1</string>
 											<string>ECAD09D10FE44FDF00BCCCE1</string>
 											<string>ECAD09F40FE4539800BCCCE1</string>
 											<string>ECAD09F50FE4539800BCCCE1</string>
@@ -353,11 +353,12 @@
 											<string>ECAD0A7E0FE45C9B00BCCCE1</string>
 											<string>ECAD0A830FE45CC200BCCCE1</string>
 											<string>ECAD0A970FE45F2D00BCCCE1</string>
-											<string>ECAD0ACF0FE4669100BCCCE1</string>
 											<string>ECAD0AD00FE4669100BCCCE1</string>
 											<string>ECAD0AD60FE4677400BCCCE1</string>
 											<string>ECAD0AD70FE4677400BCCCE1</string>
-											<string>ECAD0AD80FE4677400BCCCE1</string>
+											<string>ECBC632A0FE674BE007D4012</string>
+											<string>ECBC632B0FE674BE007D4012</string>
+											<string>ECBC632C0FE674BE007D4012</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -374,90 +375,18 @@
 											<string>ECBA58C60FE298B40044A1AD</string>
 											<string>ECCD8C0A0FE3FABC00FE0722</string>
 											<string>ECAD084E0FE41A5C00BCCCE1</string>
-											<string>ECAD08510FE41A5C00BCCCE1</string>
 											<string>ECAD08710FE41C7400BCCCE1</string>
-											<string>ECAD087E0FE41E7900BCCCE1</string>
-											<string>ECAD087F0FE41E7900BCCCE1</string>
-											<string>ECAD08A90FE4285300BCCCE1</string>
-											<string>ECAD08AA0FE4285300BCCCE1</string>
-											<string>ECAD08AB0FE4285300BCCCE1</string>
-											<string>ECAD08B80FE42B4D00BCCCE1</string>
-											<string>ECAD08E60FE4393300BCCCE1</string>
 											<string>ECAD090A0FE43E6200BCCCE1</string>
 											<string>ECAD090B0FE43E6200BCCCE1</string>
-											<string>ECAD090C0FE43E6200BCCCE1</string>
-											<string>ECAD090D0FE43E6200BCCCE1</string>
-											<string>ECAD090E0FE43E6200BCCCE1</string>
-											<string>ECAD090F0FE43E6200BCCCE1</string>
 											<string>ECAD09100FE43E6200BCCCE1</string>
-											<string>ECAD09110FE43E6200BCCCE1</string>
 											<string>ECAD09120FE43E6200BCCCE1</string>
 											<string>ECAD09130FE43E6200BCCCE1</string>
-											<string>ECAD09140FE43E6200BCCCE1</string>
-											<string>ECAD091B0FE43E9B00BCCCE1</string>
-											<string>ECAD09240FE43F4100BCCCE1</string>
-											<string>ECAD094C0FE442D000BCCCE1</string>
-											<string>ECAD094D0FE442D000BCCCE1</string>
 											<string>ECAD094F0FE442D000BCCCE1</string>
-											<string>ECAD09510FE442D000BCCCE1</string>
-											<string>ECAD09530FE442D000BCCCE1</string>
-											<string>ECAD09550FE442D000BCCCE1</string>
-											<string>ECAD09610FE443ED00BCCCE1</string>
-											<string>ECAD09630FE443ED00BCCCE1</string>
-											<string>ECAD09650FE443ED00BCCCE1</string>
-											<string>ECAD09740FE4474100BCCCE1</string>
-											<string>ECAD09750FE4474100BCCCE1</string>
-											<string>ECAD09770FE4474100BCCCE1</string>
-											<string>ECAD098D0FE4494C00BCCCE1</string>
 											<string>ECAD09AA0FE44B7900BCCCE1</string>
-											<string>ECAD09AB0FE44B7900BCCCE1</string>
-											<string>ECAD09B50FE44D8200BCCCE1</string>
-											<string>ECAD09B60FE44D8200BCCCE1</string>
-											<string>ECAD09B80FE44D8200BCCCE1</string>
-											<string>ECAD09C20FE44E2100BCCCE1</string>
-											<string>ECAD09C90FE44E3B00BCCCE1</string>
-											<string>ECAD09D20FE44FDF00BCCCE1</string>
-											<string>ECAD09D30FE44FDF00BCCCE1</string>
 											<string>ECAD09F90FE4539800BCCCE1</string>
-											<string>ECAD09FA0FE4539800BCCCE1</string>
-											<string>ECAD09FB0FE4539800BCCCE1</string>
-											<string>ECAD09FC0FE4539800BCCCE1</string>
-											<string>ECAD09FD0FE4539800BCCCE1</string>
-											<string>ECAD09FE0FE4539800BCCCE1</string>
-											<string>ECAD09FF0FE4539800BCCCE1</string>
-											<string>ECAD0A140FE4545B00BCCCE1</string>
-											<string>ECAD0A3C0FE4558F00BCCCE1</string>
-											<string>ECAD0A3D0FE4558F00BCCCE1</string>
-											<string>ECAD0A3E0FE4558F00BCCCE1</string>
-											<string>ECAD0A4A0FE4568E00BCCCE1</string>
-											<string>ECAD0A4B0FE4568E00BCCCE1</string>
-											<string>ECAD0A4C0FE4568E00BCCCE1</string>
-											<string>ECAD0A4D0FE4568E00BCCCE1</string>
-											<string>ECAD0A670FE45C4F00BCCCE1</string>
-											<string>ECAD0A680FE45C4F00BCCCE1</string>
-											<string>ECAD0A690FE45C4F00BCCCE1</string>
-											<string>ECAD0A6A0FE45C4F00BCCCE1</string>
-											<string>ECAD0A6B0FE45C4F00BCCCE1</string>
-											<string>ECAD0A6C0FE45C4F00BCCCE1</string>
-											<string>ECAD0A7B0FE45C7200BCCCE1</string>
-											<string>ECAD0A800FE45C9B00BCCCE1</string>
-											<string>ECAD0A850FE45CC200BCCCE1</string>
-											<string>ECAD0A860FE45CC200BCCCE1</string>
-											<string>ECAD0A8A0FE45D9B00BCCCE1</string>
-											<string>ECAD0A8B0FE45D9B00BCCCE1</string>
-											<string>ECAD0A990FE45F2D00BCCCE1</string>
-											<string>ECAD0A9A0FE45F2D00BCCCE1</string>
-											<string>ECAD0A9B0FE45F2D00BCCCE1</string>
-											<string>ECAD0A9C0FE45F2D00BCCCE1</string>
-											<string>ECAD0A9D0FE45F2D00BCCCE1</string>
-											<string>ECAD0A9E0FE45F2D00BCCCE1</string>
-											<string>ECAD0A9F0FE45F2D00BCCCE1</string>
-											<string>ECAD0AA50FE45FD200BCCCE1</string>
-											<string>ECAD0AAD0FE4623F00BCCCE1</string>
-											<string>ECAD0AD10FE4669100BCCCE1</string>
-											<string>ECAD0AD20FE4669100BCCCE1</string>
-											<string>ECAD0AD90FE4677400BCCCE1</string>
-											<string>ECAD0ADA0FE4677400BCCCE1</string>
+											<string>ECBC63250FE6747C007D4012</string>
+											<string>ECBC632D0FE674BE007D4012</string>
+											<string>ECBC632E0FE674BE007D4012</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -515,9 +444,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>ECAD08380FE418CA00BCCCE1</string>
+				<string>ECBC631B0FE673FD007D4012</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>ECAD08390FE418CA00BCCCE1</string>
+				<string>ECBC631C0FE673FD007D4012</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -651,12 +580,10 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>ECAD08BA0FE42B4D00BCCCE1</string>
-		<string>ECAD08BB0FE42B4D00BCCCE1</string>
 		<string>EC264D9C0FDF3B6000A83382</string>
+		<string>/Users/taylan/Documents/Development/Personal/the-big-picture/iphone/The Big Picture/The Big Picture.xcodeproj</string>
 		<string>1C78EAAD065D492600B07095</string>
 		<string>1CD10A99069EF8BA00B06720</string>
-		<string>/Users/taylan/Documents/Development/Personal/the-big-picture/iphone/The Big Picture/The Big Picture.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
 	<string>4 55 1436 823 0 0 1440 878 </string>
@@ -680,7 +607,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>ArticleCell.m</string>
+								<string></string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -697,8 +624,6 @@
 							<string>203pt</string>
 						</dict>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -713,14 +638,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 208}, {1114, 473}}</string>
+								<string>{{0, 208}, {1114, 472}}</string>
 								<key>RubberWindowFrame</key>
 								<string>25 134 1114 721 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXBuildResultsModule</string>
 							<key>Proportion</key>
-							<string>473pt</string>
+							<string>472pt</string>
 						</dict>
 					</array>
 					<key>Proportion</key>
@@ -738,7 +663,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>EC264D9C0FDF3B6000A83382</string>
-				<string>ECAD08540FE41A5C00BCCCE1</string>
+				<string>ECBC63270FE6747C007D4012</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
@@ -858,13 +783,13 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1CD10A99069EF8BA00B06720</string>
-				<string>ECAD083A0FE418CA00BCCCE1</string>
+				<string>ECBC631D0FE673FD007D4012</string>
 				<string>1C162984064C10D400B95A72</string>
-				<string>ECAD083B0FE418CA00BCCCE1</string>
-				<string>ECAD083C0FE418CA00BCCCE1</string>
-				<string>ECAD083D0FE418CA00BCCCE1</string>
-				<string>ECAD083E0FE418CA00BCCCE1</string>
-				<string>ECAD083F0FE418CA00BCCCE1</string>
+				<string>ECBC631E0FE673FD007D4012</string>
+				<string>ECBC631F0FE673FD007D4012</string>
+				<string>ECBC63200FE673FD007D4012</string>
+				<string>ECBC63210FE673FD007D4012</string>
+				<string>ECBC63220FE673FD007D4012</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>
@@ -1020,7 +945,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C78EAAD065D492600B07095</string>
-				<string>ECAD08550FE41A5C00BCCCE1</string>
+				<string>ECBC63280FE6747C007D4012</string>
 				<string>1C78EAAC065D492600B07095</string>
 			</array>
 			<key>ToolbarConfiguration</key>

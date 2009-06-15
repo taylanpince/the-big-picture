@@ -258,8 +258,8 @@ static NSString *const RE_PHOTO = @"<div class=\"bpBoth\"><a name=\"photo[0-9]+\
 - (void)loadPage:(NSURL *)pageURL {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	
-	[[NSURLCache sharedURLCache] setMemoryCapacity:0];
-	[[NSURLCache sharedURLCache] setDiskCapacity:0];
+//	[[NSURLCache sharedURLCache] setMemoryCapacity:0];
+//	[[NSURLCache sharedURLCache] setDiskCapacity:0];
 	
 	NSString *html = [NSString stringWithContentsOfURL:pageURL];
 	
