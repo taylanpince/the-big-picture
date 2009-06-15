@@ -6,12 +6,14 @@
 //  Copyright 2009 Taylan Pince. All rights reserved.
 //
 
+#import "URLCacheConnection.h"
+
 @protocol PhotoViewDelegate;
 
 @class Photo, CaptionView;
 
 
-@interface PhotoView : UIImageView {
+@interface PhotoView : UIImageView <URLCacheConnectionDelegate> {
 	Photo *photo;
 	CaptionView *label;
 	UIButton *infoButton;

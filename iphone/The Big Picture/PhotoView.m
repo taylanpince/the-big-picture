@@ -6,6 +6,7 @@
 //  Copyright 2009 Taylan Pince. All rights reserved.
 //
 
+#import "URLCacheConnection.h"
 #import "PhotoView.h"
 #import "CaptionView.h"
 #import "Photo.h"
@@ -102,20 +103,21 @@
 		[loadingIndicator setHidden:NO];
 		[loadingIndicator startAnimating];
 		
-		[self performSelectorInBackground:@selector(loadImage:) withObject:newPhoto.url];
+//		[self performSelectorInBackground:@selector(loadImage:) withObject:newPhoto.url];
+		(void) [[URLCacheConnection alloc] initWithURL:newPhoto.url delegate:self];
 	}
 }
 
 
-- (void)loadImage:(NSURL *)url {
-	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-	
-	UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
-	
-	[self performSelectorOnMainThread:@selector(setImage:) withObject:image waitUntilDone:NO];
-	
-	[pool release];
-}
+//- (void)loadImage:(NSURL *)url {
+//	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+//	
+//	UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
+//	
+//	[self performSelectorOnMainThread:@selector(setImage:) withObject:image waitUntilDone:NO];
+//	
+//	[pool release];
+//}
 
 
 - (CGFloat)distanceBetweenTwoPoints:(CGPoint)firstPoint toPoint:(CGPoint)secondPoint {
@@ -230,6 +232,18 @@
 			break;
 		}
 	}
+}
+
+
+- (void) connectionDidFail:(URLCacheConnection *)theConnection {
+	NSLog(@"Connection Failed");
+	[theConnection release];
+}
+
+
+- (void) connectionDidFinish:(URLCacheConnection *)theConnection {
+	[self setImage:[UIImage imageWithData:theConnection.receivedData]];
+	[theConnection release];
 }
 
 

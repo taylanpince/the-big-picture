@@ -280,8 +280,8 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>27</integer>
-									<integer>25</integer>
+									<integer>10</integer>
+									<integer>7</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -323,7 +323,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>ArticleViewController.m</string>
+								<string>PhotoView.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -331,18 +331,17 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>ArticleViewController.m</string>
+										<string>PhotoView.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>ECBC645D0FE681DF007D4012</string>
+										<string>ECBC64650FE682CC007D4012</string>
 										<key>history</key>
 										<array>
 											<string>EC264DE60FDF3F2700A83382</string>
 											<string>ECAD084A0FE41A5C00BCCCE1</string>
 											<string>ECAD08A60FE4285300BCCCE1</string>
 											<string>ECAD09050FE43E6200BCCCE1</string>
-											<string>ECAD09070FE43E6200BCCCE1</string>
 											<string>ECAD09220FE43F4100BCCCE1</string>
 											<string>ECAD096F0FE4474100BCCCE1</string>
 											<string>ECAD09D10FE44FDF00BCCCE1</string>
@@ -356,12 +355,13 @@
 											<string>ECAD0AD00FE4669100BCCCE1</string>
 											<string>ECAD0AD60FE4677400BCCCE1</string>
 											<string>ECAD0AD70FE4677400BCCCE1</string>
-											<string>ECBC63530FE67977007D4012</string>
 											<string>ECBC63540FE67977007D4012</string>
 											<string>ECBC64360FE68097007D4012</string>
 											<string>ECBC644E0FE6812B007D4012</string>
 											<string>ECBC644F0FE6812B007D4012</string>
-											<string>ECBC64500FE6812B007D4012</string>
+											<string>ECBC64600FE682CC007D4012</string>
+											<string>ECBC64610FE682CC007D4012</string>
+											<string>ECBC64620FE682CC007D4012</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -378,34 +378,27 @@
 											<string>ECBA58C60FE298B40044A1AD</string>
 											<string>ECCD8C0A0FE3FABC00FE0722</string>
 											<string>ECAD084E0FE41A5C00BCCCE1</string>
-											<string>ECAD08710FE41C7400BCCCE1</string>
 											<string>ECAD090A0FE43E6200BCCCE1</string>
 											<string>ECAD090B0FE43E6200BCCCE1</string>
 											<string>ECAD09100FE43E6200BCCCE1</string>
-											<string>ECAD09120FE43E6200BCCCE1</string>
 											<string>ECAD094F0FE442D000BCCCE1</string>
 											<string>ECAD09F90FE4539800BCCCE1</string>
-											<string>ECBC63250FE6747C007D4012</string>
 											<string>ECBC63560FE67977007D4012</string>
-											<string>ECBC643A0FE68097007D4012</string>
 											<string>ECBC643B0FE68097007D4012</string>
-											<string>ECBC643C0FE68097007D4012</string>
 											<string>ECBC643D0FE68097007D4012</string>
 											<string>ECBC643E0FE68097007D4012</string>
 											<string>ECBC643F0FE68097007D4012</string>
 											<string>ECBC64400FE68097007D4012</string>
 											<string>ECBC64410FE68097007D4012</string>
-											<string>ECBC64420FE68097007D4012</string>
 											<string>ECBC64430FE68097007D4012</string>
-											<string>ECBC64440FE68097007D4012</string>
 											<string>ECBC64450FE68097007D4012</string>
-											<string>ECBC64460FE68097007D4012</string>
 											<string>ECBC64470FE68097007D4012</string>
 											<string>ECBC64480FE68097007D4012</string>
-											<string>ECBC64510FE6812B007D4012</string>
 											<string>ECBC64520FE6812B007D4012</string>
 											<string>ECBC64530FE6812B007D4012</string>
 											<string>ECBC64540FE6812B007D4012</string>
+											<string>ECBC64630FE682CC007D4012</string>
+											<string>ECBC64640FE682CC007D4012</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
