@@ -7,11 +7,12 @@
 //
 
 #import "PhotoView.h"
+#import "URLCacheConnection.h"
 
 @class Article;
 
 
-@interface ArticleViewController : UIViewController <UIScrollViewDelegate, PhotoViewDelegate> {
+@interface ArticleViewController : UIViewController <UIScrollViewDelegate, PhotoViewDelegate, URLCacheConnectionDelegate> {
 	Article *article;
 	UIActivityIndicatorView *loadingIndicator;
 	NSMutableArray *imageList;

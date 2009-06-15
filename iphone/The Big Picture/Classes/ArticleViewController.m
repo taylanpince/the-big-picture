@@ -7,6 +7,7 @@
 //
 
 #import "RegexKitLite.h"
+#import "URLCacheConnection.h"
 #import "TheBigPictureAppDelegate.h"
 #import "ArticleViewController.h"
 #import "ArticleView.h"
@@ -79,7 +80,8 @@ static NSString *const RE_PHOTO = @"<div class=\"bpBoth\"><a name=\"photo[0-9]+\
 	
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 	
-	[self performSelectorInBackground:@selector(loadPage:) withObject:article.url];
+//	[self performSelectorInBackground:@selector(loadPage:) withObject:article.url];
+	(void) [[URLCacheConnection alloc] initWithURL:article.url delegate:self];
 
 	UIScrollView *scrollView = (UIScrollView *)[self view];
 	
@@ -258,15 +260,15 @@ static NSString *const RE_PHOTO = @"<div class=\"bpBoth\"><a name=\"photo[0-9]+\
 }
 
 
-- (void)loadPage:(NSURL *)pageURL {
-	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-	
-	NSString *html = [NSString stringWithContentsOfURL:pageURL];
-	
-	[self performSelectorOnMainThread:@selector(doneLoadingPage:) withObject:html waitUntilDone:NO];
-	
-	[pool release];
-}
+//- (void)loadPage:(NSURL *)pageURL {
+//	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+//	
+//	NSString *html = [NSString stringWithContentsOfURL:pageURL];
+//	
+//	[self performSelectorOnMainThread:@selector(doneLoadingPage:) withObject:html waitUntilDone:NO];
+//	
+//	[pool release];
+//}
 
 
 - (void)prepNeighbours {
@@ -400,6 +402,22 @@ static NSString *const RE_PHOTO = @"<div class=\"bpBoth\"><a name=\"photo[0-9]+\
 	}
 	
 	[self didEndZoomingOnView:view withCenterPoint:point];
+}
+
+
+- (void) connectionDidFail:(URLCacheConnection *)theConnection {
+	NSLog(@"Connection Failed");
+	[theConnection release];
+}
+
+
+- (void) connectionDidFinish:(URLCacheConnection *)theConnection {
+	NSString *htmlData = [[NSString alloc] initWithData:theConnection.receivedData encoding:NSASCIIStringEncoding];
+
+	[self doneLoadingPage:htmlData];
+	
+	[htmlData release];
+	[theConnection release];
 }
 
 
