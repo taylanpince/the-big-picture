@@ -31,6 +31,7 @@ static NSString *const RE_ARTICLE_DESC = @"<div class=\"bpBody\">(.*?)\\(<a href
 	if ([(TheBigPictureAppDelegate *)[[UIApplication sharedApplication] delegate] isNetworkReachable] == YES) {
 		UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshArticles:)];
 		
+		[refreshButton setEnabled:NO];
 		[self.navigationItem setLeftBarButtonItem:refreshButton];
 		[refreshButton release];
 		
@@ -47,7 +48,6 @@ static NSString *const RE_ARTICLE_DESC = @"<div class=\"bpBody\">(.*?)\\(<a href
 		
 		UIBarButtonItem *loadingBarItem = [[UIBarButtonItem alloc] initWithCustomView:loadingIndicator];
 		
-		[loadingBarItem setEnabled:NO];
 		[self.navigationItem setRightBarButtonItem:loadingBarItem];
 		[loadingBarItem release];
 		
@@ -171,8 +171,6 @@ static NSString *const RE_ARTICLE_DESC = @"<div class=\"bpBody\">(.*?)\\(<a href
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-	[activeContent release];
-	[articleList release];
 }
 
 
