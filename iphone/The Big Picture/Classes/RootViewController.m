@@ -16,6 +16,7 @@
 
 static NSString *const RSS_URL = @"http://www.boston.com/bigpicture/index.xml";
 static NSString *const RE_ARTICLE_DESC = @"<div class=\"bpBody\">(.*?)\\(<a href=";
+static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 
 
 @implementation RootViewController
@@ -144,7 +145,7 @@ static NSString *const RE_ARTICLE_DESC = @"<div class=\"bpBody\">(.*?)\\(<a href
 		NSArray *descriptionMatch = [activeContent captureComponentsMatchedByRegex:RE_ARTICLE_DESC];
 		
 		if (descriptionMatch != nil && [descriptionMatch count] > 0) {
-			article.description = [descriptionMatch objectAtIndex:1];
+			article.description = [[descriptionMatch objectAtIndex:1] stringByReplacingOccurrencesOfRegex:RE_HTML withString:@""];
 		}
 	} else if ([elementName isEqualToString:@"link"]) {
 		article.url = [NSURL URLWithString:activeContent];

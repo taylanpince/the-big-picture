@@ -18,6 +18,7 @@
 
 static NSString *const RE_FIRST_PHOTO = @"<div class=\"bpImageTop\"><a name=\"photo1\"></a><a href=\".*?\"><img src=\"(.*?)\" class=\"bpImage\" style=\".*?\" /></a><br/><div class=\"bpCaption\">(.*?)<div";
 static NSString *const RE_PHOTO = @"<div class=\"bpBoth\"><a name=\"photo[0-9]+\"></a><img src=\"(.*?)\" class=\"bpImage\" style=\".*?\" /><br/><div onclick=\"this.style.display='none'\" class=\"(.*?)\" style=\".*?\"></div><div class=\"bpCaption\"><div class=\"photoNum\"><a href=\"#photo[0-9]+\">[0-9]+</a></div>(.*?)<a href";
+static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 
 
 @implementation ArticleViewController
@@ -38,7 +39,7 @@ static NSString *const RE_PHOTO = @"<div class=\"bpBoth\"><a name=\"photo[0-9]+\
 	scrollView.showsHorizontalScrollIndicator = NO;
 	scrollView.pagingEnabled = YES;
 	scrollView.scrollsToTop = NO;
-	scrollView.backgroundColor = [UIColor purpleColor];
+	scrollView.backgroundColor = [UIColor blackColor];
 	scrollView.directionalLockEnabled = YES;
 	
 	self.view = scrollView;
@@ -61,8 +62,8 @@ static NSString *const RE_PHOTO = @"<div class=\"bpBoth\"><a name=\"photo[0-9]+\
 	
 	CGRect screenBounds = [[UIScreen mainScreen] bounds];
 	
-	self.view.superview.frame = CGRectMake(0.0, 0.0, screenBounds.size.width, screenBounds.size.height);
-	self.view.frame = CGRectMake(0.0, 0.0, screenBounds.size.width + 15.0, screenBounds.size.height + 15.0);
+	[self.view.superview setFrame:screenBounds];
+	[self.view setFrame:CGRectMake(0.0, 0.0, screenBounds.size.width + 15.0, screenBounds.size.height + 15.0)];
 	
 	[super viewDidAppear:animated];
 	
@@ -129,7 +130,7 @@ static NSString *const RE_PHOTO = @"<div class=\"bpBoth\"><a name=\"photo[0-9]+\
 
 - (void)hideInterface {
 	[[UIApplication sharedApplication] setStatusBarHidden:YES animated:YES];
-	
+
 	[UIView beginAnimations:@"fadeOut" context:NULL];
 	[UIView setAnimationDuration:0.5];
 	[self.navigationController.navigationBar setAlpha:0.0];
@@ -142,9 +143,7 @@ static NSString *const RE_PHOTO = @"<div class=\"bpBoth\"><a name=\"photo[0-9]+\
 - (void)showInterface {
 	if ([[UIApplication sharedApplication] isStatusBarHidden] == YES) {
 		[[UIApplication sharedApplication] setStatusBarHidden:NO animated:YES];
-		
-//		self.navigationController.navigationBar.frame = CGRectMake(0.0, 20.0, self.navigationController.navigationBar.frame.size.width, self.navigationController.navigationBar.frame.size.height);
-		
+
 		[UIView beginAnimations:@"fadeIn" context:NULL];
 		[UIView setAnimationDuration:0.5];
 		[self.navigationController.navigationBar setAlpha:1.0];
@@ -152,6 +151,8 @@ static NSString *const RE_PHOTO = @"<div class=\"bpBoth\"><a name=\"photo[0-9]+\
 		
 		if (activeIndex > 0) {
 			hideTimer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(hideInterface) userInfo:nil repeats:NO];
+		} else {
+			hideTimer = nil;
 		}
 	}
 }
@@ -162,13 +163,30 @@ static NSString *const RE_PHOTO = @"<div class=\"bpBoth\"><a name=\"photo[0-9]+\
 }
 
 
+- (void)didRotate {
+	rotating = NO;
+	
+	UIView *subView = [self.view viewWithTag:activeIndex];
+	
+	if ([subView isKindOfClass:[PhotoView class]]) {
+		[[(PhotoView *)subView infoButton] setHidden:NO];
+		[[(PhotoView *)subView label] setHidden:NO];
+		[(PhotoView *)subView setOrientation:activeOrientation];
+		[(PhotoView *)subView resetScale];
+	}
+}
+
+
 - (void)willRotate {
-	rotating = YES;
 	activeOrientation = [[UIDevice currentDevice] orientation];
 	
+	if (activeOrientation == UIDeviceOrientationPortraitUpsideDown || activeOrientation == UIDeviceOrientationLandscapeRight) return;
+	
+	rotating = YES;
+
 	UIScrollView *scrollView = (UIScrollView *)[self view];
 
-	if (activeOrientation == UIInterfaceOrientationPortrait) {
+	if (activeOrientation == UIDeviceOrientationPortrait) {
 		[scrollView setContentSize:CGSizeMake(scrollView.frame.size.width * ([imageList count] + 1), scrollView.frame.size.height)];
 		[scrollView setContentOffset:CGPointMake(scrollView.frame.size.width * activeIndex, 0.0)];
 	} else {
@@ -185,21 +203,17 @@ static NSString *const RE_PHOTO = @"<div class=\"bpBoth\"><a name=\"photo[0-9]+\
 	
 	CGFloat angle;
 	
-	if (activeOrientation == UIInterfaceOrientationPortrait) {
+	if (activeOrientation == UIDeviceOrientationPortrait) {
 		angle = 0.0;
-	} else if (activeOrientation == UIInterfaceOrientationLandscapeRight) {
+	} else {
 		angle = M_PI / 2.0;
-	} else if (activeOrientation == UIInterfaceOrientationLandscapeLeft) {
-		angle = -M_PI / 2.0;
 	}
 	
-	[self hideInterface];
-	
 	for (UIView *subView in scrollView.subviews) {
-		if ([subView isKindOfClass:[PhotoView class]] || [subView isKindOfClass:[ArticleView class]]) {
+		if ([subView isKindOfClass:[PhotoView class]]) {
 			if (activeOrientation == UIDeviceOrientationPortrait) {
 				subView.center = CGPointMake(subView.tag * scrollView.frame.size.width + subView.frame.size.width / 2, subView.frame.size.height / 2);
-			} else  {
+			} else {
 				subView.center = CGPointMake(subView.frame.size.width / 2, subView.tag * scrollView.frame.size.height + subView.frame.size.height / 2);
 			}
 
@@ -210,31 +224,22 @@ static NSString *const RE_PHOTO = @"<div class=\"bpBoth\"><a name=\"photo[0-9]+\
 			
 			subView.transform = CGAffineTransformMakeRotation(angle);
 			
-			if ([subView isKindOfClass:[PhotoView class]]) {
-				if (activeOrientation == UIDeviceOrientationPortrait) {
-					subView.center = CGPointMake(subView.tag * scrollView.frame.size.width + subView.frame.size.width / 2, subView.frame.size.height / 2);
-				} else  {
-					subView.center = CGPointMake(subView.frame.size.width / 2, subView.tag * scrollView.frame.size.height + subView.frame.size.height / 2);
-				}
+			CGPoint position;
+			
+			if (activeOrientation == UIDeviceOrientationPortrait) {
+				position = CGPointMake(subView.tag * scrollView.frame.size.width, 0.0);
+			} else {
+				position = CGPointMake(0.0, subView.tag * scrollView.frame.size.height);
+			}
 
-				subView.frame = CGRectMake(subView.frame.origin.x, subView.frame.origin.y, (scrollView.frame.size.width - 15.0), scrollView.frame.size.height - 15.0);
-				
-				if (subView.tag == activeIndex) {
-					[[(PhotoView *)subView label] setHidden:YES];
-					[[(PhotoView *)subView infoButton] setHidden:YES];
-				} else {
-					[(PhotoView *)subView setOrientation:activeOrientation];
-					[(PhotoView *)subView resetScale];
-				}
-			} else if ([subView isKindOfClass:[ArticleView class]]) {
-				subView.frame = CGRectMake(0.0, 0.0, (scrollView.frame.size.width - 15.0), (scrollView.frame.size.height - 15.0));
-				
-				if (subView.tag != activeIndex) {
-					[(ArticleView *)subView setOrientation:activeOrientation];
-					[(ArticleView *)subView setContentInset:UIEdgeInsetsMake(self.navigationController.navigationBar.frame.size.height + 30.0, 0.0, 0.0, 0.0)];
-					
-					[subView setNeedsLayout];
-				}
+			subView.frame = CGRectMake(position.x, position.y, (scrollView.frame.size.width - 15.0), scrollView.frame.size.height - 15.0);
+			
+			if (subView.tag == activeIndex) {
+				[[(PhotoView *)subView label] setHidden:YES];
+				[[(PhotoView *)subView infoButton] setHidden:YES];
+			} else {
+				[(PhotoView *)subView setOrientation:activeOrientation];
+				[(PhotoView *)subView resetScale];
 			}
 			
 			if (subView.tag == activeIndex) {
@@ -244,48 +249,11 @@ static NSString *const RE_PHOTO = @"<div class=\"bpBoth\"><a name=\"photo[0-9]+\
 			}
 		}
 	}
-}
-
-
-- (void)didRotate {
-	rotating = NO;
-	
-	UIView *subView = [self.view viewWithTag:activeIndex];
-	
-	if ([subView isKindOfClass:[PhotoView class]]) {
-		[[(PhotoView *)subView infoButton] setHidden:NO];
-		[[(PhotoView *)subView label] setHidden:NO];
-		[(PhotoView *)subView setOrientation:activeOrientation];
-		[(PhotoView *)subView resetScale];
-	} else if ([subView isKindOfClass:[ArticleView class]]) {
-		[(ArticleView *)subView setOrientation:activeOrientation];
-		[(ArticleView *)subView setContentInset:UIEdgeInsetsMake(self.navigationController.navigationBar.frame.size.height + 30.0, 0.0, 0.0, 0.0)];
-		
-		[subView setNeedsLayout];
-	}
-
-	[[UIApplication sharedApplication] setStatusBarOrientation:activeOrientation];
-
-	CGFloat angle;
-	CGRect frame;
-	CGRect screenBounds = [[UIScreen mainScreen] bounds];
-	
-	if (activeOrientation == UIInterfaceOrientationPortrait) {
-		angle = 0.0;
-		frame = CGRectMake(0.0, 20.0, screenBounds.size.width, 44.0);
-	} else if (activeOrientation == UIInterfaceOrientationLandscapeRight) {
-		angle = M_PI / 2.0;
-		frame = CGRectMake(screenBounds.size.width - (20.0 + 44.0), 0.0, 44.0, screenBounds.size.height);
-	} else if (activeOrientation == UIInterfaceOrientationLandscapeLeft) {
-		angle = -M_PI / 2.0;
-		frame = CGRectMake(20.0, 0.0, 44.0, screenBounds.size.height);
-	}
-	
-	[self.navigationController.navigationBar setTransform:CGAffineTransformMakeRotation(angle)];
-	[self.navigationController.navigationBar setFrame:frame];
 	
 	if (activeIndex == 0) {
-		[self showInterface];
+		[self didRotate];
+	} else {
+		[self hideInterface];
 	}
 }
 
@@ -300,7 +268,7 @@ static NSString *const RE_PHOTO = @"<div class=\"bpBoth\"><a name=\"photo[0-9]+\
 	imageView.userInteractionEnabled = YES;
 	imageView.delegate = self;
 	imageView.orientation = activeOrientation;
-	imageView.backgroundColor = [UIColor redColor];
+	imageView.backgroundColor = [UIColor blackColor];
 	
 	if (activeOrientation == UIDeviceOrientationPortrait || activeOrientation == 0) {
 		imageView.frame = CGRectMake((indexNum + 1) * self.view.frame.size.width, 0.0, (self.view.frame.size.width - 15.0), (self.view.frame.size.height - 15.0));
@@ -328,7 +296,7 @@ static NSString *const RE_PHOTO = @"<div class=\"bpBoth\"><a name=\"photo[0-9]+\
 		Photo *photo = [[Photo alloc] init];
 		
 		photo.url = [NSURL URLWithString:[firstPhotoMatch objectAtIndex:1]];
-		photo.caption = [firstPhotoMatch objectAtIndex:2];
+		photo.caption = [[firstPhotoMatch objectAtIndex:2] stringByReplacingOccurrencesOfRegex:RE_HTML withString:@""];
 		
 		[imageList addObject:photo];
 		[imageViewsList addObject:[NSNull null]];
@@ -442,13 +410,21 @@ static NSString *const RE_PHOTO = @"<div class=\"bpBoth\"><a name=\"photo[0-9]+\
 	if (view.currentZoomScale <= 1.0) {
 		zooming = NO;
 		
-		view.frame = CGRectMake(scrollView.frame.size.width * view.tag, 0.0, viewWidth, viewHeight);
-		
 		scrollView.pagingEnabled = YES;
 		scrollView.directionalLockEnabled = YES;
 		scrollView.contentInset = UIEdgeInsetsZero;
-		scrollView.contentSize = CGSizeMake(scrollView.frame.size.width * ([imageList count] + 1), scrollView.frame.size.height);
-		scrollView.contentOffset = CGPointMake(scrollView.frame.size.width * view.tag, 0.0);
+		
+		if (activeOrientation == UIDeviceOrientationPortrait || activeOrientation == 0) {
+			view.frame = CGRectMake(scrollView.frame.size.width * view.tag, 0.0, viewWidth, viewHeight);
+			
+			[scrollView setContentSize:CGSizeMake(scrollView.frame.size.width * ([imageList count] + 1), scrollView.frame.size.height)];
+			[scrollView setContentOffset:CGPointMake(scrollView.frame.size.width * view.tag, 0.0)];
+		} else {
+			view.frame = CGRectMake(0.0, scrollView.frame.size.height * view.tag, viewWidth, viewHeight);
+			
+			[scrollView setContentSize:CGSizeMake(scrollView.frame.size.width, scrollView.frame.size.height * ([imageList count] + 1))];
+			[scrollView setContentOffset:CGPointMake(0.0, scrollView.frame.size.height * view.tag)];
+		}
 	} else {
 		zooming = YES;
 		
@@ -466,18 +442,30 @@ static NSString *const RE_PHOTO = @"<div class=\"bpBoth\"><a name=\"photo[0-9]+\
 
 		scrollView.contentOffset = CGPointMake(MAX(centerX, 0.0), MAX(centerY, 0.0));
 	}
-	
+
 	for (UIView *subView in scrollView.subviews) {
 		if ([subView isKindOfClass:[ArticleView class]] || ([subView isKindOfClass:[PhotoView class]] && subView.tag != view.tag)) {
-			CGFloat x;
-			
-			if (subView.tag < view.tag) {
-				x = view.frame.origin.x - (view.tag - subView.tag) * scrollView.frame.size.width;
-			} else if (subView.tag > view.tag) {
-				x = view.frame.origin.x + view.frame.size.width + 15.0 + (subView.tag - view.tag - 1) * scrollView.frame.size.width;
+			if (activeOrientation == UIDeviceOrientationPortrait || activeOrientation == 0) {
+				CGFloat x;
+				
+				if (subView.tag < view.tag) {
+					x = view.frame.origin.x - (view.tag - subView.tag) * scrollView.frame.size.width;
+				} else if (subView.tag > view.tag) {
+					x = view.frame.origin.x + view.frame.size.width + 15.0 + (subView.tag - view.tag - 1) * scrollView.frame.size.width;
+				}
+				
+				subView.frame = CGRectMake(x, subView.frame.origin.y, subView.frame.size.width, subView.frame.size.height);
+			} else {
+				CGFloat y;
+				
+				if (subView.tag < view.tag) {
+					y = view.frame.origin.y - (view.tag - subView.tag) * scrollView.frame.size.height;
+				} else if (subView.tag > view.tag) {
+					y = view.frame.origin.y + view.frame.size.height + 15.0 + (subView.tag - view.tag - 1) * scrollView.frame.size.height;
+				}
+				
+				subView.frame = CGRectMake(subView.frame.origin.x, y, subView.frame.size.width, subView.frame.size.height);
 			}
-			
-			subView.frame = CGRectMake(x, subView.frame.origin.y, subView.frame.size.width, subView.frame.size.height);
 		}
 	}
 }
