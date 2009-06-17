@@ -180,7 +180,7 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 - (void)willRotate {
 	activeOrientation = [[UIDevice currentDevice] orientation];
 	
-	if (activeOrientation == UIDeviceOrientationPortraitUpsideDown || activeOrientation == UIDeviceOrientationLandscapeRight) return;
+	if (activeOrientation == UIDeviceOrientationPortraitUpsideDown) return;
 	
 	rotating = YES;
 
@@ -191,7 +191,12 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 		[scrollView setContentOffset:CGPointMake(scrollView.frame.size.width * activeIndex, 0.0)];
 	} else {
 		[scrollView setContentSize:CGSizeMake(scrollView.frame.size.width, scrollView.frame.size.height * ([imageList count] + 1))];
-		[scrollView setContentOffset:CGPointMake(0.0, scrollView.frame.size.height * activeIndex)];
+		
+		if (activeOrientation == UIDeviceOrientationLandscapeLeft) {
+			[scrollView setContentOffset:CGPointMake(0.0, scrollView.frame.size.height * activeIndex)];
+		} else {
+			[scrollView setContentOffset:CGPointMake(0.0, scrollView.frame.size.height * ([imageList count] - 1 - activeIndex))];
+		}
 	}
 	
 	if (zooming) {
@@ -205,19 +210,23 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 	
 	if (activeOrientation == UIDeviceOrientationPortrait) {
 		angle = 0.0;
-	} else {
+	} else if (activeOrientation == UIDeviceOrientationLandscapeLeft) {
 		angle = M_PI / 2.0;
+	} else if (activeOrientation == UIDeviceOrientationLandscapeRight) {
+		angle = -M_PI / 2.0;
 	}
 	
 	for (UIView *subView in scrollView.subviews) {
 		if ([subView isKindOfClass:[PhotoView class]]) {
-			if (activeOrientation == UIDeviceOrientationPortrait) {
-				subView.center = CGPointMake(subView.tag * scrollView.frame.size.width + subView.frame.size.width / 2, subView.frame.size.height / 2);
-			} else {
-				subView.center = CGPointMake(subView.frame.size.width / 2, subView.tag * scrollView.frame.size.height + subView.frame.size.height / 2);
-			}
-
 			if (subView.tag == activeIndex) {
+				if (activeOrientation == UIDeviceOrientationPortrait) {
+					subView.center = CGPointMake(subView.tag * scrollView.frame.size.width + subView.frame.size.width / 2, subView.frame.size.height / 2);
+				} else if (activeOrientation == UIDeviceOrientationLandscapeLeft) {
+					subView.center = CGPointMake(subView.frame.size.width / 2, subView.tag * scrollView.frame.size.height + subView.frame.size.height / 2);
+				} else if (activeOrientation == UIDeviceOrientationLandscapeRight) {
+					subView.center = CGPointMake(subView.frame.size.width / 2, ([imageList count] - 1 - subView.tag) * scrollView.frame.size.height + subView.frame.size.height / 2);
+				}
+				
 				[UIView beginAnimations:@"rotateActiveView" context:NULL];
 				[UIView setAnimationDuration:0.5];
 			}
@@ -228,8 +237,10 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 			
 			if (activeOrientation == UIDeviceOrientationPortrait) {
 				position = CGPointMake(subView.tag * scrollView.frame.size.width, 0.0);
-			} else {
+			} else if (activeOrientation == UIDeviceOrientationLandscapeLeft) {
 				position = CGPointMake(0.0, subView.tag * scrollView.frame.size.height);
+			} else if (activeOrientation == UIDeviceOrientationLandscapeRight) {
+				position = CGPointMake(0.0, ([imageList count] - 1 - subView.tag) * scrollView.frame.size.height);
 			}
 
 			subView.frame = CGRectMake(position.x, position.y, (scrollView.frame.size.width - 15.0), scrollView.frame.size.height - 15.0);
@@ -249,6 +260,18 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 			}
 		}
 	}
+	
+//	UIView *firstView = [self.view viewWithTag:0];
+//	
+//	if (activeOrientation == UIDeviceOrientationPortrait) {
+//		[firstView setFrame:CGRectMake(0.0, 0.0, firstView.frame.size.width, firstView.frame.size.height)];
+//	} else {
+//		if (activeOrientation == UIDeviceOrientationLandscapeLeft) {
+//			[firstView setFrame:CGRectMake(0.0, 0.0, firstView.frame.size.width, firstView.frame.size.height)];
+//		} else {
+//			firstView.frame = CGRectMake(0.0, ([imageList count]) * scrollView.frame.size.height, scrollView.frame.size.width - 15.0, scrollView.frame.size.height - 15.0);
+//		}
+//	}
 	
 	if (activeIndex == 0) {
 		[self didRotate];
@@ -272,14 +295,12 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 	
 	if (activeOrientation == UIDeviceOrientationPortrait || activeOrientation == 0) {
 		imageView.frame = CGRectMake((indexNum + 1) * self.view.frame.size.width, 0.0, (self.view.frame.size.width - 15.0), (self.view.frame.size.height - 15.0));
-	} else {
-		if (activeOrientation == UIDeviceOrientationLandscapeLeft) {
-			imageView.transform = CGAffineTransformMakeRotation(M_PI / 2.0);
-		} else if (activeOrientation == UIDeviceOrientationLandscapeRight) {
-			imageView.transform = CGAffineTransformMakeRotation(-M_PI / 2.0);
-		}
-
+	} else if (activeOrientation == UIDeviceOrientationLandscapeLeft) {
+		imageView.transform = CGAffineTransformMakeRotation(M_PI / 2.0);
 		imageView.frame = CGRectMake(0.0, (indexNum + 1) * self.view.frame.size.height, (self.view.frame.size.width - 15.0), (self.view.frame.size.height - 15.0));
+	} else if (activeOrientation == UIDeviceOrientationLandscapeRight) {
+		imageView.transform = CGAffineTransformMakeRotation(-M_PI / 2.0);
+		imageView.frame = CGRectMake(0.0, ([imageList count] - 1 - (indexNum + 1)) * self.view.frame.size.height, (self.view.frame.size.width - 15.0), (self.view.frame.size.height - 15.0));
 	}
 	
 	[self.view addSubview:imageView];
@@ -310,7 +331,7 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 		Photo *photo = [[Photo alloc] init];
 		
 		photo.url = [NSURL URLWithString:[photoMatch objectAtIndex:1]];
-		photo.caption = [photoMatch objectAtIndex:3];
+		photo.caption = [[photoMatch objectAtIndex:3] stringByReplacingOccurrencesOfRegex:RE_HTML withString:@""];
 		photo.graphic = [[photoMatch objectAtIndex:2] isEqualToString:@"imghide"];
 		
 		[imageList addObject:photo];
@@ -369,29 +390,31 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-	if (!zooming && !rotating) {
-		if (activeOrientation == UIDeviceOrientationPortrait || activeOrientation == 0) {
-			activeIndex = (scrollView.contentOffset.x < 0.0) ? 0 : floor(scrollView.contentOffset.x / scrollView.frame.size.width);
-		} else {
-			activeIndex = (scrollView.contentOffset.y < 0.0) ? 0 : floor(scrollView.contentOffset.y / scrollView.frame.size.height);
-		}
+	if (zooming || rotating) return;
 
-		if (activeIndex == 0) {
-			if (hideTimer != nil) {
-				[hideTimer invalidate];
-				
-				hideTimer = nil;
-			}
+	if (activeOrientation == UIDeviceOrientationPortrait || activeOrientation == 0) {
+		activeIndex = (scrollView.contentOffset.x < 0.0) ? 0 : floor(scrollView.contentOffset.x / scrollView.frame.size.width);
+	} else if (activeOrientation == UIDeviceOrientationLandscapeLeft) {
+		activeIndex = (scrollView.contentOffset.y < 0.0) ? 0 : floor(scrollView.contentOffset.y / scrollView.frame.size.height);
+	} else if (activeOrientation == UIDeviceOrientationLandscapeRight) {
+		activeIndex = (scrollView.contentOffset.y < 0.0) ? 0 : [imageList count] - 1 - floor(scrollView.contentOffset.y / scrollView.frame.size.height);
+	}
+
+	if (activeIndex == 0) {
+		if (hideTimer != nil) {
+			[hideTimer invalidate];
 			
-			if (self.navigationController.navigationBar.alpha == 0.0) [self showInterface];
-		} else {
-			if (self.navigationController.navigationBar.alpha > 0.0 && hideTimer == nil) {
-				hideTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(hideInterface) userInfo:nil repeats:NO];
-			}
+			hideTimer = nil;
 		}
 		
-		[self prepNeighbours];
+		if (self.navigationController.navigationBar.alpha == 0.0) [self showInterface];
+	} else {
+		if (self.navigationController.navigationBar.alpha > 0.0 && hideTimer == nil) {
+			hideTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(hideInterface) userInfo:nil repeats:NO];
+		}
 	}
+	
+	[self prepNeighbours];
 }
 
 
@@ -420,10 +443,15 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 			[scrollView setContentSize:CGSizeMake(scrollView.frame.size.width * ([imageList count] + 1), scrollView.frame.size.height)];
 			[scrollView setContentOffset:CGPointMake(scrollView.frame.size.width * view.tag, 0.0)];
 		} else {
-			view.frame = CGRectMake(0.0, scrollView.frame.size.height * view.tag, viewWidth, viewHeight);
-			
 			[scrollView setContentSize:CGSizeMake(scrollView.frame.size.width, scrollView.frame.size.height * ([imageList count] + 1))];
-			[scrollView setContentOffset:CGPointMake(0.0, scrollView.frame.size.height * view.tag)];
+			
+			if (activeOrientation == UIDeviceOrientationLandscapeLeft) {
+				view.frame = CGRectMake(0.0, scrollView.frame.size.height * view.tag, viewWidth, viewHeight);
+				[scrollView setContentOffset:CGPointMake(0.0, scrollView.frame.size.height * view.tag)];
+			} else {
+				view.frame = CGRectMake(0.0, scrollView.frame.size.height * ([imageList count] - 1 - view.tag), viewWidth, viewHeight);
+				[scrollView setContentOffset:CGPointMake(0.0, scrollView.frame.size.height * ([imageList count] - 1 - view.tag))];
+			}
 		}
 	} else {
 		zooming = YES;
@@ -457,14 +485,23 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 				subView.frame = CGRectMake(x, subView.frame.origin.y, subView.frame.size.width, subView.frame.size.height);
 			} else {
 				CGFloat y;
+				CGFloat x = (zooming) ? (view.frame.size.width - subView.frame.size.width) / 2: 0.0;
 				
-				if (subView.tag < view.tag) {
-					y = view.frame.origin.y - (view.tag - subView.tag) * scrollView.frame.size.height;
-				} else if (subView.tag > view.tag) {
-					y = view.frame.origin.y + view.frame.size.height + 15.0 + (subView.tag - view.tag - 1) * scrollView.frame.size.height;
+				if (activeOrientation == UIDeviceOrientationLandscapeLeft) {
+					if (subView.tag < view.tag) {
+						y = view.frame.origin.y - (view.tag - subView.tag) * scrollView.frame.size.height;
+					} else if (subView.tag > view.tag) {
+						y = view.frame.origin.y + view.frame.size.height + 15.0 + (subView.tag - view.tag - 1) * scrollView.frame.size.height;
+					}
+				} else {
+					if (subView.tag < view.tag) {
+						y = view.frame.origin.y + view.frame.size.height + 15.0 + (view.tag - subView.tag - 1) * scrollView.frame.size.height;
+					} else if (subView.tag > view.tag) {
+						y = view.frame.origin.y - (subView.tag - view.tag) * scrollView.frame.size.height;
+					}
 				}
 				
-				subView.frame = CGRectMake(subView.frame.origin.x, y, subView.frame.size.width, subView.frame.size.height);
+				subView.frame = CGRectMake(x, y, subView.frame.size.width, subView.frame.size.height);
 			}
 		}
 	}
