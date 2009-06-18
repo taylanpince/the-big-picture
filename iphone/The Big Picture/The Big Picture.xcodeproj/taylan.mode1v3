@@ -335,7 +335,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>EC08DBF10FE99B81003DFE63</string>
+										<string>ECBE97170FE9D16800339C9F</string>
 										<key>history</key>
 										<array>
 											<string>EC264DE60FDF3F2700A83382</string>
@@ -361,7 +361,7 @@
 											<string>ECBC67210FE70735007D4012</string>
 											<string>EC43AF300FE8A28B00F16231</string>
 											<string>EC43AF4B0FE8A57300F16231</string>
-											<string>EC43AF650FE8AC4100F16231</string>
+											<string>EC08DC160FE9A4F0003DFE63</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -446,9 +446,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>EC08DB3C0FE9346C003DFE63</string>
+				<string>ECBE96FE0FE9C89600339C9F</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>EC08DB3D0FE9346C003DFE63</string>
+				<string>ECBE96FF0FE9C89600339C9F</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -582,12 +582,12 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>EC08DB730FE98AD2003DFE63</string>
-		<string>EC08DB740FE98AD2003DFE63</string>
+		<string>ECBE97180FE9D16800339C9F</string>
+		<string>ECBE97190FE9D16800339C9F</string>
 		<string>EC264D9C0FDF3B6000A83382</string>
-		<string>/Users/taylan/Documents/Development/Personal/the-big-picture/iphone/The Big Picture/The Big Picture.xcodeproj</string>
 		<string>1C78EAAD065D492600B07095</string>
 		<string>1CD10A99069EF8BA00B06720</string>
+		<string>/Users/taylan/Documents/Development/Personal/the-big-picture/iphone/The Big Picture/The Big Picture.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
 	<string>4 55 1436 823 0 0 1440 878 </string>
@@ -667,7 +667,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>EC264D9C0FDF3B6000A83382</string>
-				<string>EC08DB710FE98AD2003DFE63</string>
+				<string>ECBE970C0FE9CBB200339C9F</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
@@ -787,13 +787,13 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1CD10A99069EF8BA00B06720</string>
-				<string>EC08DB3E0FE9346C003DFE63</string>
+				<string>ECBE97000FE9C89600339C9F</string>
 				<string>1C162984064C10D400B95A72</string>
-				<string>EC08DB3F0FE9346C003DFE63</string>
-				<string>EC08DB400FE9346C003DFE63</string>
-				<string>EC08DB410FE9346C003DFE63</string>
-				<string>EC08DB420FE9346C003DFE63</string>
-				<string>EC08DB430FE9346C003DFE63</string>
+				<string>ECBE97010FE9C89600339C9F</string>
+				<string>ECBE97020FE9C89600339C9F</string>
+				<string>ECBE97030FE9C89600339C9F</string>
+				<string>ECBE97040FE9C89600339C9F</string>
+				<string>ECBE97050FE9C89600339C9F</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>
@@ -949,7 +949,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C78EAAD065D492600B07095</string>
-				<string>EC08DB720FE98AD2003DFE63</string>
+				<string>ECBE970D0FE9CBB200339C9F</string>
 				<string>1C78EAAC065D492600B07095</string>
 			</array>
 			<key>ToolbarConfiguration</key>

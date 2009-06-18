@@ -180,7 +180,7 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 - (void)willRotate {
 	activeOrientation = [[UIDevice currentDevice] orientation];
 	
-	if (activeOrientation == UIDeviceOrientationPortraitUpsideDown) return;
+	if (activeOrientation == UIDeviceOrientationPortraitUpsideDown || activeOrientation == UIDeviceOrientationUnknown || activeOrientation == UIDeviceOrientationFaceUp || activeOrientation == UIDeviceOrientationFaceDown) return;
 	
 	rotating = YES;
 
@@ -198,7 +198,7 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 			[scrollView setContentOffset:CGPointMake(0.0, scrollView.frame.size.height * ([imageList count] - 1 - activeIndex))];
 		}
 	}
-	
+
 	if (zooming) {
 		zooming = NO;
 		
@@ -244,7 +244,7 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 			}
 
 			subView.frame = CGRectMake(position.x, position.y, (scrollView.frame.size.width - 15.0), scrollView.frame.size.height - 15.0);
-			
+
 			if (subView.tag == activeIndex) {
 				[[(PhotoView *)subView label] setHidden:YES];
 				[[(PhotoView *)subView infoButton] setHidden:YES];
@@ -258,20 +258,16 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 				[UIView setAnimationDidStopSelector:@selector(didRotate)];
 				[UIView commitAnimations];
 			}
+		} else if ([subView isKindOfClass:[ArticleView class]]) {
+			if (activeOrientation == UIDeviceOrientationPortrait) {
+				[subView setFrame:CGRectMake(0.0, 0.0, subView.frame.size.width, subView.frame.size.height)];
+			} else if (activeOrientation == UIDeviceOrientationLandscapeLeft) {
+				[subView setFrame:CGRectMake(0.0, 0.0, subView.frame.size.width, subView.frame.size.height)];
+			} else if (activeOrientation == UIDeviceOrientationLandscapeRight) {
+				[subView setFrame:CGRectMake(0.0, ([imageList count] - 1) * scrollView.frame.size.height, subView.frame.size.width, subView.frame.size.height)];
+			}
 		}
 	}
-	
-//	UIView *firstView = [self.view viewWithTag:0];
-//	
-//	if (activeOrientation == UIDeviceOrientationPortrait) {
-//		[firstView setFrame:CGRectMake(0.0, 0.0, firstView.frame.size.width, firstView.frame.size.height)];
-//	} else {
-//		if (activeOrientation == UIDeviceOrientationLandscapeLeft) {
-//			[firstView setFrame:CGRectMake(0.0, 0.0, firstView.frame.size.width, firstView.frame.size.height)];
-//		} else {
-//			firstView.frame = CGRectMake(0.0, ([imageList count]) * scrollView.frame.size.height, scrollView.frame.size.width - 15.0, scrollView.frame.size.height - 15.0);
-//		}
-//	}
 	
 	if (activeIndex == 0) {
 		[self didRotate];
