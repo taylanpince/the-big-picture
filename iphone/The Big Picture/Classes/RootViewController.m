@@ -56,6 +56,12 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 		
 		[self performSelectorInBackground:@selector(loadArticles) withObject:nil];
 	}
+	
+	UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
+	
+	[self.navigationItem setBackBarButtonItem:backButton];
+	
+	[backButton release];
 }
 
 

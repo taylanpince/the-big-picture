@@ -280,7 +280,7 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>27</integer>
+									<integer>29</integer>
 									<integer>25</integer>
 									<integer>0</integer>
 								</array>
@@ -323,7 +323,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>ArticleViewController.m</string>
+								<string>RootViewController.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -331,11 +331,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>ArticleViewController.m</string>
+										<string>RootViewController.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>ECBE97170FE9D16800339C9F</string>
+										<string>ECBE974C0FE9DBCC00339C9F</string>
 										<key>history</key>
 										<array>
 											<string>EC264DE60FDF3F2700A83382</string>
@@ -360,8 +360,13 @@
 											<string>ECBC664B0FE6E966007D4012</string>
 											<string>ECBC67210FE70735007D4012</string>
 											<string>EC43AF300FE8A28B00F16231</string>
-											<string>EC43AF4B0FE8A57300F16231</string>
-											<string>EC08DC160FE9A4F0003DFE63</string>
+											<string>ECBE97480FE9DBC200339C9F</string>
+											<string>ECBE97490FE9DBC200339C9F</string>
+										</array>
+										<key>nextStack</key>
+										<array>
+											<string>ECBE973D0FE9DB5F00339C9F</string>
+											<string>ECBE974A0FE9DBC200339C9F</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -385,10 +390,8 @@
 											<string>ECAD09F90FE4539800BCCCE1</string>
 											<string>ECBC643E0FE68097007D4012</string>
 											<string>ECBC643F0FE68097007D4012</string>
-											<string>ECBC65B10FE6D672007D4012</string>
 											<string>ECBC65B30FE6D672007D4012</string>
 											<string>ECBC65D70FE6DA14007D4012</string>
-											<string>EC43AF350FE8A28B00F16231</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
