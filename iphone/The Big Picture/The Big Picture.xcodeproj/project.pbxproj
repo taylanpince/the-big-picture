@@ -15,6 +15,8 @@
 		2899E5600DE3E45000AC0155 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2899E55F0DE3E45000AC0155 /* RootViewController.xib */; };
 		28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD735F0D9D9599002E5188 /* MainWindow.xib */; };
 		28C286E10D94DF7D0034E888 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */; };
+		EC08A7440FEA8CDF00E2C0BA /* LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC08A7430FEA8CDF00E2C0BA /* LoadingView.m */; };
+		EC08A7910FEA966800E2C0BA /* done.png in Resources */ = {isa = PBXBuildFile; fileRef = EC08A7900FEA966800E2C0BA /* done.png */; };
 		EC264DC90FDF3DE900A83382 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = EC264DC80FDF3DE900A83382 /* RegexKitLite.m */; };
 		EC264E0D0FDF447E00A83382 /* Article.m in Sources */ = {isa = PBXBuildFile; fileRef = EC264E0C0FDF447E00A83382 /* Article.m */; };
 		EC264E770FDF52CD00A83382 /* ArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */; };
@@ -46,6 +48,9 @@
 		28C286E00D94DF7D0034E888 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* TheBigPicture-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "TheBigPicture-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		EC08A7420FEA8CDF00E2C0BA /* LoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingView.h; sourceTree = "<group>"; };
+		EC08A7430FEA8CDF00E2C0BA /* LoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingView.m; sourceTree = "<group>"; };
+		EC08A7900FEA966800E2C0BA /* done.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = done.png; sourceTree = "<group>"; };
 		EC264DC70FDF3DE900A83382 /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegexKitLite.h; path = Classes/RegexKitLite.h; sourceTree = "<group>"; };
 		EC264DC80FDF3DE900A83382 /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegexKitLite.m; path = Classes/RegexKitLite.m; sourceTree = "<group>"; };
 		EC264E0B0FDF447E00A83382 /* Article.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Article.h; sourceTree = "<group>"; };
@@ -138,6 +143,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				EC08A7900FEA966800E2C0BA /* done.png */,
 				ECAD0AE00FE4727400BCCCE1 /* iTunesArtwork.png */,
 				ECAD0A520FE4570F00BCCCE1 /* Default.png */,
 				ECAD09CD0FE44F6200BCCCE1 /* dot.png */,
@@ -217,6 +223,8 @@
 				ECD2AEE40FE051FE0054A901 /* PhotoView.m */,
 				ECAD08FE0FE43B3000BCCCE1 /* CaptionView.h */,
 				ECAD08FF0FE43B3000BCCCE1 /* CaptionView.m */,
+				EC08A7420FEA8CDF00E2C0BA /* LoadingView.h */,
+				EC08A7430FEA8CDF00E2C0BA /* LoadingView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -276,6 +284,7 @@
 				ECAD09CE0FE44F6200BCCCE1 /* dot.png in Resources */,
 				ECAD0A530FE4570F00BCCCE1 /* Default.png in Resources */,
 				ECAD0AE10FE4727400BCCCE1 /* iTunesArtwork.png in Resources */,
+				EC08A7910FEA966800E2C0BA /* done.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +307,7 @@
 				ECAD09000FE43B3000BCCCE1 /* CaptionView.m in Sources */,
 				ECAD09430FE4400C00BCCCE1 /* ArticleCell.m in Sources */,
 				ECBC63680FE67EDA007D4012 /* URLCacheConnection.m in Sources */,
+				EC08A7440FEA8CDF00E2C0BA /* LoadingView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

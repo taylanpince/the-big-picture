@@ -12,6 +12,7 @@
 #import "ArticleViewController.h"
 #import "ArticleView.h"
 #import "PhotoView.h"
+#import "LoadingView.h"
 #import "Article.h"
 #import "Photo.h"
 
@@ -67,23 +68,11 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 	
 	[super viewDidAppear:animated];
 	
-	loadingIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-	
-	loadingIndicator.center = CGPointMake(self.view.frame.size.width + (self.view.frame.size.width - 15.0) / 2, ((self.view.frame.size.height - 15.0) / 2) - self.navigationController.navigationBar.frame.size.height);
-	loadingIndicator.hidesWhenStopped = YES;
-	
-	[loadingIndicator startAnimating];
-	[self.view addSubview:loadingIndicator];
-	
-	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-	
-	activeConnection = [[URLCacheConnection alloc] initWithURL:article.url delegate:self];
-
 	UIScrollView *scrollView = (UIScrollView *)[self view];
 	
 	[scrollView setContentOffset:CGPointZero];
 	[scrollView setContentInset:UIEdgeInsetsZero];
-	[scrollView setContentSize:CGSizeMake(scrollView.frame.size.width * 2, scrollView.frame.size.height)];
+	[scrollView setContentSize:CGSizeMake(scrollView.frame.size.width - 15.0, scrollView.frame.size.height - 15.0)];
 	
 	ArticleView *articleView = [[ArticleView alloc] initWithFrame:CGRectMake(0.0, 0.0, scrollView.frame.size.width - 15.0, scrollView.frame.size.height - 15.0)];
 	
@@ -111,6 +100,20 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 		
 		[[UIApplication sharedApplication] setApplicationIconBadgeNumber:unreadCount - 1];
 	}
+	
+	loadingIndicator = [[LoadingView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.frame.size.width - 15.0, self.view.frame.size.height - 15.0)];
+	
+	[loadingIndicator setAlpha:0.0];
+	[self.view addSubview:loadingIndicator];
+	
+	[UIView beginAnimations:@"fadeIn" context:NULL];
+	[UIView setAnimationDuration:0.5];
+	[loadingIndicator setAlpha:1.0];
+	[UIView commitAnimations];
+	
+	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+	
+	activeConnection = [[URLCacheConnection alloc] initWithURL:article.url delegate:self];
 }
 
 

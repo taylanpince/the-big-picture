@@ -9,12 +9,12 @@
 #import "PhotoView.h"
 #import "URLCacheConnection.h"
 
-@class Article;
+@class Article, LoadingView;
 
 
 @interface ArticleViewController : UIViewController <UIScrollViewDelegate, PhotoViewDelegate, URLCacheConnectionDelegate> {
 	Article *article;
-	UIActivityIndicatorView *loadingIndicator;
+	LoadingView *loadingIndicator;
 	NSMutableArray *imageList;
 	NSMutableArray *imageViewsList;
 	NSUInteger activeIndex;
@@ -28,7 +28,7 @@
 }
 
 @property (nonatomic, retain) Article *article;
-@property (nonatomic, retain) UIActivityIndicatorView *loadingIndicator;
+@property (nonatomic, retain) LoadingView *loadingIndicator;
 @property (nonatomic, retain) NSMutableArray *imageList;
 @property (nonatomic, retain) NSMutableArray *imageViewsList;
 @property (nonatomic, assign) NSUInteger activeIndex;
