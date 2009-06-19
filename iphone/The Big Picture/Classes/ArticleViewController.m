@@ -181,6 +181,8 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 
 
 - (void)willRotate {
+	if (activeOrientation == [[UIDevice currentDevice] orientation]) return;
+	
 	activeOrientation = [[UIDevice currentDevice] orientation];
 	
 	if (activeOrientation == UIDeviceOrientationPortraitUpsideDown || activeOrientation == UIDeviceOrientationUnknown || activeOrientation == UIDeviceOrientationFaceUp || activeOrientation == UIDeviceOrientationFaceDown) return;
@@ -198,7 +200,7 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 		if (activeOrientation == UIDeviceOrientationLandscapeLeft) {
 			[scrollView setContentOffset:CGPointMake(0.0, scrollView.frame.size.height * activeIndex)];
 		} else {
-			[scrollView setContentOffset:CGPointMake(0.0, scrollView.frame.size.height * ([imageList count] - 1 - activeIndex))];
+			[scrollView setContentOffset:CGPointMake(0.0, scrollView.frame.size.height * ([imageList count] - activeIndex))];
 		}
 	}
 
@@ -227,7 +229,7 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 				} else if (activeOrientation == UIDeviceOrientationLandscapeLeft) {
 					subView.center = CGPointMake(subView.frame.size.width / 2, subView.tag * scrollView.frame.size.height + subView.frame.size.height / 2);
 				} else if (activeOrientation == UIDeviceOrientationLandscapeRight) {
-					subView.center = CGPointMake(subView.frame.size.width / 2, ([imageList count] - 1 - subView.tag) * scrollView.frame.size.height + subView.frame.size.height / 2);
+					subView.center = CGPointMake(subView.frame.size.width / 2, ([imageList count] - subView.tag) * scrollView.frame.size.height + subView.frame.size.height / 2);
 				}
 				
 				[UIView beginAnimations:@"rotateActiveView" context:NULL];
@@ -243,16 +245,16 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 			} else if (activeOrientation == UIDeviceOrientationLandscapeLeft) {
 				position = CGPointMake(0.0, subView.tag * scrollView.frame.size.height);
 			} else if (activeOrientation == UIDeviceOrientationLandscapeRight) {
-				position = CGPointMake(0.0, ([imageList count] - 1 - subView.tag) * scrollView.frame.size.height);
+				position = CGPointMake(0.0, ([imageList count] - subView.tag) * scrollView.frame.size.height);
 			}
 
-			subView.frame = CGRectMake(position.x, position.y, (scrollView.frame.size.width - 15.0), scrollView.frame.size.height - 15.0);
+			[(PhotoView *)subView setOrientation:activeOrientation];
+			[subView setFrame:CGRectMake(position.x, position.y, (scrollView.frame.size.width - 15.0), scrollView.frame.size.height - 15.0)];
 
 			if (subView.tag == activeIndex) {
 				[[(PhotoView *)subView label] setHidden:YES];
 				[[(PhotoView *)subView infoButton] setHidden:YES];
 			} else {
-				[(PhotoView *)subView setOrientation:activeOrientation];
 				[(PhotoView *)subView resetScale];
 			}
 			
@@ -267,7 +269,7 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 			} else if (activeOrientation == UIDeviceOrientationLandscapeLeft) {
 				[subView setFrame:CGRectMake(0.0, 0.0, subView.frame.size.width, subView.frame.size.height)];
 			} else if (activeOrientation == UIDeviceOrientationLandscapeRight) {
-				[subView setFrame:CGRectMake(0.0, ([imageList count] - 1) * scrollView.frame.size.height, subView.frame.size.width, subView.frame.size.height)];
+				[subView setFrame:CGRectMake(0.0, [imageList count] * scrollView.frame.size.height, subView.frame.size.width, subView.frame.size.height)];
 			}
 		}
 	}
@@ -299,7 +301,7 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 		imageView.frame = CGRectMake(0.0, (indexNum + 1) * self.view.frame.size.height, (self.view.frame.size.width - 15.0), (self.view.frame.size.height - 15.0));
 	} else if (activeOrientation == UIDeviceOrientationLandscapeRight) {
 		imageView.transform = CGAffineTransformMakeRotation(-M_PI / 2.0);
-		imageView.frame = CGRectMake(0.0, ([imageList count] - 1 - (indexNum + 1)) * self.view.frame.size.height, (self.view.frame.size.width - 15.0), (self.view.frame.size.height - 15.0));
+		imageView.frame = CGRectMake(0.0, ([imageList count] - (indexNum + 1)) * self.view.frame.size.height, (self.view.frame.size.width - 15.0), (self.view.frame.size.height - 15.0));
 	}
 	
 	[self.view addSubview:imageView];
@@ -352,7 +354,7 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 
 
 - (void)prepNeighbours {
-	if (zooming || rotating || activeIndex < 1 || [imageList count] == 0) return;
+	if (zooming || activeIndex < 1 || [imageList count] == 0) return;
 	
 	if ((NSNull *)[imageViewsList objectAtIndex:activeIndex - 1] == [NSNull null]) {
 		[self addPhoto:activeIndex - 1];
@@ -396,9 +398,9 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 	} else if (activeOrientation == UIDeviceOrientationLandscapeLeft) {
 		activeIndex = (scrollView.contentOffset.y < 0.0) ? 0 : floor(scrollView.contentOffset.y / scrollView.frame.size.height);
 	} else if (activeOrientation == UIDeviceOrientationLandscapeRight) {
-		activeIndex = (scrollView.contentOffset.y < 0.0) ? 0 : [imageList count] - 1 - floor(scrollView.contentOffset.y / scrollView.frame.size.height);
+		activeIndex = (scrollView.contentOffset.y < 0.0) ? 0 : [imageList count] - floor(scrollView.contentOffset.y / scrollView.frame.size.height);
 	}
-
+	NSLog(@"Active Index: %d", activeIndex);
 	if (activeIndex == 0) {
 		if (hideTimer != nil) {
 			[hideTimer invalidate];

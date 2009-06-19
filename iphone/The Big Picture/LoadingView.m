@@ -69,9 +69,9 @@
 	[self addSubview:done];
 	[done release];
 	
-	[label setText:@"Slide Right to View Photos"];
+	[label setText:@"Swipe Right to View Photos"];
 	
-	[NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(hideView) userInfo:nil repeats:NO];
+	[NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(hideView) userInfo:nil repeats:NO];
 }
 
 
