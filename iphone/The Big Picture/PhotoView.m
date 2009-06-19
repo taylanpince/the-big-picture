@@ -64,17 +64,23 @@
 - (void)resetScale {
 	currentZoomScale = 1.0;
 	
-	if (self.image.size.width > self.image.size.height) {
-		maximumZoomScale = self.image.size.width / self.frame.size.width;
-	} else {
-		maximumZoomScale = self.image.size.height / self.frame.size.height;
-	}
-	
 	if (orientation == UIDeviceOrientationPortrait || orientation == 0) {
+		if (self.image.size.width > self.image.size.height) {
+			maximumZoomScale = self.image.size.width / self.frame.size.width;
+		} else {
+			maximumZoomScale = self.image.size.height / self.frame.size.height;
+		}
+
 		[label setOrientation:orientation];
 		[label setFrame:CGRectMake(0.0, self.frame.size.height, self.frame.size.width, 0.0)];
 		[infoButton setCenter:CGPointMake(self.frame.size.width - 16.0, self.frame.size.height - 16.0)];
 	} else {
+		if (self.image.size.width > self.image.size.height) {
+			maximumZoomScale = self.image.size.width / self.frame.size.height;
+		} else {
+			maximumZoomScale = self.image.size.height / self.frame.size.width;
+		}
+
 		[label setOrientation:orientation];
 		[label setFrame:CGRectMake(0.0, self.frame.size.width, self.frame.size.height, 0.0)];
 		[infoButton setCenter:CGPointMake(self.frame.size.height - 16.0, self.frame.size.width - 16.0)];
@@ -134,9 +140,11 @@
 }
 
 
-- (void)zoomToScale:(CGFloat)scale {
-	infoButton.hidden = (scale > 1.0);
-	label.hidden = (scale > 1.0);
+- (void)zoomToScale:(CGFloat)scale animated:(BOOL)animated {
+	if (!animated) {
+		infoButton.hidden = (scale > 1.0);
+		label.hidden = (scale > 1.0);
+	}
 
 	if (scale >= 1.0 && scale <= maximumZoomScale) {
 		currentZoomScale = scale;
@@ -160,9 +168,25 @@
 }
 
 
+- (void)autoZoomDone {
+	if (orientation == UIDeviceOrientationPortrait || orientation == 0) {
+		[delegate didEndZoomingOnView:self withCenterPoint:CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2)];
+	} else {
+		[delegate didEndZoomingOnView:self withCenterPoint:CGPointMake(self.frame.size.height / 2, self.frame.size.width / 2)];
+	}
+	
+	if (currentZoomScale == 1.0) {
+		[self resetScale];
+		
+		infoButton.hidden = NO;
+		label.hidden = NO;
+	}
+}
+
+
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
 	if (!self.image) return;
-	
+
 	switch ([[event allTouches] count]) {
 		case 2: {
 			UITouch *firstTouch = [[[event allTouches] allObjects] objectAtIndex:0];
@@ -180,21 +204,32 @@
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
 	if (!self.image) return;
-	
+
 	switch ([[event allTouches] count]) {
 		case 1: {
 			UITouch *touch = [[[event allTouches] allObjects] objectAtIndex:0];
 			
 			switch ([touch tapCount]) {
 				case 1:
+					[self autoZoomDone];
 					[delegate didSingleTapOnView:self withPoint:[touch locationInView:self]];
 					break;
 				case 2:
+					infoButton.hidden = YES;
+					label.hidden = YES;
+					
+					[UIView beginAnimations:@"zoomIn" context:NULL];
+					[UIView setAnimationDuration:0.5];
+					
 					if (currentZoomScale > 1.0) {
-						[self zoomToScale:1.0];
+						[self zoomToScale:1.0 animated:YES];
 					} else {
-						[self zoomToScale:maximumZoomScale];
+						[self zoomToScale:maximumZoomScale animated:YES];
 					}
+					
+					[UIView setAnimationDelegate:self];
+					[UIView setAnimationDidStopSelector:@selector(autoZoomDone)];
+					[UIView commitAnimations];
 					
 					[delegate didDoubleTapOnView:self withPoint:[touch locationInView:self]];
 					break;
@@ -212,8 +247,20 @@
 				MIN(secondTouchLocation.x, firstTouchLocation.x) + abs(secondTouchLocation.x - firstTouchLocation.x) / 2, 
 				MIN(secondTouchLocation.y, firstTouchLocation.y) + abs(secondTouchLocation.y - firstTouchLocation.y) / 2
 			);
-			
-			[delegate didEndZoomingOnView:self withCenterPoint:centerPoint];
+
+			if (currentZoomScale <= 1.10) {
+				infoButton.hidden = YES;
+				label.hidden = YES;
+				
+				[UIView beginAnimations:@"zoomIn" context:NULL];
+				[UIView setAnimationDuration:0.5];
+				[self zoomToScale:1.0 animated:YES];
+				[UIView setAnimationDelegate:self];
+				[UIView setAnimationDidStopSelector:@selector(autoZoomDone)];
+				[UIView commitAnimations];
+			} else {
+				[delegate didEndZoomingOnView:self withCenterPoint:centerPoint];
+			}
 			
 			break;
 		}
@@ -223,7 +270,7 @@
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
 	if (!self.image) return;
-	
+
 	switch ([[event allTouches] count]) {
 		case 2: {
 			UITouch *firstTouch = [[[event allTouches] allObjects] objectAtIndex:0];
@@ -231,13 +278,20 @@
 			
 			CGFloat finalDistance = [self distanceBetweenTwoPoints:[firstTouch locationInView:self] toPoint:[secondTouch locationInView:self]];
 			
-			[self zoomToScale:currentZoomScale + ((finalDistance - initialDistance) / 200.0)];
+			[self zoomToScale:currentZoomScale + ((finalDistance - initialDistance) / 200.0) animated:NO];
 			
 			initialDistance = finalDistance;
 			
 			break;
 		}
 	}
+}
+
+
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
+	if (!self.image) return;
+
+	[self touchesEnded:touches withEvent:event];
 }
 
 

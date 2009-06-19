@@ -281,8 +281,8 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>29</integer>
-									<integer>27</integer>
+									<integer>11</integer>
+									<integer>7</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -324,7 +324,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>ArticleViewController.m</string>
+								<string>PhotoView.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -332,11 +332,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>ArticleViewController.m</string>
+										<string>PhotoView.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>ECA414E00FEC09E800F12F96</string>
+										<string>ECA415B20FEC334A00F12F96</string>
 										<key>history</key>
 										<array>
 											<string>EC264DE60FDF3F2700A83382</string>
@@ -354,9 +354,7 @@
 											<string>ECBC66070FE6E04D007D4012</string>
 											<string>ECBC66090FE6E04D007D4012</string>
 											<string>ECBC66290FE6E85D007D4012</string>
-											<string>ECBC662B0FE6E85D007D4012</string>
 											<string>ECBC66420FE6E8C6007D4012</string>
-											<string>ECBC664B0FE6E966007D4012</string>
 											<string>ECBC67210FE70735007D4012</string>
 											<string>EC43AF300FE8A28B00F16231</string>
 											<string>ECBE97500FE9E0F800339C9F</string>
@@ -364,9 +362,11 @@
 											<string>EC08A76A0FEA91B800E2C0BA</string>
 											<string>EC958E560FEB2C4400A66D91</string>
 											<string>ECA414AF0FEBF3F100F12F96</string>
-											<string>ECA414B00FEBF3F100F12F96</string>
 											<string>ECA414BC0FEC04C900F12F96</string>
-											<string>ECA414B10FEBF3F100F12F96</string>
+											<string>ECA414F00FEC157400F12F96</string>
+											<string>ECA415110FEC1ADD00F12F96</string>
+											<string>ECA415AD0FEC331A00F12F96</string>
+											<string>ECA415AE0FEC331A00F12F96</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -404,6 +404,34 @@
 											<string>ECA414B40FEBF3F100F12F96</string>
 											<string>ECA414B50FEBF3F100F12F96</string>
 											<string>ECA414BD0FEC04C900F12F96</string>
+											<string>ECA414E80FEC121B00F12F96</string>
+											<string>ECA414E90FEC121B00F12F96</string>
+											<string>ECA414F20FEC157400F12F96</string>
+											<string>ECA414F30FEC157400F12F96</string>
+											<string>ECA414F40FEC157400F12F96</string>
+											<string>ECA414F50FEC157400F12F96</string>
+											<string>ECA414F60FEC157400F12F96</string>
+											<string>ECA414F70FEC157400F12F96</string>
+											<string>ECA414F80FEC157400F12F96</string>
+											<string>ECA415080FEC182100F12F96</string>
+											<string>ECA415120FEC1ADD00F12F96</string>
+											<string>ECA415130FEC1ADD00F12F96</string>
+											<string>ECA4151A0FEC1BAD00F12F96</string>
+											<string>ECA415250FEC1DA200F12F96</string>
+											<string>ECA4152D0FEC1FEC00F12F96</string>
+											<string>ECA4152E0FEC1FEC00F12F96</string>
+											<string>ECA415330FEC201F00F12F96</string>
+											<string>ECA415550FEC24AE00F12F96</string>
+											<string>ECA415630FEC279100F12F96</string>
+											<string>ECA415640FEC279100F12F96</string>
+											<string>ECA415690FEC282100F12F96</string>
+											<string>ECA4156A0FEC282100F12F96</string>
+											<string>ECA415760FEC2A7A00F12F96</string>
+											<string>ECA4157C0FEC2B1F00F12F96</string>
+											<string>ECA415850FEC2BA900F12F96</string>
+											<string>ECA415910FEC2CAD00F12F96</string>
+											<string>ECA415A10FEC313F00F12F96</string>
+											<string>ECA415AF0FEC331A00F12F96</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -597,12 +625,13 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>ECA415B30FEC334A00F12F96</string>
 		<string>ECA414C00FEC04C900F12F96</string>
 		<string>ECA414C10FEC04C900F12F96</string>
 		<string>EC264D9C0FDF3B6000A83382</string>
+		<string>/Users/taylan/Documents/Development/Personal/the-big-picture/iphone/The Big Picture/The Big Picture.xcodeproj</string>
 		<string>1C78EAAD065D492600B07095</string>
 		<string>1CD10A99069EF8BA00B06720</string>
-		<string>/Users/taylan/Documents/Development/Personal/the-big-picture/iphone/The Big Picture/The Big Picture.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
 	<string>4 55 1436 823 0 0 1440 878 </string>

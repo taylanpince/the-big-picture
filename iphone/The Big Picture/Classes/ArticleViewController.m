@@ -174,20 +174,19 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 	if ([subView isKindOfClass:[PhotoView class]]) {
 		[[(PhotoView *)subView infoButton] setHidden:NO];
 		[[(PhotoView *)subView label] setHidden:NO];
-		[(PhotoView *)subView setOrientation:activeOrientation];
 		[(PhotoView *)subView resetScale];
 	}
 }
 
 
 - (void)willRotate {
-	if (activeOrientation == [[UIDevice currentDevice] orientation]) return;
+	UIDeviceOrientation newOrientation = [[UIDevice currentDevice] orientation];
 	
-	activeOrientation = [[UIDevice currentDevice] orientation];
-	
-	if (activeOrientation == UIDeviceOrientationPortraitUpsideDown || activeOrientation == UIDeviceOrientationUnknown || activeOrientation == UIDeviceOrientationFaceUp || activeOrientation == UIDeviceOrientationFaceDown) return;
-	
+	if (activeOrientation == newOrientation) return;
+	if (newOrientation == UIDeviceOrientationPortraitUpsideDown || newOrientation == UIDeviceOrientationUnknown || newOrientation == UIDeviceOrientationFaceUp || newOrientation == UIDeviceOrientationFaceDown) return;
+
 	rotating = YES;
+	activeOrientation = newOrientation;
 
 	UIScrollView *scrollView = (UIScrollView *)[self view];
 
@@ -400,7 +399,7 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 	} else if (activeOrientation == UIDeviceOrientationLandscapeRight) {
 		activeIndex = (scrollView.contentOffset.y < 0.0) ? 0 : [imageList count] - floor(scrollView.contentOffset.y / scrollView.frame.size.height);
 	}
-	NSLog(@"Active Index: %d", activeIndex);
+
 	if (activeIndex == 0) {
 		if (hideTimer != nil) {
 			[hideTimer invalidate];
@@ -426,12 +425,13 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 
 - (void)didEndZoomingOnView:(PhotoView *)view withCenterPoint:(CGPoint)centerPoint {
 	UIScrollView *scrollView = (UIScrollView *)[self view];
+
 	CGFloat viewHeight = (view.frame.size.height < scrollView.frame.size.height - 15.0) ? scrollView.frame.size.height - 15.0 : view.frame.size.height;
 	CGFloat viewWidth = (view.frame.size.width < scrollView.frame.size.width - 15.0) ? scrollView.frame.size.width - 15.0 : view.frame.size.width;
 	
-	scrollView.scrollEnabled = YES;
+	[scrollView setScrollEnabled:YES];
 
-	if (view.currentZoomScale <= 1.0) {
+	if (view.currentZoomScale <= 1.00) {
 		zooming = NO;
 		
 		scrollView.pagingEnabled = YES;
@@ -450,26 +450,35 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 				view.frame = CGRectMake(0.0, scrollView.frame.size.height * view.tag, viewWidth, viewHeight);
 				[scrollView setContentOffset:CGPointMake(0.0, scrollView.frame.size.height * view.tag)];
 			} else {
-				view.frame = CGRectMake(0.0, scrollView.frame.size.height * ([imageList count] - 1 - view.tag), viewWidth, viewHeight);
-				[scrollView setContentOffset:CGPointMake(0.0, scrollView.frame.size.height * ([imageList count] - 1 - view.tag))];
+				view.frame = CGRectMake(0.0, scrollView.frame.size.height * ([imageList count] - view.tag), viewWidth, viewHeight);
+				[scrollView setContentOffset:CGPointMake(0.0, scrollView.frame.size.height * ([imageList count] - view.tag))];
 			}
 		}
 	} else {
 		zooming = YES;
 		
-		CGFloat centerX = (view.frame.size.width < scrollView.frame.size.width - 15.0) ? 0.0 : centerPoint.x + 8.0 - scrollView.frame.size.width / 2;
-		CGFloat centerY = (view.frame.size.height < scrollView.frame.size.height - 15.0) ? 0.0 : centerPoint.y - scrollView.frame.size.height / 2;
-		
-		view.frame = CGRectMake(0.0, 0.0, viewWidth, viewHeight);
-		
 		scrollView.pagingEnabled = NO;
 		scrollView.directionalLockEnabled = NO;
 		scrollView.contentInset = UIEdgeInsetsZero;
-		scrollView.contentSize = view.frame.size;
 		
-		if (centerX + scrollView.frame.size.width > scrollView.contentSize.width) centerX = scrollView.contentSize.width - scrollView.frame.size.width;
+		view.frame = CGRectMake(0.0, 0.0, viewWidth, viewHeight);
+		scrollView.contentSize = view.frame.size;
 
-		scrollView.contentOffset = CGPointMake(MAX(centerX, 0.0), MAX(centerY, 0.0));
+		if (activeOrientation == UIDeviceOrientationPortrait || activeOrientation == 0) {
+			CGFloat centerX = (view.frame.size.width < scrollView.frame.size.width - 15.0) ? 0.0 : centerPoint.x + 8.0 - scrollView.frame.size.width / 2;
+			CGFloat centerY = (view.frame.size.height < scrollView.frame.size.height - 15.0) ? 0.0 : centerPoint.y + 8.0 - scrollView.frame.size.height / 2;
+			
+			if (centerX + scrollView.frame.size.width > scrollView.contentSize.width) centerX = scrollView.contentSize.width - scrollView.frame.size.width;
+
+			scrollView.contentOffset = CGPointMake(MAX(centerX, 0.0), MAX(centerY, 0.0));
+		} else {
+			CGFloat centerX = (view.frame.size.height < scrollView.frame.size.height - 15.0) ? 0.0 : centerPoint.x + 8.0 - scrollView.frame.size.height / 2;
+			CGFloat centerY = (view.frame.size.width < scrollView.frame.size.width - 15.0) ? 0.0 : centerPoint.y + 8.0 - scrollView.frame.size.width / 2;
+			
+			if (centerY + scrollView.frame.size.height > scrollView.contentSize.height) centerY = scrollView.contentSize.height - scrollView.frame.size.height;
+			
+			scrollView.contentOffset = CGPointMake(MAX(centerY, 0.0), MAX(centerX, 0.0));
+		}
 	}
 
 	for (UIView *subView in scrollView.subviews) {
@@ -521,7 +530,7 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 		hideTimer = nil;
 	}
 	
-	[self didEndZoomingOnView:view withCenterPoint:point];
+//	[self didEndZoomingOnView:view withCenterPoint:point];
 }
 
 
