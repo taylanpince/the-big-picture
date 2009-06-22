@@ -153,7 +153,7 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 		[UIView commitAnimations];
 		
 		if (activeIndex > 0) {
-			hideTimer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(hideInterface) userInfo:nil repeats:NO];
+			hideTimer = [[NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(hideInterface) userInfo:nil repeats:NO] retain];
 		} else {
 			hideTimer = nil;
 		}
@@ -412,7 +412,7 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 		if (self.navigationController.navigationBar.alpha == 0.0) [self showInterface];
 	} else {
 		if (self.navigationController.navigationBar.alpha > 0.0 && hideTimer == nil) {
-			hideTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(hideInterface) userInfo:nil repeats:NO];
+			hideTimer = [[NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(hideInterface) userInfo:nil repeats:NO] retain];
 		}
 	}
 	
@@ -521,7 +521,7 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 
 
 - (void)didSingleTapOnView:(PhotoView *)view withPoint:(CGPoint)point {
-	hideTimer = [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(showInterface) userInfo:nil repeats:NO];
+	hideTimer = [[NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(showInterface) userInfo:nil repeats:NO] retain];
 }
 
 
@@ -571,7 +571,7 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 	
 	for (PhotoView *subView in self.view.subviews) {
 		if ([subView isKindOfClass:[PhotoView class]]) {
-			[subView cancelConnection];
+			[subView removeFromSuperview];
 		}
 	}
 	

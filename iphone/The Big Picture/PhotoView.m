@@ -318,11 +318,13 @@
 
 
 - (void)dealloc {
+	NSLog(@"Deallocated");
 	[photo release];
 	[label release];
 	[loadingIndicator release];
 	
 	if (activeConnection) {
+		NSLog(@"Connection Cancelled");
 		[activeConnection cancelConnection];
 		[activeConnection release];
 		activeConnection = nil;
