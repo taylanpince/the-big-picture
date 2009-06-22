@@ -43,6 +43,7 @@
 @property (nonatomic, assign) id <PhotoViewDelegate> delegate;
 
 - (void)resetScale;
+- (void)cancelConnection;
 
 @end
 

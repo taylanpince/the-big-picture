@@ -29,7 +29,6 @@
 
 static UIFont *mainFont = nil;
 static UIFont *subFont = nil;
-static UIImage *unreadDot = nil;
 
 - (id)initWithFrame:(CGRect)frame reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithFrame:frame reuseIdentifier:reuseIdentifier]) {
@@ -43,7 +42,6 @@ static UIImage *unreadDot = nil;
 		
 		mainFont = [UIFont boldSystemFontOfSize:18.0];
 		subFont = [UIFont systemFontOfSize:12.0];
-		unreadDot = [UIImage imageNamed:@"dot.png"];
     }
     return self;
 }
@@ -126,6 +124,7 @@ static UIImage *unreadDot = nil;
 	top.y += subTextSize.height + 4.0;
 	
 	if (unread) {
+		UIImage *unreadDot = [UIImage imageNamed:@"dot.png"];
 		[unreadDot drawAtPoint:CGPointMake(20.0 - unreadDot.size.width / 2, top.y / 2 - unreadDot.size.height / 2)];
 	}
 }

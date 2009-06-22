@@ -36,6 +36,10 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 		[self.navigationItem setLeftBarButtonItem:refreshButton];
 		[refreshButton release];
 		
+		if (activeContent != nil) [activeContent release];
+		if (articleList != nil) [articleList release];
+		if (dateFormatter != nil) [dateFormatter release];
+		
 		activeContent = [[NSMutableString alloc] init];
 		articleList = [[NSMutableArray alloc] init];
 		dateFormatter = [[NSDateFormatter alloc] init];

@@ -364,6 +364,7 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 
 		if ((NSNull *)previousView != [NSNull null]) {
 			[previousView removeFromSuperview];
+			[(PhotoView *)previousView cancelConnection];
 			
 			[imageViewsList replaceObjectAtIndex:activeIndex - 3 withObject:[NSNull null]];
 		}
@@ -374,6 +375,7 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 
 		if ((NSNull *)nextView != [NSNull null]) {
 			[nextView removeFromSuperview];
+			[(PhotoView *)nextView cancelConnection];
 			
 			[imageViewsList replaceObjectAtIndex:activeIndex + 1 withObject:[NSNull null]];
 		}
@@ -565,6 +567,12 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 	if (activeConnection) {
 		[activeConnection cancelConnection];
 		[activeConnection release];
+	}
+	
+	for (PhotoView *subView in self.view.subviews) {
+		if ([subView isKindOfClass:[PhotoView class]]) {
+			[subView cancelConnection];
+		}
 	}
 	
     [super dealloc];

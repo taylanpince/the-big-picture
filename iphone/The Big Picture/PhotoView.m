@@ -126,7 +126,7 @@
 		
 		[loadingIndicator setHidden:NO];
 		[loadingIndicator startAnimating];
-		
+
 		activeConnection = [[URLCacheConnection alloc] initWithURL:newPhoto.url delegate:self];
 	}
 }
@@ -308,6 +308,15 @@
 }
 
 
+- (void)cancelConnection {
+	if (activeConnection) {
+		[activeConnection cancelConnection];
+		[activeConnection release];
+		activeConnection = nil;
+	}
+}
+
+
 - (void)dealloc {
 	[photo release];
 	[label release];
@@ -316,6 +325,7 @@
 	if (activeConnection) {
 		[activeConnection cancelConnection];
 		[activeConnection release];
+		activeConnection = nil;
 	}
 	
     [super dealloc];
