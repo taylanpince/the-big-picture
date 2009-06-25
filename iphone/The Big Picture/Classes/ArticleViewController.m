@@ -30,6 +30,7 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 
 - (void)loadView {
 	self.title = article.title;
+	self.navigationController.navigationBar.tintColor = [UIColor blackColor];
 	self.wantsFullScreenLayout = YES;
 	
 	UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectZero];
@@ -59,6 +60,8 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 
 
 - (void)viewDidAppear:(BOOL)animated {
+	self.navigationController.navigationBar.tintColor = [UIColor blackColor];
+	
 	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
 	
 	CGRect screenBounds = [[UIScreen mainScreen] bounds];

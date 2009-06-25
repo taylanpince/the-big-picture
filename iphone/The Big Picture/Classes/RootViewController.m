@@ -28,6 +28,7 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
     [super viewDidLoad];
 	
 	self.title = @"The Big Picture";
+	self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0.26 green:0.5 blue:0.76 alpha:1.0];
 	
 	if ([(TheBigPictureAppDelegate *)[[UIApplication sharedApplication] delegate] isNetworkReachable] == YES) {
 		UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshArticles:)];
@@ -71,6 +72,8 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 
 - (void)viewDidAppear:(BOOL)animated {
 	[super viewDidAppear:animated];
+
+	self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0.26 green:0.5 blue:0.76 alpha:1.0];
 	
 	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque];
 	
