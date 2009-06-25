@@ -1,0 +1,15 @@
+0.9.3BETA (June 24, 2009)
+=========================
+
+* Fixed memory leaks, optimized gallery performance
+* Added final icon
+
+* * *
+
+0.9.2BETA (June 20, 2009)
+=========================
+
+* Made some enhancements to rotation, double tap and pinch zooming
+* Renamed back button label to "Back"
+* Finalized rotation, zooming and sliding functionality on all orientations
+
