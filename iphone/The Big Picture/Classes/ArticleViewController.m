@@ -158,7 +158,7 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 		[UIView commitAnimations];
 		
 		if (activeIndex > 0) {
-			hideTimer = [[NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(hideInterface) userInfo:nil repeats:NO] retain];
+			hideTimer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(hideInterface) userInfo:nil repeats:NO];
 		} else {
 			hideTimer = nil;
 		}
@@ -417,7 +417,7 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 		if (self.navigationController.navigationBar.alpha == 0.0) [self showInterface];
 	} else {
 		if (self.navigationController.navigationBar.alpha > 0.0 && hideTimer == nil) {
-			hideTimer = [[NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(hideInterface) userInfo:nil repeats:NO] retain];
+			hideTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(hideInterface) userInfo:nil repeats:NO];
 		}
 	}
 	
@@ -526,7 +526,7 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 
 
 - (void)didSingleTapOnView:(PhotoView *)view withPoint:(CGPoint)point {
-	hideTimer = [[NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(showInterface) userInfo:nil repeats:NO] retain];
+	hideTimer = [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(showInterface) userInfo:nil repeats:NO];
 }
 
 
@@ -576,7 +576,7 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 			NSString *mailURLString = [NSString stringWithFormat:@"mailto:?subject=%@&body=%@", 
 												   [[NSString stringWithFormat:@"The Big Picture: %@", article.title] stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding], 
 												   [[article.url absoluteString] stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding]];
-			NSLog(@"URL: %@", mailURLString);
+
 			[[UIApplication sharedApplication] openURL:[NSURL URLWithString:mailURLString]];
 			break;
 		}

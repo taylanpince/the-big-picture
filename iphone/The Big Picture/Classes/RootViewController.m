@@ -47,6 +47,8 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 		
 		[dateFormatter setDateFormat:@"dd MMM yyyy HH:mm:ss ZZZ"];
 		
+		if (loadingIndicator != nil) [loadingIndicator release];
+		
 		loadingIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
 		
 		[loadingIndicator setHidesWhenStopped:YES];
