@@ -228,6 +228,8 @@
 			<key>Layout</key>
 			<array>
 				<dict>
+					<key>BecomeActive</key>
+					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -281,13 +283,13 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>11</integer>
-									<integer>7</integer>
+									<integer>51</integer>
+									<integer>50</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 34}, {239, 764}}</string>
+							<string>{{0, 307}, {239, 764}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -317,14 +319,12 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>ArticleViewController.m</string>
+								<string>TheBigPicture-Info.plist</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -332,11 +332,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>ArticleViewController.m</string>
+										<string>TheBigPicture-Info.plist</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>ECA107B70FF03471002080F9</string>
+										<string>ECC1B01E0FF307590013C0AD</string>
 										<key>history</key>
 										<array>
 											<string>EC264DE60FDF3F2700A83382</string>
@@ -357,20 +357,16 @@
 											<string>EC958E560FEB2C4400A66D91</string>
 											<string>ECA414AF0FEBF3F100F12F96</string>
 											<string>ECA415110FEC1ADD00F12F96</string>
-											<string>ECDA3B520FF0280400B5262E</string>
 											<string>ECDA3B530FF0280400B5262E</string>
 											<string>ECDA3B540FF0280400B5262E</string>
 											<string>ECDA3B550FF0280400B5262E</string>
 											<string>ECDA3B560FF0280400B5262E</string>
 											<string>ECDA3B570FF0280400B5262E</string>
-											<string>ECDA3B580FF0280400B5262E</string>
 											<string>ECDA3B760FF029E800B5262E</string>
 											<string>ECA107B30FF03471002080F9</string>
-											<string>ECA107B40FF03471002080F9</string>
-										</array>
-										<key>nextStack</key>
-										<array>
-											<string>ECA107B60FF03471002080F9</string>
+											<string>ECB752E80FF17B1C007CCBCB</string>
+											<string>ECC1B0000FF304010013C0AD</string>
+											<string>ECC1B0010FF304010013C0AD</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -401,7 +397,8 @@
 											<string>EC958E580FEB2C4400A66D91</string>
 											<string>ECA414B30FEBF3F100F12F96</string>
 											<string>ECDA3B5B0FF0280400B5262E</string>
-											<string>ECA107B50FF03471002080F9</string>
+											<string>ECB752EA0FF17B1C007CCBCB</string>
+											<string>ECC1B0020FF304010013C0AD</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -459,9 +456,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>ECA107B80FF03471002080F9</string>
+				<string>ECC1B0040FF304010013C0AD</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>ECA107B90FF03471002080F9</string>
+				<string>ECC1B0050FF304010013C0AD</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -595,10 +592,7 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>ECA107C20FF03471002080F9</string>
-		<string>ECA107C30FF03471002080F9</string>
 		<string>EC264D9C0FDF3B6000A83382</string>
-		<string>1C78EAAD065D492600B07095</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>/Users/taylan/Documents/Development/Personal/the-big-picture/iphone/The Big Picture/The Big Picture.xcodeproj</string>
 	</array>
@@ -680,7 +674,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>EC264D9C0FDF3B6000A83382</string>
-				<string>ECA107BA0FF03471002080F9</string>
+				<string>ECC1B01A0FF3043A0013C0AD</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
@@ -800,13 +794,13 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1CD10A99069EF8BA00B06720</string>
-				<string>ECA107BB0FF03471002080F9</string>
+				<string>ECC1B0060FF304010013C0AD</string>
 				<string>1C162984064C10D400B95A72</string>
-				<string>ECA107BC0FF03471002080F9</string>
-				<string>ECA107BD0FF03471002080F9</string>
-				<string>ECA107BE0FF03471002080F9</string>
-				<string>ECA107BF0FF03471002080F9</string>
-				<string>ECA107C00FF03471002080F9</string>
+				<string>ECC1B0070FF304010013C0AD</string>
+				<string>ECC1B0080FF304010013C0AD</string>
+				<string>ECC1B0090FF304010013C0AD</string>
+				<string>ECC1B00A0FF304010013C0AD</string>
+				<string>ECC1B00B0FF304010013C0AD</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>
