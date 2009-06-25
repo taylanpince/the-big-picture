@@ -30,7 +30,6 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 
 - (void)loadView {
 	self.title = article.title;
-	self.navigationController.navigationBar.tintColor = [UIColor blackColor];
 	self.wantsFullScreenLayout = YES;
 	
 	UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectZero];
@@ -53,6 +52,9 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
+
+//	[self.navigationController.navigationBar setTintColor:[UIColor blackColor]];
+//	[self.navigationController.navigationBar setBarStyle:UIBarStyleBlack];
 	
 	[[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(willRotate) name:UIDeviceOrientationDidChangeNotification object:nil];
@@ -60,8 +62,6 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 
 
 - (void)viewDidAppear:(BOOL)animated {
-	self.navigationController.navigationBar.tintColor = [UIColor blackColor];
-	
 	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
 	
 	CGRect screenBounds = [[UIScreen mainScreen] bounds];
