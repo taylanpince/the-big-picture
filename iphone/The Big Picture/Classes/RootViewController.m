@@ -10,6 +10,7 @@
 #import "RegexKitLite.h"
 #import "RootViewController.h"
 #import "ArticleViewController.h"
+#import "AboutViewController.h"
 #import "ArticleCell.h"
 #import "Article.h"
 
@@ -53,7 +54,7 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 		
 		UIBarButtonItem *loadingBarItem = [[UIBarButtonItem alloc] initWithCustomView:loadingIndicator];
 		
-		[self.navigationItem setRightBarButtonItem:loadingBarItem];
+		[self.navigationItem setRightBarButtonItem:loadingBarItem animated:NO];
 		[loadingBarItem release];
 		
 		[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
@@ -88,6 +89,15 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 
 	[self.tableView reloadData];
 	
+	UIButton *infoButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
+	
+	[infoButton addTarget:self action:@selector(showInfoView) forControlEvents:UIControlEventTouchUpInside];
+	
+	UIBarButtonItem *infoBarItem = [[UIBarButtonItem alloc] initWithCustomView:infoButton];
+	
+	[self.navigationItem setRightBarButtonItem:infoBarItem animated:YES];
+	[infoBarItem release];
+	
 	NSInteger unreadCount = 0;
 	
 	for (Article *article in articleList) {
@@ -105,9 +115,31 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 	[self.navigationItem.leftBarButtonItem setEnabled:NO];
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 	[loadingIndicator startAnimating];
+	
+	UIBarButtonItem *loadingBarItem = [[UIBarButtonItem alloc] initWithCustomView:loadingIndicator];
+	
+	[self.navigationItem setRightBarButtonItem:loadingBarItem animated:YES];
+	[loadingBarItem release];
+	
 	[dateFormatter setDateFormat:@"dd MMM yyyy HH:mm:ss ZZZ"];
 
 	[self performSelectorInBackground:@selector(loadArticles) withObject:nil];
+}
+
+
+- (void)showInfoView {
+	AboutViewController *controller = [[AboutViewController alloc] initWithNibName:@"AboutView" bundle:nil];
+	
+	[controller setDelegate:self];
+	[controller setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
+	
+	[self presentModalViewController:controller animated:YES];
+	[controller release];
+}
+
+
+- (void)didDismissAboutView {
+	[self dismissModalViewControllerAnimated:YES];
 }
 
 

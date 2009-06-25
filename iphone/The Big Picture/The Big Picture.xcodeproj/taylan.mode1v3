@@ -281,13 +281,13 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>31</integer>
-									<integer>27</integer>
+									<integer>11</integer>
+									<integer>7</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 119}, {239, 764}}</string>
+							<string>{{0, 89}, {239, 764}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -336,7 +336,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>EC2CC8E70FF3CC26001D69DB</string>
+										<string>EC2CC8F10FF3CE75001D69DB</string>
 										<key>history</key>
 										<array>
 											<string>EC264DE60FDF3F2700A83382</string>
@@ -361,13 +361,17 @@
 											<string>ECDA3B760FF029E800B5262E</string>
 											<string>ECC1B0000FF304010013C0AD</string>
 											<string>EC2CC8A30FF3C379001D69DB</string>
-											<string>EC2CC8A40FF3C379001D69DB</string>
 											<string>EC2CC8A50FF3C379001D69DB</string>
 											<string>EC2CC8A70FF3C379001D69DB</string>
 											<string>EC2CC8A90FF3C379001D69DB</string>
 											<string>EC2CC8D10FF3C80D001D69DB</string>
 											<string>EC2CC8DD0FF3C965001D69DB</string>
-											<string>EC2CC8DE0FF3C965001D69DB</string>
+											<string>EC2CC8EE0FF3CE75001D69DB</string>
+											<string>EC2CC8EF0FF3CE75001D69DB</string>
+										</array>
+										<key>nextStack</key>
+										<array>
+											<string>EC2CC8F00FF3CE75001D69DB</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -397,30 +401,22 @@
 											<string>EC958E570FEB2C4400A66D91</string>
 											<string>EC958E580FEB2C4400A66D91</string>
 											<string>ECA414B30FEBF3F100F12F96</string>
-											<string>ECDA3B5B0FF0280400B5262E</string>
 											<string>ECB752EA0FF17B1C007CCBCB</string>
 											<string>EC2CC8AB0FF3C379001D69DB</string>
-											<string>EC2CC8AC0FF3C379001D69DB</string>
 											<string>EC2CC8AD0FF3C379001D69DB</string>
 											<string>EC2CC8AE0FF3C379001D69DB</string>
 											<string>EC2CC8AF0FF3C379001D69DB</string>
 											<string>EC2CC8B00FF3C379001D69DB</string>
-											<string>EC2CC8B10FF3C379001D69DB</string>
 											<string>EC2CC8B20FF3C379001D69DB</string>
-											<string>EC2CC8B30FF3C379001D69DB</string>
 											<string>EC2CC8B40FF3C379001D69DB</string>
-											<string>EC2CC8B50FF3C379001D69DB</string>
 											<string>EC2CC8B60FF3C379001D69DB</string>
 											<string>EC2CC8B70FF3C379001D69DB</string>
-											<string>EC2CC8B80FF3C379001D69DB</string>
 											<string>EC2CC8B90FF3C379001D69DB</string>
 											<string>EC2CC8BA0FF3C379001D69DB</string>
 											<string>EC2CC8BB0FF3C379001D69DB</string>
 											<string>EC2CC8D40FF3C80D001D69DB</string>
 											<string>EC2CC8D50FF3C80D001D69DB</string>
-											<string>EC2CC8D60FF3C80D001D69DB</string>
 											<string>EC2CC8D70FF3C80D001D69DB</string>
-											<string>EC2CC8D80FF3C80D001D69DB</string>
 											<string>EC2CC8DF0FF3C965001D69DB</string>
 										</array>
 									</dict>

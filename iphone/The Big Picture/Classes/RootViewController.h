@@ -6,7 +6,9 @@
 //  Copyright Taylan Pince 2009. All rights reserved.
 //
 
-@interface RootViewController : UITableViewController {
+#import "AboutViewController.h"
+
+@interface RootViewController : UITableViewController <AboutViewControllerDelegate> {
 	NSMutableArray *articleList;
 	NSMutableString *activeContent;
 	NSDateFormatter *dateFormatter;

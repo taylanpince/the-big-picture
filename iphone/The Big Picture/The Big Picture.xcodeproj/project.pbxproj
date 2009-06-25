@@ -21,6 +21,9 @@
 		EC264E0D0FDF447E00A83382 /* Article.m in Sources */ = {isa = PBXBuildFile; fileRef = EC264E0C0FDF447E00A83382 /* Article.m */; };
 		EC264E770FDF52CD00A83382 /* ArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */; };
 		EC264F440FDF5F7700A83382 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC264F430FDF5F7700A83382 /* QuartzCore.framework */; };
+		EC2CC8F40FF3CF20001D69DB /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2CC8F30FF3CF20001D69DB /* AboutViewController.m */; };
+		EC2CC8FD0FF3D0A4001D69DB /* AboutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC2CC8FC0FF3D0A4001D69DB /* AboutView.xib */; };
+		EC2CC9050FF3D2D8001D69DB /* LargeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = EC2CC9040FF3D2D8001D69DB /* LargeIcon.png */; };
 		EC958E300FEB273300A66D91 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = EC958E2F0FEB273300A66D91 /* Entitlements.plist */; };
 		ECAD08460FE4190100BCCCE1 /* ArticleView.m in Sources */ = {isa = PBXBuildFile; fileRef = ECAD08450FE4190100BCCCE1 /* ArticleView.m */; };
 		ECAD09000FE43B3000BCCCE1 /* CaptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = ECAD08FF0FE43B3000BCCCE1 /* CaptionView.m */; };
@@ -59,6 +62,10 @@
 		EC264E750FDF52CD00A83382 /* ArticleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticleViewController.h; sourceTree = "<group>"; };
 		EC264E760FDF52CD00A83382 /* ArticleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleViewController.m; sourceTree = "<group>"; };
 		EC264F430FDF5F7700A83382 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = ../../../../../../../../Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = SOURCE_ROOT; };
+		EC2CC8F20FF3CF20001D69DB /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		EC2CC8F30FF3CF20001D69DB /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		EC2CC8FC0FF3D0A4001D69DB /* AboutView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutView.xib; sourceTree = "<group>"; };
+		EC2CC9040FF3D2D8001D69DB /* LargeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LargeIcon.png; sourceTree = "<group>"; };
 		EC958E2F0FEB273300A66D91 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		ECAD08440FE4190100BCCCE1 /* ArticleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticleView.h; sourceTree = "<group>"; };
 		ECAD08450FE4190100BCCCE1 /* ArticleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleView.m; sourceTree = "<group>"; };
@@ -102,6 +109,8 @@
 				EC264E760FDF52CD00A83382 /* ArticleViewController.m */,
 				28C286DF0D94DF7D0034E888 /* RootViewController.h */,
 				28C286E00D94DF7D0034E888 /* RootViewController.m */,
+				EC2CC8F20FF3CF20001D69DB /* AboutViewController.h */,
+				EC2CC8F30FF3CF20001D69DB /* AboutViewController.m */,
 			);
 			name = "View Controllers";
 			path = Classes;
@@ -146,6 +155,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				EC2CC9040FF3D2D8001D69DB /* LargeIcon.png */,
 				EC08A7900FEA966800E2C0BA /* done.png */,
 				ECAD0AE00FE4727400BCCCE1 /* iTunesArtwork */,
 				ECAD0A520FE4570F00BCCCE1 /* Default.png */,
@@ -154,6 +164,7 @@
 				2899E55F0DE3E45000AC0155 /* RootViewController.xib */,
 				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* TheBigPicture-Info.plist */,
+				EC2CC8FC0FF3D0A4001D69DB /* AboutView.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -289,6 +300,8 @@
 				ECAD0AE10FE4727400BCCCE1 /* iTunesArtwork in Resources */,
 				EC08A7910FEA966800E2C0BA /* done.png in Resources */,
 				EC958E300FEB273300A66D91 /* Entitlements.plist in Resources */,
+				EC2CC8FD0FF3D0A4001D69DB /* AboutView.xib in Resources */,
+				EC2CC9050FF3D2D8001D69DB /* LargeIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,6 +325,7 @@
 				ECAD09430FE4400C00BCCCE1 /* ArticleCell.m in Sources */,
 				ECBC63680FE67EDA007D4012 /* URLCacheConnection.m in Sources */,
 				EC08A7440FEA8CDF00E2C0BA /* LoadingView.m in Sources */,
+				EC2CC8F40FF3CF20001D69DB /* AboutViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
