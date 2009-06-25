@@ -6,8 +6,6 @@
 //  Copyright 2009 Taylan Pince. All rights reserved.
 //
 
-#import <MessageUI/MessageUI.h>
-
 #import "RegexKitLite.h"
 #import "URLCacheConnection.h"
 #import "TheBigPictureAppDelegate.h"
@@ -561,14 +559,7 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 
 
 - (void)displayShareSheet {
-	UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"View Article in Safari", nil];
-	
-	if ([MFMailComposeViewController canSendMail] == YES) {
-		[actionSheet addButtonWithTitle:@"Share Article via Mail"];
-	}
-	
-	[actionSheet setCancelButtonIndex:[actionSheet numberOfButtons]];
-	[actionSheet addButtonWithTitle:@"Cancel"];
+	UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"View Article in Safari", @"Share Article via Mail", nil];
 
 	[actionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
 	[actionSheet showInView:self.view];
@@ -582,27 +573,17 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 			break;
 		}
 		case 1: {
-			if ([actionSheet numberOfButtons] < 3) break;
-			
-			MFMailComposeViewController *controller = [[MFMailComposeViewController alloc] init];
-			
-			[controller setSubject:[NSString stringWithFormat:@"The Big Picture: %@", article.title]];
-			[controller setMessageBody:[article.url absoluteString] isHTML:NO];
-			[controller setMailComposeDelegate:self];
-			
-			[self presentModalViewController:controller animated:YES];
-			[controller release];
+			NSString *mailURLString = [NSString stringWithFormat:@"mailto:?subject=%@&body=%@", 
+												   [[NSString stringWithFormat:@"The Big Picture: %@", article.title] stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding], 
+												   [[article.url absoluteString] stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding]];
+			NSLog(@"URL: %@", mailURLString);
+			[[UIApplication sharedApplication] openURL:[NSURL URLWithString:mailURLString]];
 			break;
 		}
 		default: {
 			break;
 		}
 	}
-}
-
-
-- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error {
-	[self dismissModalViewControllerAnimated:YES];
 }
 
 

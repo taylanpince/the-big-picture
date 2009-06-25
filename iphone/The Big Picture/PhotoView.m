@@ -203,18 +203,19 @@
 
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-	if (!self.image) return;
-
 	switch ([[event allTouches] count]) {
 		case 1: {
 			UITouch *touch = [[[event allTouches] allObjects] objectAtIndex:0];
 			
 			switch ([touch tapCount]) {
 				case 1:
-					[self autoZoomDone];
+					if (self.image) [self autoZoomDone];
+					
 					[delegate didSingleTapOnView:self withPoint:[touch locationInView:self]];
 					break;
 				case 2:
+					if (!self.image) return;
+
 					infoButton.hidden = YES;
 					label.hidden = YES;
 					
@@ -238,6 +239,8 @@
 			break;
 		}
 		case 2: {
+			if (!self.image) return;
+			
 			UITouch *firstTouch = [[[event allTouches] allObjects] objectAtIndex:0];
 			UITouch *secondTouch = [[[event allTouches] allObjects] objectAtIndex:1];
 			CGPoint firstTouchLocation = [firstTouch locationInView:self];
@@ -289,8 +292,6 @@
 
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
-	if (!self.image) return;
-
 	[self touchesEnded:touches withEvent:event];
 }
 

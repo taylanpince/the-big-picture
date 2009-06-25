@@ -281,12 +281,13 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>48</integer>
+									<integer>28</integer>
+									<integer>27</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 325}, {239, 764}}</string>
+							<string>{{0, 0}, {239, 764}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -335,7 +336,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>EC2CC9CA0FF3F393001D69DB</string>
+										<string>EC2CC9F50FF3F931001D69DB</string>
 										<key>history</key>
 										<array>
 											<string>EC264DE60FDF3F2700A83382</string>
@@ -366,9 +367,9 @@
 											<string>EC2CC93E0FF3DE79001D69DB</string>
 											<string>EC2CC9510FF3E573001D69DB</string>
 											<string>EC2CC9610FF3E996001D69DB</string>
-											<string>EC2CC9810FF3EE1D001D69DB</string>
-											<string>EC2CC9C60FF3F393001D69DB</string>
-											<string>EC2CC9C70FF3F393001D69DB</string>
+											<string>EC2CC9DF0FF3F715001D69DB</string>
+											<string>EC2CC9E00FF3F715001D69DB</string>
+											<string>EC2CC9CC0FF3F408001D69DB</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -423,6 +424,9 @@
 											<string>EC2CC9C40FF3F338001D69DB</string>
 											<string>EC2CC9C80FF3F393001D69DB</string>
 											<string>EC2CC9C90FF3F393001D69DB</string>
+											<string>EC2CC9CE0FF3F408001D69DB</string>
+											<string>EC2CC9E10FF3F715001D69DB</string>
+											<string>EC2CC9E20FF3F715001D69DB</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -616,6 +620,7 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>EC2CC9F60FF3F931001D69DB</string>
 		<string>EC2CC8DA0FF3C80D001D69DB</string>
 		<string>EC2CC8DB0FF3C80D001D69DB</string>
 		<string>EC264D9C0FDF3B6000A83382</string>

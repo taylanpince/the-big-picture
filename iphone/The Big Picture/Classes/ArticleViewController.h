@@ -6,15 +6,13 @@
 //  Copyright 2009 Taylan Pince. All rights reserved.
 //
 
-#import <MessageUI/MessageUI.h>
-
 #import "PhotoView.h"
 #import "URLCacheConnection.h"
 
 @class Article, LoadingView;
 
 
-@interface ArticleViewController : UIViewController <UIScrollViewDelegate, PhotoViewDelegate, URLCacheConnectionDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate> {
+@interface ArticleViewController : UIViewController <UIScrollViewDelegate, PhotoViewDelegate, URLCacheConnectionDelegate, UIActionSheetDelegate> {
 	Article *article;
 	LoadingView *loadingIndicator;
 	NSMutableArray *imageList;
