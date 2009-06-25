@@ -1,3 +1,21 @@
+0.9.5BETA (June 25, 2009)
+=========================
+
+* Added about view
+* Added support for sharing via e-mail, seeing the full article in Safari
+* Fixed some memory leaks
+* Finalized logo
+
+* * *
+
+0.9.4BETA (June 25, 2009)
+=========================
+
+* Updated main view navigation bar colour to match the logo colours
+* Increased the delay on the load message's fade out
+
+* * *
+
 0.9.3BETA (June 24, 2009)
 =========================
 

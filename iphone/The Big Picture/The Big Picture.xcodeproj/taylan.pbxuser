@@ -37,15 +37,15 @@
 	28C286E00D94DF7D0034E888 /* RootViewController.m */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1380, 4879}}";
-			sepNavSelRange = "{1604, 0}";
+			sepNavSelRange = "{2024, 0}";
 			sepNavVisRange = "{1479, 1205}";
 			sepNavWindowFrame = "{{42, 294}, {750, 558}}";
 		};
 	};
 	29B97313FDCFA39411CA2CEA /* Project object */ = {
-		activeBuildConfigurationName = Debug;
+		activeBuildConfigurationName = Distribution;
 		activeExecutable = EC264D780FDF390600A83382 /* The Big Picture */;
-		activeSDKPreference = iphonesimulator3.0;
+		activeSDKPreference = iphoneos3.0;
 		activeTarget = 1D6058900D05DD3D006BFB54 /* The Big Picture */;
 		addToTargets = (
 			1D6058900D05DD3D006BFB54 /* The Big Picture */,
@@ -273,6 +273,10 @@
 			EC2CCA170FF3FCF5001D69DB /* PBXTextBookmark */ = EC2CCA170FF3FCF5001D69DB /* PBXTextBookmark */;
 			EC2CCA180FF3FCF5001D69DB /* PBXTextBookmark */ = EC2CCA180FF3FCF5001D69DB /* PBXTextBookmark */;
 			EC2CCA190FF3FCF5001D69DB /* PBXTextBookmark */ = EC2CCA190FF3FCF5001D69DB /* PBXTextBookmark */;
+			EC2CCA2B0FF3FD8B001D69DB /* PBXTextBookmark */ = EC2CCA2B0FF3FD8B001D69DB /* PBXTextBookmark */;
+			EC2CCA2C0FF3FD8B001D69DB /* PlistBookmark */ = EC2CCA2C0FF3FD8B001D69DB /* PlistBookmark */;
+			EC2CCA2D0FF3FD8B001D69DB /* PBXTextBookmark */ = EC2CCA2D0FF3FD8B001D69DB /* PBXTextBookmark */;
+			EC2CCA2E0FF3FD8B001D69DB /* PlistBookmark */ = EC2CCA2E0FF3FD8B001D69DB /* PlistBookmark */;
 			EC43AF300FE8A28B00F16231 = EC43AF300FE8A28B00F16231 /* PBXTextBookmark */;
 			EC958E560FEB2C4400A66D91 = EC958E560FEB2C4400A66D91 /* PlistBookmark */;
 			EC958E570FEB2C4400A66D91 = EC958E570FEB2C4400A66D91 /* PBXTextBookmark */;
@@ -1999,6 +2003,50 @@
 		rType = 0;
 		vrLen = 1205;
 		vrLoc = 1479;
+	};
+	EC2CCA2B0FF3FD8B001D69DB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */;
+		name = "RootViewController.m: 61";
+		rLen = 0;
+		rLoc = 2024;
+		rType = 0;
+		vrLen = 1205;
+		vrLoc = 1479;
+	};
+	EC2CCA2C0FF3FD8B001D69DB /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 8D1107310486CEB800E47090 /* TheBigPicture-Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+			LSRequiresIPhoneOS,
+		);
+		name = "/Users/taylan/Documents/Development/Personal/the-big-picture/iphone/The Big Picture/TheBigPicture-Info.plist";
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	EC2CCA2D0FF3FD8B001D69DB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */;
+		name = "RootViewController.m: 61";
+		rLen = 0;
+		rLoc = 2024;
+		rType = 0;
+		vrLen = 1205;
+		vrLoc = 1479;
+	};
+	EC2CCA2E0FF3FD8B001D69DB /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 8D1107310486CEB800E47090 /* TheBigPicture-Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+			LSRequiresIPhoneOS,
+		);
+		name = "/Users/taylan/Documents/Development/Personal/the-big-picture/iphone/The Big Picture/TheBigPicture-Info.plist";
+		rLen = 0;
+		rLoc = 2147483647;
 	};
 	EC43AF300FE8A28B00F16231 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;

@@ -228,6 +228,8 @@
 			<key>Layout</key>
 			<array>
 				<dict>
+					<key>BecomeActive</key>
+					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -281,13 +283,13 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>31</integer>
-									<integer>27</integer>
+									<integer>55</integer>
+									<integer>54</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 0}, {239, 764}}</string>
+							<string>{{0, 375}, {239, 764}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -317,14 +319,12 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>RootViewController.m</string>
+								<string>TheBigPicture-Info.plist</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -332,11 +332,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>RootViewController.m</string>
+										<string>TheBigPicture-Info.plist</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>EC2CCA190FF3FCF5001D69DB</string>
+										<string>EC2CCA2E0FF3FD8B001D69DB</string>
 										<key>history</key>
 										<array>
 											<string>EC264DE60FDF3F2700A83382</string>
@@ -361,7 +361,6 @@
 											<string>EC2CC8A50FF3C379001D69DB</string>
 											<string>EC2CC8A70FF3C379001D69DB</string>
 											<string>EC2CC8A90FF3C379001D69DB</string>
-											<string>EC2CC8D10FF3C80D001D69DB</string>
 											<string>EC2CC93C0FF3DE79001D69DB</string>
 											<string>EC2CC93E0FF3DE79001D69DB</string>
 											<string>EC2CC9510FF3E573001D69DB</string>
@@ -369,7 +368,8 @@
 											<string>EC2CC9DF0FF3F715001D69DB</string>
 											<string>EC2CC9E00FF3F715001D69DB</string>
 											<string>EC2CCA160FF3FCF5001D69DB</string>
-											<string>EC2CCA170FF3FCF5001D69DB</string>
+											<string>EC2CCA2B0FF3FD8B001D69DB</string>
+											<string>EC2CCA2C0FF3FD8B001D69DB</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -428,6 +428,7 @@
 											<string>EC2CC9E10FF3F715001D69DB</string>
 											<string>EC2CC9E20FF3F715001D69DB</string>
 											<string>EC2CCA180FF3FCF5001D69DB</string>
+											<string>EC2CCA2D0FF3FD8B001D69DB</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
