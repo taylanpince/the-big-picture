@@ -6,6 +6,8 @@
 //  Copyright 2009 Taylan Pince. All rights reserved.
 //
 
+#import <MessageUI/MessageUI.h>
+
 #import "RegexKitLite.h"
 #import "URLCacheConnection.h"
 #import "TheBigPictureAppDelegate.h"
@@ -47,15 +49,17 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 	
 	imageList = [[NSMutableArray alloc] init];
 	imageViewsList = [[NSMutableArray alloc] init];
+	
+	UIBarButtonItem *shareButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(displayShareSheet)];
+	
+	[self.navigationItem setRightBarButtonItem:shareButton];
+	[shareButton release];
 }
 
 
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
 
-//	[self.navigationController.navigationBar setTintColor:[UIColor blackColor]];
-//	[self.navigationController.navigationBar setBarStyle:UIBarStyleBlack];
-	
 	[[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(willRotate) name:UIDeviceOrientationDidChangeNotification object:nil];
 }
@@ -165,7 +169,7 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-	return NO;
+	return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 
@@ -553,6 +557,52 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 	[htmlData release];
 	[activeConnection release];
 	activeConnection = nil;
+}
+
+
+- (void)displayShareSheet {
+	UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"View Article in Safari", nil];
+	
+	if ([MFMailComposeViewController canSendMail] == YES) {
+		[actionSheet addButtonWithTitle:@"Share Article via Mail"];
+	}
+	
+	[actionSheet setCancelButtonIndex:[actionSheet numberOfButtons]];
+	[actionSheet addButtonWithTitle:@"Cancel"];
+
+	[actionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
+	[actionSheet showInView:self.view];
+}
+
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+	switch (buttonIndex) {
+		case 0: {
+			[[UIApplication sharedApplication] openURL:article.url];
+			break;
+		}
+		case 1: {
+			if ([actionSheet numberOfButtons] < 3) break;
+			
+			MFMailComposeViewController *controller = [[MFMailComposeViewController alloc] init];
+			
+			[controller setSubject:[NSString stringWithFormat:@"The Big Picture: %@", article.title]];
+			[controller setMessageBody:[article.url absoluteString] isHTML:NO];
+			[controller setMailComposeDelegate:self];
+			
+			[self presentModalViewController:controller animated:YES];
+			[controller release];
+			break;
+		}
+		default: {
+			break;
+		}
+	}
+}
+
+
+- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error {
+	[self dismissModalViewControllerAnimated:YES];
 }
 
 

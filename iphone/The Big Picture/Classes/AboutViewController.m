@@ -44,7 +44,7 @@
 		[infoLabel setOpaque:NO];
 		[infoLabel setBackgroundColor:[UIColor clearColor]];
 		[infoLabel setNumberOfLines:0];
-		[infoLabel setText:@"The Big Picture is a photo blog for the Boston Globe/boston.com, entries are posted every Monday, Wednesday and Friday by Alan Taylor.\n\nThis iPhone application has no affiliations with Boston Globe, boston.com or Alan Taylor. All content shown is either owned, licensed or shared by boston.com through their RSS feeds."];
+		[infoLabel setText:@"The Big Picture is a photo blog for the Boston Globe/boston.com, entries are posted every Monday, Wednesday and Friday by Alan Taylor.\n\nThis iPhone application has no affiliations with Boston Globe, boston.com or Alan Taylor. All content shown is either owned, licensed or shared by boston.com through their RSS feeds and web site."];
 		[infoLabel setFont:[UIFont systemFontOfSize:14.0]];
 		[infoLabel setLineBreakMode:UILineBreakModeWordWrap];
 		[infoLabel setTextColor:[UIColor whiteColor]];

@@ -24,6 +24,7 @@
 		EC2CC8F40FF3CF20001D69DB /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2CC8F30FF3CF20001D69DB /* AboutViewController.m */; };
 		EC2CC8FD0FF3D0A4001D69DB /* AboutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC2CC8FC0FF3D0A4001D69DB /* AboutView.xib */; };
 		EC2CC9050FF3D2D8001D69DB /* LargeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = EC2CC9040FF3D2D8001D69DB /* LargeIcon.png */; };
+		EC2CC99C0FF3F007001D69DB /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC2CC99B0FF3F007001D69DB /* MessageUI.framework */; };
 		EC958E300FEB273300A66D91 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = EC958E2F0FEB273300A66D91 /* Entitlements.plist */; };
 		ECAD08460FE4190100BCCCE1 /* ArticleView.m in Sources */ = {isa = PBXBuildFile; fileRef = ECAD08450FE4190100BCCCE1 /* ArticleView.m */; };
 		ECAD09000FE43B3000BCCCE1 /* CaptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = ECAD08FF0FE43B3000BCCCE1 /* CaptionView.m */; };
@@ -66,6 +67,7 @@
 		EC2CC8F30FF3CF20001D69DB /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		EC2CC8FC0FF3D0A4001D69DB /* AboutView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutView.xib; sourceTree = "<group>"; };
 		EC2CC9040FF3D2D8001D69DB /* LargeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LargeIcon.png; sourceTree = "<group>"; };
+		EC2CC99B0FF3F007001D69DB /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		EC958E2F0FEB273300A66D91 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		ECAD08440FE4190100BCCCE1 /* ArticleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticleView.h; sourceTree = "<group>"; };
 		ECAD08450FE4190100BCCCE1 /* ArticleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleView.m; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */,
 				EC264F440FDF5F7700A83382 /* QuartzCore.framework in Frameworks */,
 				ECAD09E40FE452CA00BCCCE1 /* CFNetwork.framework in Frameworks */,
+				EC2CC99C0FF3F007001D69DB /* MessageUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,6 +175,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EC2CC99B0FF3F007001D69DB /* MessageUI.framework */,
 				ECAD09E30FE452CA00BCCCE1 /* CFNetwork.framework */,
 				EC264F430FDF5F7700A83382 /* QuartzCore.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,

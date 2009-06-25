@@ -281,13 +281,12 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>11</integer>
-									<integer>7</integer>
+									<integer>48</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 89}, {239, 764}}</string>
+							<string>{{0, 325}, {239, 764}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -324,7 +323,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>RootViewController.m</string>
+								<string>ArticleViewController.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -332,11 +331,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>RootViewController.m</string>
+										<string>ArticleViewController.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>EC2CC8F10FF3CE75001D69DB</string>
+										<string>EC2CC9CA0FF3F393001D69DB</string>
 										<key>history</key>
 										<array>
 											<string>EC264DE60FDF3F2700A83382</string>
@@ -355,23 +354,21 @@
 											<string>EC958E560FEB2C4400A66D91</string>
 											<string>ECA414AF0FEBF3F100F12F96</string>
 											<string>ECDA3B530FF0280400B5262E</string>
-											<string>ECDA3B540FF0280400B5262E</string>
-											<string>ECDA3B550FF0280400B5262E</string>
 											<string>ECDA3B570FF0280400B5262E</string>
 											<string>ECDA3B760FF029E800B5262E</string>
 											<string>ECC1B0000FF304010013C0AD</string>
-											<string>EC2CC8A30FF3C379001D69DB</string>
 											<string>EC2CC8A50FF3C379001D69DB</string>
 											<string>EC2CC8A70FF3C379001D69DB</string>
 											<string>EC2CC8A90FF3C379001D69DB</string>
 											<string>EC2CC8D10FF3C80D001D69DB</string>
-											<string>EC2CC8DD0FF3C965001D69DB</string>
-											<string>EC2CC8EE0FF3CE75001D69DB</string>
-											<string>EC2CC8EF0FF3CE75001D69DB</string>
-										</array>
-										<key>nextStack</key>
-										<array>
-											<string>EC2CC8F00FF3CE75001D69DB</string>
+											<string>EC2CC93C0FF3DE79001D69DB</string>
+											<string>EC2CC93D0FF3DE79001D69DB</string>
+											<string>EC2CC93E0FF3DE79001D69DB</string>
+											<string>EC2CC9510FF3E573001D69DB</string>
+											<string>EC2CC9610FF3E996001D69DB</string>
+											<string>EC2CC9810FF3EE1D001D69DB</string>
+											<string>EC2CC9C60FF3F393001D69DB</string>
+											<string>EC2CC9C70FF3F393001D69DB</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -384,7 +381,6 @@
 											<string>EC264E280FDF484800A83382</string>
 											<string>ECD2ADC10FE033500054A901</string>
 											<string>ECD2AE010FE039500054A901</string>
-											<string>ECD2AE180FE03D8A0054A901</string>
 											<string>ECBA58C60FE298B40044A1AD</string>
 											<string>ECCD8C0A0FE3FABC00FE0722</string>
 											<string>ECAD084E0FE41A5C00BCCCE1</string>
@@ -401,23 +397,32 @@
 											<string>EC958E570FEB2C4400A66D91</string>
 											<string>EC958E580FEB2C4400A66D91</string>
 											<string>ECA414B30FEBF3F100F12F96</string>
-											<string>ECB752EA0FF17B1C007CCBCB</string>
 											<string>EC2CC8AB0FF3C379001D69DB</string>
-											<string>EC2CC8AD0FF3C379001D69DB</string>
-											<string>EC2CC8AE0FF3C379001D69DB</string>
 											<string>EC2CC8AF0FF3C379001D69DB</string>
-											<string>EC2CC8B00FF3C379001D69DB</string>
-											<string>EC2CC8B20FF3C379001D69DB</string>
-											<string>EC2CC8B40FF3C379001D69DB</string>
 											<string>EC2CC8B60FF3C379001D69DB</string>
-											<string>EC2CC8B70FF3C379001D69DB</string>
 											<string>EC2CC8B90FF3C379001D69DB</string>
-											<string>EC2CC8BA0FF3C379001D69DB</string>
 											<string>EC2CC8BB0FF3C379001D69DB</string>
 											<string>EC2CC8D40FF3C80D001D69DB</string>
-											<string>EC2CC8D50FF3C80D001D69DB</string>
-											<string>EC2CC8D70FF3C80D001D69DB</string>
-											<string>EC2CC8DF0FF3C965001D69DB</string>
+											<string>EC2CC9400FF3DE79001D69DB</string>
+											<string>EC2CC9410FF3DE79001D69DB</string>
+											<string>EC2CC9420FF3DE79001D69DB</string>
+											<string>EC2CC9440FF3DE79001D69DB</string>
+											<string>EC2CC9450FF3DE79001D69DB</string>
+											<string>EC2CC9460FF3DE79001D69DB</string>
+											<string>EC2CC9470FF3DE79001D69DB</string>
+											<string>EC2CC9480FF3DE79001D69DB</string>
+											<string>EC2CC9490FF3DE79001D69DB</string>
+											<string>EC2CC94A0FF3DE79001D69DB</string>
+											<string>EC2CC94B0FF3DE79001D69DB</string>
+											<string>EC2CC94C0FF3DE79001D69DB</string>
+											<string>EC2CC9530FF3E573001D69DB</string>
+											<string>EC2CC9830FF3EE1D001D69DB</string>
+											<string>EC2CC9C10FF3F338001D69DB</string>
+											<string>EC2CC9C20FF3F338001D69DB</string>
+											<string>EC2CC9C30FF3F338001D69DB</string>
+											<string>EC2CC9C40FF3F338001D69DB</string>
+											<string>EC2CC9C80FF3F393001D69DB</string>
+											<string>EC2CC9C90FF3F393001D69DB</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -614,9 +619,9 @@
 		<string>EC2CC8DA0FF3C80D001D69DB</string>
 		<string>EC2CC8DB0FF3C80D001D69DB</string>
 		<string>EC264D9C0FDF3B6000A83382</string>
-		<string>/Users/taylan/Documents/Development/Personal/the-big-picture/iphone/The Big Picture/The Big Picture.xcodeproj</string>
 		<string>1C78EAAD065D492600B07095</string>
 		<string>1CD10A99069EF8BA00B06720</string>
+		<string>/Users/taylan/Documents/Development/Personal/the-big-picture/iphone/The Big Picture/The Big Picture.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
 	<string>4 55 1436 823 0 0 1440 878 </string>
@@ -657,6 +662,8 @@
 							<string>203pt</string>
 						</dict>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
