@@ -28,13 +28,13 @@
 		
 		UIButton *appButton = [UIButton buttonWithType:UIButtonTypeCustom];
 		
-		[appButton setTitle:@"The Big Picture v1.0.0\nby Hippo Foundry →" forState:UIControlStateNormal];
+		[appButton setTitle:@"The Big Picture v1.0.0RC1\nby Hippo Foundry →" forState:UIControlStateNormal];
 		[appButton.titleLabel setFont:[UIFont systemFontOfSize:12.0]];
 		[appButton.titleLabel setTextColor:[UIColor whiteColor]];
 		[appButton.titleLabel setNumberOfLines:0];
 		[appButton.titleLabel setTextAlignment:UITextAlignmentCenter];
 		[appButton.titleLabel setLineBreakMode:UILineBreakModeWordWrap];
-		[appButton setFrame:CGRectMake(90.0, 118.0, 140.0, 40.0)];
+		[appButton setFrame:CGRectMake(90.0, 118.0, 150.0, 40.0)];
 		[appButton addTarget:self action:@selector(launchCompanySite) forControlEvents:UIControlEventTouchUpInside];
 		
 		[self.view addSubview:appButton];
@@ -44,7 +44,7 @@
 		[infoLabel setOpaque:NO];
 		[infoLabel setBackgroundColor:[UIColor clearColor]];
 		[infoLabel setNumberOfLines:0];
-		[infoLabel setText:@"The Big Picture is a photo blog for the Boston Globe/boston.com, entries are posted every Monday, Wednesday and Friday by Alan Taylor.\n\nThis iPhone application has no affiliations with Boston Globe, boston.com or Alan Taylor. All content shown is either owned, licensed or shared by boston.com through their RSS feeds and web site."];
+		[infoLabel setText:@"The Big Picture is a photo blog for the Boston Globe/boston.com, entries are posted every Monday, Wednesday and Friday by Alan Taylor.\n\nThis application has no affiliations with Boston Globe, boston.com or Alan Taylor. All content shown is either owned, licensed or shared by boston.com through their RSS feeds and web site."];
 		[infoLabel setFont:[UIFont systemFontOfSize:14.0]];
 		[infoLabel setLineBreakMode:UILineBreakModeWordWrap];
 		[infoLabel setTextColor:[UIColor whiteColor]];

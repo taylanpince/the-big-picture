@@ -31,12 +31,6 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 	self.title = @"The Big Picture";
 	
 	if ([(TheBigPictureAppDelegate *)[[UIApplication sharedApplication] delegate] isNetworkReachable] == YES) {
-		UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshArticles:)];
-		
-		[refreshButton setEnabled:NO];
-		[self.navigationItem setLeftBarButtonItem:refreshButton];
-		[refreshButton release];
-		
 		if (activeContent != nil) [activeContent release];
 		if (articleList != nil) [articleList release];
 		if (dateFormatter != nil) [dateFormatter release];
@@ -56,7 +50,7 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 		
 		UIBarButtonItem *loadingBarItem = [[UIBarButtonItem alloc] initWithCustomView:loadingIndicator];
 		
-		[self.navigationItem setRightBarButtonItem:loadingBarItem animated:NO];
+		[self.navigationItem setLeftBarButtonItem:loadingBarItem animated:NO];
 		[loadingBarItem release];
 		
 		[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
@@ -86,10 +80,14 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 - (void)doneParsing {
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 	[loadingIndicator stopAnimating];
-	[self.navigationItem.leftBarButtonItem setEnabled:YES];
 	[dateFormatter setDateStyle:NSDateFormatterFullStyle];
 
 	[self.tableView reloadData];
+	
+	UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshArticles:)];
+	
+	[self.navigationItem setLeftBarButtonItem:refreshButton animated:YES];
+	[refreshButton release];
 	
 	UIButton *infoButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
 	
@@ -114,13 +112,12 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 	[articleList removeAllObjects];
 	[self.tableView reloadData];
 	
-	[self.navigationItem.leftBarButtonItem setEnabled:NO];
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 	[loadingIndicator startAnimating];
 	
 	UIBarButtonItem *loadingBarItem = [[UIBarButtonItem alloc] initWithCustomView:loadingIndicator];
 	
-	[self.navigationItem setRightBarButtonItem:loadingBarItem animated:YES];
+	[self.navigationItem setLeftBarButtonItem:loadingBarItem animated:YES];
 	[loadingBarItem release];
 	
 	[dateFormatter setDateFormat:@"dd MMM yyyy HH:mm:ss ZZZ"];
