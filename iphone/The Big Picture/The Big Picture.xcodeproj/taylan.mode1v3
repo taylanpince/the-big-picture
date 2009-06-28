@@ -281,7 +281,7 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>29</integer>
+									<integer>33</integer>
 									<integer>27</integer>
 									<integer>0</integer>
 								</array>
@@ -324,7 +324,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>ArticleViewController.m</string>
+								<string>AboutViewController.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -332,11 +332,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>ArticleViewController.m</string>
+										<string>AboutViewController.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>EC8FD0700FF7F6F200D6E0FC</string>
+										<string>EC8FD0770FF7FEBB00D6E0FC</string>
 										<key>history</key>
 										<array>
 											<string>EC264DE60FDF3F2700A83382</string>
@@ -362,14 +362,14 @@
 											<string>EC2CC93E0FF3DE79001D69DB</string>
 											<string>EC2CC9610FF3E996001D69DB</string>
 											<string>EC0ABA960FF45DF90061AFD5</string>
-											<string>EC8FD00C0FF6B8C700D6E0FC</string>
 											<string>EC8FD0210FF7EC3E00D6E0FC</string>
 											<string>EC8FD0220FF7EC3E00D6E0FC</string>
 											<string>EC8FD0230FF7EC3E00D6E0FC</string>
 											<string>EC8FD05F0FF7F56E00D6E0FC</string>
 											<string>EC8FD0600FF7F56E00D6E0FC</string>
 											<string>EC8FD06C0FF7F6F200D6E0FC</string>
-											<string>EC8FD06D0FF7F6F200D6E0FC</string>
+											<string>EC8FD0740FF7FEBB00D6E0FC</string>
+											<string>EC8FD0750FF7FEBB00D6E0FC</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -416,6 +416,7 @@
 											<string>EC8FD0660FF7F56E00D6E0FC</string>
 											<string>EC8FD06E0FF7F6F200D6E0FC</string>
 											<string>EC8FD06F0FF7F6F200D6E0FC</string>
+											<string>EC8FD0760FF7FEBB00D6E0FC</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -612,9 +613,9 @@
 		<string>EC8FD0420FF7F1B600D6E0FC</string>
 		<string>EC8FD02F0FF7EC3E00D6E0FC</string>
 		<string>EC264D9C0FDF3B6000A83382</string>
-		<string>/Users/taylan/Documents/Development/Personal/the-big-picture/iphone/The Big Picture/The Big Picture.xcodeproj</string>
 		<string>1C78EAAD065D492600B07095</string>
 		<string>1CD10A99069EF8BA00B06720</string>
+		<string>/Users/taylan/Documents/Development/Personal/the-big-picture/iphone/The Big Picture/The Big Picture.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
 	<string>4 55 1436 823 0 0 1440 878 </string>
