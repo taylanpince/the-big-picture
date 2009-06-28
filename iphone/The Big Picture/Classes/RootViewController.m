@@ -17,7 +17,7 @@
 
 static NSString *const RSS_URL = @"http://www.boston.com/bigpicture/index.xml";
 static NSString *const RE_ARTICLE_DESC = @"<div class=\"bpBody\">(.*?)\\(<a href=";
-static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
+static NSString *const RE_HTML = @"(<[a-zA-Z\\/][^>]*>|&nbsp;)";
 
 
 @implementation RootViewController
