@@ -52,6 +52,8 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 	
 	[self.navigationItem setRightBarButtonItem:shareButton];
 	[shareButton release];
+	
+	hideTimer = nil;
 }
 
 
@@ -162,6 +164,8 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 		} else {
 			hideTimer = nil;
 		}
+	} else {
+		hideTimer = nil;
 	}
 }
 

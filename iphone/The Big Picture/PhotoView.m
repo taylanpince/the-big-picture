@@ -15,7 +15,7 @@
 @implementation PhotoView
 
 @synthesize photo, label, infoButton, loadingIndicator, activeConnection;
-@synthesize initialDistance, maximumZoomScale, currentZoomScale, orientation, delegate, zooming;
+@synthesize initialDistance, maximumZoomScale, currentZoomScale, orientation, delegate;
 
 
 - (id)initWithFrame:(CGRect)frame {
@@ -189,8 +189,6 @@
 
 	switch ([[event allTouches] count]) {
 		case 2: {
-			zooming = YES;
-			
 			UITouch *firstTouch = [[[event allTouches] allObjects] objectAtIndex:0];
 			UITouch *secondTouch = [[[event allTouches] allObjects] objectAtIndex:1];
 			
@@ -236,7 +234,7 @@
 					
 					[delegate didDoubleTapOnView:self withPoint:[touch locationInView:self]];
 					break;
-				default:
+				default: {
 					CGPoint centerPoint;
 					
 					if (orientation == UIDeviceOrientationPortrait || orientation == 0) {
@@ -247,6 +245,7 @@
 					
 					[delegate didEndZoomingOnView:self withCenterPoint:centerPoint];
 					break;
+				}
 			}
 			
 			break;

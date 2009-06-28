@@ -32,7 +32,7 @@
 @property (nonatomic, retain) NSMutableArray *imageList;
 @property (nonatomic, retain) NSMutableArray *imageViewsList;
 @property (nonatomic, assign) NSUInteger activeIndex;
-@property (nonatomic, retain) NSTimer *hideTimer;
+@property (nonatomic, assign) NSTimer *hideTimer;
 @property (nonatomic, retain) URLCacheConnection *activeConnection;
 
 @property (nonatomic, assign) UIDeviceOrientation activeOrientation;
