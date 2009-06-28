@@ -26,6 +26,8 @@
 	
 	UIDeviceOrientation orientation;
 	
+	BOOL zooming;
+	
 	id <PhotoViewDelegate> delegate;
 }
 
@@ -38,6 +40,7 @@
 @property (nonatomic, assign) CGFloat initialDistance;
 @property (nonatomic, assign) CGFloat maximumZoomScale;
 @property (nonatomic, assign) CGFloat currentZoomScale;
+@property (nonatomic, assign) BOOL zooming;
 @property (nonatomic, assign) UIDeviceOrientation orientation;
 
 @property (nonatomic, assign) id <PhotoViewDelegate> delegate;
