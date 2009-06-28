@@ -1,0 +1,16 @@
+NOTICE: This application only works with iPhone/iPod Touch OS 3.0
+
+The Big Picture is a photo blog hosted by Boston Globe (boston.com) and curated by Alan Taylor. Every Monday, Wednesday and Friday a new entry is posted that features amazing photographs from around the world. Subjects vary from science stories to political and social happenings from around the globe.
+
+This iPhone/iPod Touch application lets you access recent The Big Picture articles and browse through the photos easily, using a simple, well designed interface.
+
+✓ View all recent The Big Picture entries with full introductions
+✓ Browse through photos with an intuitive interface, read full captions
+✓ Zoom in and see every photo in detail by double tapping of pinching
+✓ View articles in Safari, or share it with a friend using Mail
+✓ Flip your iPhone/iPod Touch to view photos in full landscape mode
+✓ Easily keep track of read/unread articles
+
+FUTURE FUNCTIONALITY
+
+Have suggestions? Contact us with your ideas and we'll be happy to implement them.
