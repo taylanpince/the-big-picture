@@ -1,3 +1,13 @@
+1.0.0RC2 (June 28, 2009)
+========================
+
+* Updated article intro parser to remove some extra html characters
+* Fixed a memory access issue with the navigation bar hide timer
+* Fixed some issues with the PhotoView that was sometimes causing the pinch
+  zoom to freeze
+
+* * *
+
 1.0.0RC1 (June 25, 2009)
 ========================
 
