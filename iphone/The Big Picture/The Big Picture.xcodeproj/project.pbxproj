@@ -353,8 +353,9 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = The_Big_Picture_Prefix.pch;
+				GCC_PREFIX_HEADER = TheBigPicture_Prefix.pch;
 				INFOPLIST_FILE = "TheBigPicture-Info.plist";
+				OTHER_LDFLAGS = "-licucore";
 				PRODUCT_NAME = "The Big Picture";
 			};
 			name = Release;
@@ -377,11 +378,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Taylan Pince";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "AFE959A0-8E26-4BAF-9CC0-5272FABE21C4";
 				SDKROOT = iphoneos3.0;
 			};
 			name = Release;

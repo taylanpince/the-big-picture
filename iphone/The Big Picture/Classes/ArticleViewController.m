@@ -60,14 +60,14 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
 
+	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent animated:YES];
+	
 	[[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(willRotate) name:UIDeviceOrientationDidChangeNotification object:nil];
 }
 
 
 - (void)viewDidAppear:(BOOL)animated {
-	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
-	
 	CGRect screenBounds = [[UIScreen mainScreen] bounds];
 	
 	[self.view.superview setFrame:screenBounds];

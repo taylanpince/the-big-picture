@@ -66,12 +66,17 @@ static NSString *const RE_HTML = @"(<[a-zA-Z\\/][^>]*>|&nbsp;)";
 }
 
 
+- (void)viewWillAppear:(BOOL)animated {
+	[super viewWillAppear:animated];
+	
+	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
+}
+
+
 - (void)viewDidAppear:(BOOL)animated {
 	[super viewDidAppear:animated];
 
 	[self.navigationController.navigationBar setTintColor:[UIColor colorWithRed:0.26 green:0.5 blue:0.76 alpha:1.0]];
-	
-	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque];
 	
 	[self.tableView reloadData];
 }
