@@ -29,13 +29,13 @@
 		ECAD09000FE43B3000BCCCE1 /* CaptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = ECAD08FF0FE43B3000BCCCE1 /* CaptionView.m */; };
 		ECAD09430FE4400C00BCCCE1 /* ArticleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ECAD09420FE4400C00BCCCE1 /* ArticleCell.m */; };
 		ECAD09CE0FE44F6200BCCCE1 /* dot.png in Resources */ = {isa = PBXBuildFile; fileRef = ECAD09CD0FE44F6200BCCCE1 /* dot.png */; };
-		ECAD09E40FE452CA00BCCCE1 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECAD09E30FE452CA00BCCCE1 /* CFNetwork.framework */; };
 		ECAD0A530FE4570F00BCCCE1 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = ECAD0A520FE4570F00BCCCE1 /* Default.png */; };
 		ECAD0AE10FE4727400BCCCE1 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = ECAD0AE00FE4727400BCCCE1 /* iTunesArtwork */; };
 		ECBA59B60FE2BA770044A1AD /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = ECBA59B50FE2BA770044A1AD /* Icon.png */; };
 		ECBC63680FE67EDA007D4012 /* URLCacheConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBC63670FE67EDA007D4012 /* URLCacheConnection.m */; };
 		ECD2ADAC0FE030950054A901 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD2ADAB0FE030950054A901 /* Photo.m */; };
 		ECD2AEE50FE051FE0054A901 /* PhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD2AEE40FE051FE0054A901 /* PhotoView.m */; };
+		ECEACF7E100E842C002D1E1B /* ConnectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = ECEACF7D100E842C002D1E1B /* ConnectionView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,7 +74,6 @@
 		ECAD09410FE4400C00BCCCE1 /* ArticleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticleCell.h; sourceTree = "<group>"; };
 		ECAD09420FE4400C00BCCCE1 /* ArticleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleCell.m; sourceTree = "<group>"; };
 		ECAD09CD0FE44F6200BCCCE1 /* dot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dot.png; sourceTree = "<group>"; };
-		ECAD09E30FE452CA00BCCCE1 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		ECAD0A520FE4570F00BCCCE1 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		ECAD0AE00FE4727400BCCCE1 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		ECBA59B50FE2BA770044A1AD /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
@@ -84,6 +83,8 @@
 		ECD2ADAB0FE030950054A901 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
 		ECD2AEE30FE051FE0054A901 /* PhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoView.h; sourceTree = "<group>"; };
 		ECD2AEE40FE051FE0054A901 /* PhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoView.m; sourceTree = "<group>"; };
+		ECEACF7C100E842C002D1E1B /* ConnectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionView.h; sourceTree = "<group>"; };
+		ECEACF7D100E842C002D1E1B /* ConnectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +96,6 @@
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */,
 				EC264F440FDF5F7700A83382 /* QuartzCore.framework in Frameworks */,
-				ECAD09E40FE452CA00BCCCE1 /* CFNetwork.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,7 +172,6 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				ECAD09E30FE452CA00BCCCE1 /* CFNetwork.framework */,
 				EC264F430FDF5F7700A83382 /* QuartzCore.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
@@ -239,6 +238,8 @@
 				ECAD08FF0FE43B3000BCCCE1 /* CaptionView.m */,
 				EC08A7420FEA8CDF00E2C0BA /* LoadingView.h */,
 				EC08A7430FEA8CDF00E2C0BA /* LoadingView.m */,
+				ECEACF7C100E842C002D1E1B /* ConnectionView.h */,
+				ECEACF7D100E842C002D1E1B /* ConnectionView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -326,6 +327,7 @@
 				ECBC63680FE67EDA007D4012 /* URLCacheConnection.m in Sources */,
 				EC08A7440FEA8CDF00E2C0BA /* LoadingView.m in Sources */,
 				EC2CC8F40FF3CF20001D69DB /* AboutViewController.m in Sources */,
+				ECEACF7E100E842C002D1E1B /* ConnectionView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

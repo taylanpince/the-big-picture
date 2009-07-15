@@ -6,10 +6,11 @@
 //  Copyright Taylan Pince 2009. All rights reserved.
 //
 
-#import <CFNetwork/CFNetwork.h>
 #import <SystemConfiguration/SystemConfiguration.h>
+
 #import "TheBigPictureAppDelegate.h"
 #import "RootViewController.h"
+#import "ConnectionView.h"
 
 
 @implementation TheBigPictureAppDelegate
@@ -17,51 +18,78 @@
 @synthesize window;
 @synthesize navigationController;
 @synthesize articleData, reachable;
+@synthesize loader;
 
-
-- (void)updateReachability {
-	CFHostRef serverHost;
-	CFStringRef hostName = CFSTR("www.boston.com");
-	CFStreamError error;
-	CFDataRef data;
-	Boolean success;
-	SCNetworkConnectionFlags *flags;
-	
-	serverHost = CFHostCreateWithName(kCFAllocatorDefault, hostName);
-	success = CFHostStartInfoResolution(serverHost, kCFHostReachability, &error);
-	data = CFHostGetReachability(serverHost, NULL);
-	flags = (SCNetworkConnectionFlags *)CFDataGetBytePtr(data);
-	
-	if (success && (*flags & kSCNetworkFlagsReachable) && !(*flags & kSCNetworkFlagsConnectionRequired)) {
-		reachable = YES;
-	} else {
-		reachable = NO;
-		
-		UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"No Network Connection" message:@"The Big Picture requires a network connection to retrieve data." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-		
-		[alertView show];
-		[alertView release];
-	}
-	
-	CFRelease(serverHost);
-}
-
-
-- (void)applicationDidFinishLaunching:(UIApplication *)application {
-	[self updateReachability];
+- (void)initialize {
+	[loader stopAnimating];
 	
 	articleData = [[[NSUserDefaults standardUserDefaults] objectForKey:@"articleData"] mutableCopy];
 	
 	if (articleData == nil) {
 		articleData = [[NSMutableDictionary alloc] init];
 	}
-
-	window.backgroundColor = [UIColor blackColor];
-	navigationController.navigationBar.barStyle = UIBarStyleBlack;
-	navigationController.navigationBar.translucent = YES;
-
+	
+	[window setBackgroundColor:[UIColor blackColor]];
+	[navigationController.navigationBar setBarStyle:UIBarStyleBlack];
+	[navigationController.navigationBar setTranslucent:YES];
+	
+	[window insertSubview:[navigationController view] belowSubview:loader];
 	[window addSubview:[navigationController view]];
     [window makeKeyAndVisible];
+}
+
+
+- (void)connectionDidFail {
+	reachable = NO;
+	
+	UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"No Network Connection" message:@"Big Picture requires a network connection to retrieve data." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+	
+	[alertView show];
+	[alertView release];
+	
+	[self initialize];
+}
+
+
+- (void)connectionDidSucceed {
+	reachable = YES;
+	
+	[self initialize];
+}
+
+
+- (void)updateReachability {
+	[[NSURLCache sharedURLCache] setMemoryCapacity:0];
+	[[NSURLCache sharedURLCache] setDiskCapacity:0];
+	
+	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://boston.com/bigpicture/"] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+	NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+	
+	if (!connection) {
+		[self connectionDidFail];
+		[connection release];
+	}
+}
+
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+	[self connectionDidFail];
+	[connection release];
+}
+
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+	[self connectionDidSucceed];
+	[connection release];
+}
+
+
+- (void)applicationDidFinishLaunching:(UIApplication *)application {
+	loader = [[ConnectionView alloc] initWithFrame:CGRectMake(0.0, 0.0, window.frame.size.width, window.frame.size.height)];
+	
+	[window addSubview:loader];
+	
+	[self updateReachability];
 }
 
 
@@ -87,6 +115,7 @@
 
 
 - (void)dealloc {
+	[loader release];
 	[articleData release];
 	[navigationController release];
 	[window release];
