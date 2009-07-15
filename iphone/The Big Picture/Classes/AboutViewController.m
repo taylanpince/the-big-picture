@@ -28,7 +28,7 @@
 		
 		UIButton *appButton = [UIButton buttonWithType:UIButtonTypeCustom];
 		
-		[appButton setTitle:@"Big Picture v1.0.1\nby Hippo Foundry →" forState:UIControlStateNormal];
+		[appButton setTitle:@"Big Picture v1.0.2β\nby Hippo Foundry →" forState:UIControlStateNormal];
 		[appButton.titleLabel setFont:[UIFont systemFontOfSize:12.0]];
 		[appButton.titleLabel setTextColor:[UIColor whiteColor]];
 		[appButton.titleLabel setNumberOfLines:0];

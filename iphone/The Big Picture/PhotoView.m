@@ -29,7 +29,7 @@
 		infoButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
 		
 		[infoButton setAlpha:0.0];
-		[infoButton setFrame:CGRectMake(frame.size.width - 16.0, frame.size.height - 16.0, 16.0, 16.0)];
+		[infoButton setFrame:CGRectMake(frame.size.width - 24.0, frame.size.height - 24.0, 24.0, 24.0)];
 		[infoButton setShowsTouchWhenHighlighted:YES];
 		[infoButton addTarget:self action:@selector(toggleCaption) forControlEvents:UIControlEventTouchUpInside];
 		

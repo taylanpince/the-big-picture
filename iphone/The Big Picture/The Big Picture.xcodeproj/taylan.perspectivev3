@@ -280,13 +280,13 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>17</integer>
-									<integer>16</integer>
+									<integer>33</integer>
+									<integer>27</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 0}, {217, 764}}</string>
+							<string>{{0, 85}, {217, 764}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -317,7 +317,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>ECBDA5BC0FFE98F400542CBD</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>TheBigPictureAppDelegate.m</string>
+								<string>AboutViewController.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -325,15 +325,14 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>ECBDA5BD0FFE98F400542CBD</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>TheBigPictureAppDelegate.m</string>
+										<string>AboutViewController.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>ECEACF97100E85BD002D1E1B</string>
+										<string>ECEACFB4100E8747002D1E1B</string>
 										<key>history</key>
 										<array>
 											<string>EC8712DF10066B5E0055627A</string>
-											<string>EC8712E010066B5E0055627A</string>
 											<string>EC8712E110066B5E0055627A</string>
 											<string>EC8712E510066B5E0055627A</string>
 											<string>EC8712E610066B5E0055627A</string>
@@ -344,7 +343,6 @@
 											<string>EC3501C01009283300792253</string>
 											<string>ECC022B7100BB53900050FE8</string>
 											<string>ECC022B8100BB53900050FE8</string>
-											<string>ECC022B9100BB53900050FE8</string>
 											<string>ECC022BA100BB53900050FE8</string>
 											<string>ECC022BB100BB53900050FE8</string>
 											<string>ECC022BD100BB53900050FE8</string>
@@ -352,7 +350,10 @@
 											<string>ECEACF82100E859E002D1E1B</string>
 											<string>ECEACF83100E859E002D1E1B</string>
 											<string>ECEACF84100E859E002D1E1B</string>
-											<string>ECEACF93100E85B4002D1E1B</string>
+											<string>ECEACF9B100E8661002D1E1B</string>
+											<string>ECEACF9C100E8661002D1E1B</string>
+											<string>ECEACFAF100E872A002D1E1B</string>
+											<string>ECEACFB0100E872A002D1E1B</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -380,6 +381,10 @@
 											<string>ECEACF89100E859E002D1E1B</string>
 											<string>ECEACF8A100E859E002D1E1B</string>
 											<string>ECEACF8B100E859E002D1E1B</string>
+											<string>ECEACF9E100E8661002D1E1B</string>
+											<string>ECEACF9F100E8661002D1E1B</string>
+											<string>ECEACFA0100E8661002D1E1B</string>
+											<string>ECEACFB1100E872A002D1E1B</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -694,6 +699,8 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>ECEACFAC100E8702002D1E1B</string>
+		<string>ECEACFAD100E8702002D1E1B</string>
 		<string>/Users/taylan/Documents/Development/Personal/the-big-picture/iphone/The Big Picture/The Big Picture.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
