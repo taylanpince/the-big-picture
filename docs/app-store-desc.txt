@@ -14,3 +14,9 @@ This iPhone/iPod Touch application lets you access recent The Big Picture articl
 FUTURE FUNCTIONALITY
 
 Have suggestions? Contact us with your ideas and we'll be happy to implement them.
+
+
+1.0.2
+
+✓ Improved connection reliability
+✓ Easier to use caption button
