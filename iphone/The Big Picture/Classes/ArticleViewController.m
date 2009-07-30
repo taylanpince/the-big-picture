@@ -322,7 +322,7 @@ static NSString *const RE_HTML = @"<[a-zA-Z\\/][^>]*>";
 - (void)doneLoadingPage:(NSString *)htmlData {
 	NSArray *firstPhotoMatch = [htmlData captureComponentsMatchedByRegex:RE_FIRST_PHOTO];
 	
-	if (firstPhotoMatch != nil) {
+	if ([firstPhotoMatch count] > 0) {
 		Photo *photo = [[Photo alloc] init];
 		
 		photo.url = [NSURL URLWithString:[firstPhotoMatch objectAtIndex:1]];
