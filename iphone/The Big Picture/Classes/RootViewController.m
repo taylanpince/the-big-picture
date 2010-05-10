@@ -13,6 +13,7 @@
 #import "AboutViewController.h"
 #import "ArticleCell.h"
 #import "Article.h"
+#import "UpdateViewController.h"
 
 
 static NSString *const RSS_URL = @"http://www.boston.com/bigpicture/index.xml";
@@ -79,6 +80,15 @@ static NSString *const RE_HTML = @"(<[a-zA-Z\\/][^>]*>|&nbsp;)";
 	[self.navigationController.navigationBar setTintColor:[UIColor colorWithRed:0.26 green:0.5 blue:0.76 alpha:1.0]];
 	
 	[self.tableView reloadData];
+	
+	if (![[NSUserDefaults standardUserDefaults] boolForKey:updateViewPrefsKey]) {
+		UpdateViewController *controller = [[UpdateViewController alloc] init];
+		UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
+		
+		[self presentModalViewController:navController animated:YES];
+		[navController release];
+		[controller release];
+	}
 }
 
 
@@ -274,7 +284,6 @@ static NSString *const RE_HTML = @"(<[a-zA-Z\\/][^>]*>|&nbsp;)";
 
 	return mainSize.height + 24.0;
 }
-
 
 - (void)dealloc {
 	[activeContent release];

@@ -20,3 +20,8 @@ Have suggestions? Contact us with your ideas and we'll be happy to implement the
 
 ✓ Improved connection reliability
 ✓ Easier to use caption button
+
+
+1.0.3
+
+✓ Fixed a bug that was causing crashes with some stories

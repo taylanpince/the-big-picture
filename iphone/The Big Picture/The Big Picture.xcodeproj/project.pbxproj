@@ -21,6 +21,9 @@
 		EC264E0D0FDF447E00A83382 /* Article.m in Sources */ = {isa = PBXBuildFile; fileRef = EC264E0C0FDF447E00A83382 /* Article.m */; };
 		EC264E770FDF52CD00A83382 /* ArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC264E760FDF52CD00A83382 /* ArticleViewController.m */; };
 		EC264F440FDF5F7700A83382 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC264F430FDF5F7700A83382 /* QuartzCore.framework */; };
+		EC26657F119858DD009BB59B /* UpdateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC26657E119858DD009BB59B /* UpdateViewController.m */; };
+		EC26659111985C0B009BB59B /* screen.css in Resources */ = {isa = PBXBuildFile; fileRef = EC26658F11985C0B009BB59B /* screen.css */; };
+		EC26659211985C0B009BB59B /* updates.html in Resources */ = {isa = PBXBuildFile; fileRef = EC26659011985C0B009BB59B /* updates.html */; };
 		EC2CC8F40FF3CF20001D69DB /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2CC8F30FF3CF20001D69DB /* AboutViewController.m */; };
 		EC2CC8FD0FF3D0A4001D69DB /* AboutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC2CC8FC0FF3D0A4001D69DB /* AboutView.xib */; };
 		EC2CC9050FF3D2D8001D69DB /* LargeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = EC2CC9040FF3D2D8001D69DB /* LargeIcon.png */; };
@@ -62,6 +65,10 @@
 		EC264E750FDF52CD00A83382 /* ArticleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticleViewController.h; sourceTree = "<group>"; };
 		EC264E760FDF52CD00A83382 /* ArticleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleViewController.m; sourceTree = "<group>"; };
 		EC264F430FDF5F7700A83382 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = ../../../../../../../../Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = SOURCE_ROOT; };
+		EC26657D119858DD009BB59B /* UpdateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateViewController.h; sourceTree = "<group>"; };
+		EC26657E119858DD009BB59B /* UpdateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateViewController.m; sourceTree = "<group>"; };
+		EC26658F11985C0B009BB59B /* screen.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = screen.css; sourceTree = "<group>"; };
+		EC26659011985C0B009BB59B /* updates.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = updates.html; sourceTree = "<group>"; };
 		EC2CC8F20FF3CF20001D69DB /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		EC2CC8F30FF3CF20001D69DB /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		EC2CC8FC0FF3D0A4001D69DB /* AboutView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutView.xib; sourceTree = "<group>"; };
@@ -111,6 +118,8 @@
 				28C286E00D94DF7D0034E888 /* RootViewController.m */,
 				EC2CC8F20FF3CF20001D69DB /* AboutViewController.h */,
 				EC2CC8F30FF3CF20001D69DB /* AboutViewController.m */,
+				EC26657D119858DD009BB59B /* UpdateViewController.h */,
+				EC26657E119858DD009BB59B /* UpdateViewController.m */,
 			);
 			name = "View Controllers";
 			path = Classes;
@@ -155,6 +164,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				EC26658E11985C0B009BB59B /* HTML */,
 				EC2CC9040FF3D2D8001D69DB /* LargeIcon.png */,
 				EC08A7900FEA966800E2C0BA /* done.png */,
 				ECAD0AE00FE4727400BCCCE1 /* iTunesArtwork */,
@@ -207,6 +217,15 @@
 				1D3623250D0F684500981E51 /* TheBigPictureAppDelegate.m */,
 			);
 			name = "App Delegate";
+			sourceTree = "<group>";
+		};
+		EC26658E11985C0B009BB59B /* HTML */ = {
+			isa = PBXGroup;
+			children = (
+				EC26658F11985C0B009BB59B /* screen.css */,
+				EC26659011985C0B009BB59B /* updates.html */,
+			);
+			path = HTML;
 			sourceTree = "<group>";
 		};
 		ECAD09400FE43FEE00BCCCE1 /* Cells */ = {
@@ -303,6 +322,8 @@
 				EC958E300FEB273300A66D91 /* Entitlements.plist in Resources */,
 				EC2CC8FD0FF3D0A4001D69DB /* AboutView.xib in Resources */,
 				EC2CC9050FF3D2D8001D69DB /* LargeIcon.png in Resources */,
+				EC26659111985C0B009BB59B /* screen.css in Resources */,
+				EC26659211985C0B009BB59B /* updates.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,6 +349,7 @@
 				EC08A7440FEA8CDF00E2C0BA /* LoadingView.m in Sources */,
 				EC2CC8F40FF3CF20001D69DB /* AboutViewController.m in Sources */,
 				ECEACF7E100E842C002D1E1B /* ConnectionView.m in Sources */,
+				EC26657F119858DD009BB59B /* UpdateViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
